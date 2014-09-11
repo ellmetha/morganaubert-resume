@@ -4,5 +4,4 @@ django-meta
 django-pipeline
 django-google-tools
 south
-mysql-python
 psycopg2
