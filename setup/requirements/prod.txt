@@ -1,0 +1,8 @@
+django>=1.7,<1.8
+python-dateutil==2.2
+django-meta
+django-pipeline
+django-google-tools
+south
+mysql-python
+psycopg2

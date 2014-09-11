@@ -1,0 +1,109 @@
+// COMMON LESS
+// --
+
+
+html, body{
+    width: 100%;
+    height: 100%;
+    font: 1em/1.25 @opensans-font-family;
+}
+
+p{
+    font: 1em/1.25 @opensanslight-font-family;
+    color: lighten(@gray, 20%);
+}
+
+.green{
+    color: @morganaubert-green;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+.beige-background{
+    background: @morganaubert-beige;
+}
+
+.green-background{
+    background: @morganaubert-green;
+}
+
+.gray-background{
+    background: @gray-dark;
+}
+
+.navbar-morganaubert{
+    margin-bottom: 0;
+    border-bottom: 1px solid fade(@gray-lighter, 30%);
+    text-transform: uppercase;
+    background-color: @gray-darker;
+
+    .navbar-brand{
+        padding: 11px;
+        text-transform: none;
+        font: 1.3em @ptserif-font-family;
+        color: @white;
+
+        &:focus{
+            outline: none;
+        }
+
+        .fa{
+            color: @morganaubert-green;
+        }
+    }
+    
+    .navbar-toggle{
+        padding: 4px 6px;
+        font-size: 16px;
+        color: @gray-lighter;
+
+        &:focus, &:active{
+            outline: none;
+        }
+    }
+
+    a{
+        color: @gray-lighter;
+    }
+
+    .nav{
+        li{
+            &.active{
+                outline: none;
+                background-color: fade(@morganaubert-green, 30%);
+            }
+
+            a{
+                -webkit-transition: background .3s ease-in-out;
+                -moz-transition: background .3s ease-in-out;
+                transition: background .3s ease-in-out;
+
+                &:hover, &:focus, &.active{
+                    outline: none;
+                    background-color: fade(@morganaubert-green, 30%);
+                }
+            }
+        }
+    }
+}
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        border-bottom: none;
+        letter-spacing: 1px;
+        background: transparent;
+        .transition(all .5s ease-in-out);
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+        background-color: @gray-dark;
+    }
+
+    .navbar-morganaubert.top-nav-collapse {
+        border-bottom: 2px solid @morganaubert-green;
+    }
+}
