@@ -1,2 +1,11 @@
+*.pyc
+*.pyo
+*.db
+__pycache__
+.coverage
+*.egg-info/
+*.egg/
+dist
+docs/_build/
 secrets.json
 src/morganaubert/static/less/*.css
