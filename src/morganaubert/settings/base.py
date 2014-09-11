@@ -53,7 +53,7 @@ ALLOWED_HOSTS = [
 
 
 # The from: field in errors emails
-SERVER_EMAIL = 'django-error@{}'.format(DOMAIN_NAME)
+SERVER_EMAIL = 'django-error@{0}'.format(DOMAIN_NAME)
 EMAIL_USE_TLS = True
 EMAIL_HOST = get_secret('EMAIL_HOST')
 EMAIL_HOST_USER = get_secret('EMAIL_HOST_USER')
@@ -112,7 +112,7 @@ MEDIA_ROOT = os.path.join(PROJECT_PATH, 'public/media/')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://media.{}/'.format(DOMAIN_NAME)
+MEDIA_URL = 'http://media.{0}/'.format(DOMAIN_NAME)
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -122,7 +122,7 @@ STATIC_ROOT = os.path.join(PROJECT_PATH, 'public/static/')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = 'http://static.{}/'.format(DOMAIN_NAME)
+STATIC_URL = 'http://static.{0}/'.format(DOMAIN_NAME)
 
 # Additional locations of static files
 STATICFILES_DIRS = ()
