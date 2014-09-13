@@ -5,3 +5,4 @@ django-pipeline
 django-google-tools
 south
 psycopg2
+flup
