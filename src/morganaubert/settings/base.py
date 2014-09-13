@@ -274,6 +274,7 @@ PIPELINE_JS = {
             'js/vendor/bootstrap/collapse.js',
             'js/vendor/bootstrap/dropdown.js',
             'js/vendor/bootstrap/modal.js',
+            'js/vendor/bootstrap/scrollspy.js',
             'js/vendor/bootstrap/tab.js',
             'js/vendor/bootstrap/tooltip.js',
             'js/vendor/bootstrap/transition.js',
