@@ -8,15 +8,34 @@ from dateutil.relativedelta import relativedelta
 from django.utils.timezone import get_default_timezone
 from django.utils.timezone import make_aware
 from django.utils.timezone import now
+from django.utils.translation import ugettext
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
+from meta.views import MetadataMixin
 
 # Local application / specific library imports
 
 
-class HomeView(TemplateView):
+class HomeView(MetadataMixin, TemplateView):
     template_name = 'morganaubert/home.html'
 
     birdhday_date = datetime(day=7, month=7, year=1989)
+
+    # Meta data
+    title = _('Morgan Aubert')
+    description = _('I am Morgan Aubert. A self taught, French born Software Engineer.')
+    keywords = [
+        'Morgan Aubert',
+        ugettext('Interactive Resume'),
+        ugettext('Software engineer'),
+        ugettext('Python programmer'),
+        ugettext('Python'),
+        ugettext('Django'),
+        ugettext('Web developer'),
+        ugettext('Startup'),
+        ugettext('CV'),
+        ugettext('Resume'),
+    ]
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
