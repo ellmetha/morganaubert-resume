@@ -20,9 +20,6 @@
             {% endblock meta_tags %}
             <meta name="description" content="{% block meta-description %}{% endblock %}" />
             <meta name="keywords" content="{% block meta-keywords %}{% endblock %}"/>
-            
-            <!-- hide address bar script -->
-            {% compressed_js 'hide-address-bar' %}
 
             <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
             <!-- This condition does not work for IE7, so we add a "if IE" condition below -->
@@ -37,7 +34,6 @@
         
         {% block css %}
             {% compressed_css 'theme' %}
-            {% compressed_css 'print' %}
 
             <!--[if IE]>
                 {% compressed_css 'ie' %}
