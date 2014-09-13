@@ -11,12 +11,6 @@
             {% site_verification_code %}
             
             <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-            {% comment %}
-            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ STATIC_URL }}img/Icon-72@2x.png">
-            <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ STATIC_URL }}img/Icon@2x.png">
-            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}img/Icon-72x.png">
-            <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}img/Icon.png">
-            {% endcomment %}
             <link rel="canonical" href="{% block canonical_url %}{{ canonical_url }}{% endblock canonical_url %}" />
 
             <title>{% block title %}{{ site.name }} &mdash; {% block page_title %}{% endblock page_title %}{% endblock title %}</title>
