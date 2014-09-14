@@ -37,7 +37,7 @@ PROJECT_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-DOMAIN_NAME = 'morganaubert.fr'
+DOMAIN_NAME = 'morganaubert.name'
 
 ADMINS = (
     ('dev', get_secret('EMAIL_DEV')),
@@ -49,6 +49,7 @@ MANAGERS = (
 
 ALLOWED_HOSTS = [
     DOMAIN_NAME,
+    'morganaubert.fr',
 ]
 
 
