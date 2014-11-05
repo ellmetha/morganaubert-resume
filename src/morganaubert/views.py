@@ -14,16 +14,18 @@ from django.views.generic import TemplateView
 from meta.views import MetadataMixin
 
 # Local application / specific library imports
+from .mixins import CacheMixin
 
 
-class HomeView(MetadataMixin, TemplateView):
+class HomeView(CacheMixin, MetadataMixin, TemplateView):
     template_name = 'morganaubert/home.html'
+    cache_timeout = 60 * 15
 
     birdhday_date = datetime(day=7, month=7, year=1989)
 
     # Meta data
     title = _('Morgan Aubert')
-    description = _('I am Morgan Aubert. A self taught, French born Software Engineer.')
+    description = _('I am Morgan Aubert. A self taught, French born Software Engineer with a focus on web development.')
     keywords = [
         'Morgan Aubert',
         ugettext('Interactive Resume'),
