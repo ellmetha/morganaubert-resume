@@ -253,11 +253,18 @@ PIPELINE_CSS = {
     'theme': {
         'source_filenames': (
             'less/theme.less',
-            'less/print.less',
         ),
         'output_filename': 'css/theme.css',
     },
-
+    'print': {
+        'source_filenames': (
+            'less/print.less',
+        ),
+        'output_filename': 'css/print.css',
+        'extra_context': {
+            'media': 'print',
+        },
+    },
     'ie': {
         'source_filenames': (
             'less/ie.less',
