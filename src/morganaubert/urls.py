@@ -8,15 +8,21 @@ from django.conf.urls import patterns
 from django.conf.urls import url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.contrib.sitemaps import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 
 # Local application / specific library imports
+from morganaubert.sitemaps import MorganaubertViewSitemap
 from morganaubert.views import HomeView
 
 
 # Admin autodiscover
 admin.autodiscover()
+
+sitemaps = {
+    'static': MorganaubertViewSitemap,
+}
 
 # Patterns
 urlpatterns = i18n_patterns(
@@ -34,6 +40,13 @@ urlpatterns = i18n_patterns(
     url(r'^404/$', TemplateView.as_view(template_name='404.html')),
     url(r'^500/$', TemplateView.as_view(template_name='500.html')),
     url(r'^503/$', TemplateView.as_view(template_name='503.html')),
+)
+
+urlpatterns += patterns(
+    '',
+
+    # Sitemaps
+    url(r'^sitemap\.xml$', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
     # Robots
     url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
