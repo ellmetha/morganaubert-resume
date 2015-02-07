@@ -89,8 +89,8 @@ p{
     }
 }
 
-@media(min-width:767px) {
-    .navbar {
+@media(min-width:767px){
+    .navbar{
         padding: 20px 0;
         border-bottom: none;
         letter-spacing: 1px;
@@ -98,12 +98,21 @@ p{
         .transition(all .5s ease-in-out);
     }
 
-    .top-nav-collapse {
+    .top-nav-collapse{
         padding: 0;
         background-color: @gray-dark;
     }
 
-    .navbar-morganaubert.top-nav-collapse {
+    .navbar-morganaubert.top-nav-collapse{
         border-bottom: 2px solid @morganaubert-green;
+        .transition(all .5s ease-in-out);
+
+        &.anchor-top, &.anchor-profile, &.anchor-skills{
+            border-bottom: 2px solid @morganaubert-green;
+        }
+
+        &.anchor-resume, &.anchor-interests, &.anchor-contact{
+            border-bottom: 2px solid @morganaubert-white;
+        }
     }
 }

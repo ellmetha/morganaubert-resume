@@ -11,6 +11,16 @@ $(window).scroll(function() {
 $(function() {
     $('a.goto').click(function(ev) {
         var anchor_id = $(this).attr('href');
+
+        window.setTimeout(
+            function(){
+                $('.navbar-morganaubert.top-nav-collapse').removeClass(function (index, css) {
+                    return (css.match (/\banchor\S+/g) || []).join(' ');
+                });
+                $('.navbar-morganaubert.top-nav-collapse').addClass('anchor-' + anchor_id.substring(1));
+            },
+            1000);
+
         $('html, body').stop().animate({
             scrollTop: $(anchor_id).offset().top
         }, 1500, 'easeInOutExpo');
