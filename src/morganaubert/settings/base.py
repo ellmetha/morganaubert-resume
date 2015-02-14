@@ -10,7 +10,7 @@ from django.core.exceptions import ImproperlyConfigured
 # Local application / specific library imports
 
 
-# Secrets handling
+# Secrets handling
 # --------------------------------------
 
 # JSON-based secrets module
@@ -29,7 +29,7 @@ def get_secret(setting, secrets=secrets):
         raise ImproperlyConfigured(error_msg)
 
 
-# Django settings
+# Django settings
 # --------------------------------------
 
 PROJECT_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../..')
@@ -133,8 +133,10 @@ STATICFILES_DIRS = ()
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
+    'pipeline.finders.PipelineFinder',
 )
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = get_secret('SECRET_KEY')
@@ -173,6 +175,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pipeline.middleware.MinifyHTMLMiddleware',
 )
 
 ROOT_URLCONF = 'morganaubert.urls'
@@ -195,7 +198,7 @@ INSTALLED_APPS = (
 
     # Third party apps
     'googletools',
-    'compressor',
+    'pipeline',
     'meta',
 
     # Local apps
@@ -244,10 +247,58 @@ LOGGING = {
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 
-# Django compressor setings
+# Django pipeline settings
 # --------------------------------------
 
-COMPRESS_ENABLED = True
-COMPRESS_PRECOMPILERS = (
-    ('text/less', 'lessc --relative-url {infile} {outfile}'),
+PIPELINE_CSS = {
+    'theme': {
+        'source_filenames': (
+            'less/theme.less',
+        ),
+        'output_filename': 'css/theme.css',
+    },
+    'print': {
+        'source_filenames': (
+            'less/print.less',
+        ),
+        'output_filename': 'css/print.css',
+        'extra_context': {
+            'media': 'print',
+        },
+    },
+    'ie': {
+        'source_filenames': (
+            'less/ie.less',
+        ),
+        'output_filename': 'css/ie.css',
+    },
+}
+
+PIPELINE_JS = {
+    'libraries': {
+        'source_filenames': (
+            'js/vendor/jquery.js',
+            'js/vendor/jquery.easing.js',
+            'js/vendor/bootstrap/affix.js',
+            'js/vendor/bootstrap/collapse.js',
+            'js/vendor/bootstrap/dropdown.js',
+            'js/vendor/bootstrap/modal.js',
+            'js/vendor/bootstrap/scrollspy.js',
+            'js/vendor/bootstrap/tab.js',
+            'js/vendor/bootstrap/tooltip.js',
+            'js/vendor/bootstrap/transition.js',
+        ),
+        'output_filename': 'js/libraries.js',
+    },
+
+    'application': {
+        'source_filenames': (
+            'js/main.js',
+        ),
+        'output_filename': 'js/application.js'
+    }
+}
+
+PIPELINE_COMPILERS = (
+    'pipeline.compilers.less.LessCompiler',
 )
