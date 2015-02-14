@@ -1,6 +1,7 @@
 {% load i18n %}
+{% load staticfiles %}
 {% load googletools %}
-{% load compressed %}
+{% load compress %}
 
 <!DOCTYPE html>
 <html {% get_current_language as LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}">
@@ -31,11 +32,17 @@
         {% endblock head %}
         
         {% block css %}
-            {% compressed_css 'theme' %}
-            {% compressed_css 'print' %}
+            {% compress css %}
+                <link rel="stylesheet" type="text/less" href="{% static 'less/theme.less' %}" />
+            {% endcompress %}
+            {% compress css %}
+                <link rel="stylesheet" type="text/less" href="{% static 'less/print.less' %}" media="print" />
+            {% endcompress %}
 
             <!--[if IE]>
-                {% compressed_css 'ie' %}
+                {% compress css %}
+                    <link rel="stylesheet" type="text/less" href="{% static 'less/ie.less' %}" />
+                {% endcompress %}
             <![endif]-->
         {% endblock css %}
         
@@ -97,8 +104,19 @@
         
         {% block js %}
             {% analytics_code %}
-            {% compressed_js 'libraries' %}
-            {% compressed_js 'application' %}
+            {% compress js %}
+                <script src="{% static 'js/vendor/jquery.js' %}" type="text/javascript" charset="utf-8"></script>
+                <script src="{% static 'js/vendor/jquery.easing.js' %}" type="text/javascript" charset="utf-8"></script>
+                <script src="{% static 'js/vendor/bootstrap/affix.js' %}" type="text/javascript" charset="utf-8"></script>
+                <script src="{% static 'js/vendor/bootstrap/collapse.js' %}" type="text/javascript" charset="utf-8"></script>
+                <script src="{% static 'js/vendor/bootstrap/dropdown.js' %}" type="text/javascript" charset="utf-8"></script>
+                <script src="{% static 'js/vendor/bootstrap/modal.js' %}" type="text/javascript" charset="utf-8"></script>
+                <script src="{% static 'js/vendor/bootstrap/scrollspy.js' %}" type="text/javascript" charset="utf-8"></script>
+                <script src="{% static 'js/vendor/bootstrap/tab.js' %}" type="text/javascript" charset="utf-8"></script>
+                <script src="{% static 'js/vendor/bootstrap/tooltip.js' %}" type="text/javascript" charset="utf-8"></script>
+                <script src="{% static 'js/vendor/bootstrap/transition.js' %}" type="text/javascript" charset="utf-8"></script>
+                <script src="{% static 'js/main.js' %}" type="text/javascript" charset="utf-8"></script>
+            {% endcompress %}
         {% endblock js %}
         
         {% block extra-js %}

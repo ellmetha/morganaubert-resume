@@ -9,3 +9,5 @@ dist
 docs/_build/
 secrets.json
 src/morganaubert/static/less/*.css
+public/media/
+public/static/
