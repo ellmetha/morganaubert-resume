@@ -25,7 +25,7 @@
     </header>
 
     <!-- Profile section -->
-    <section id="about" class="container content-section">
+    <section id="about" class="container content-section" itemscope itemtype="http://data-vocabulary.org/Person">
         <div class="row">
             <div class="col-md-10 col-md-offset-1 content">
                 <h2 class="text-center">{% trans "Profile" %}</h2>
@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h3>{% trans "About me" %}</h3>
-                        <p class="text-justify">I am an all-round Software Engineer with a focus on web development. Recently, I've been working in the fields of backend and frontend web development, software deployment, distributed systems and networking. I love building all kinds of software and I appreciate good design and architecture.</p>
+                        <p class="text-justify">I am an all-round <span itemprop="title">Software Engineer</span> with a focus on web development. Recently, I've been working in the fields of backend and frontend web development, software deployment, distributed systems and networking. I love building all kinds of software and I appreciate good design and architecture.</p>
                     </div>
                     <div class="col-md-4">
                         <div class="text-center avatar-wrapper">
@@ -45,7 +45,7 @@
                         <h3>{% trans "General information" %}</h3>
                         <p>
                             <b>{% trans "Full name:" %}</b><br />
-                            {% trans "Morgan Aubert" %}
+                            <span itemprop="name">{% trans "Morgan Aubert" %}</span>
                         </p>
                         <p>
                             <b>{% trans "Age:" %}</b><br />
