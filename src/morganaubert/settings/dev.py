@@ -7,6 +7,7 @@ from .base import *
 
 
 DEBUG = True
+TEMPLATE_DEBUG = True
 
 MEDIA_URL = '/media/'
 
@@ -18,6 +19,13 @@ ALLOWED_HOSTS = [
 
 INTERNAL_IPS = (
     '127.0.0.1',
+)
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
 )
 
 MIDDLEWARE_CLASSES += (
