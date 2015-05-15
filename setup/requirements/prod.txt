@@ -3,6 +3,5 @@ python-dateutil==2.2
 django-meta
 django-pipeline
 django-google-tools
-south
 psycopg2
 flup
