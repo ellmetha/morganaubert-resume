@@ -12,4 +12,6 @@ src/morganaubert/static/less/*.css
 public/media/
 public/static/
 bower_components/
+node_modules/
 _build/
+npm-debug.log
