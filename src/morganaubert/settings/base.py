@@ -126,7 +126,9 @@ STATIC_ROOT = os.path.join(PROJECT_PATH, 'public/static/')
 STATIC_URL = 'http://static.{0}/'.format(DOMAIN_NAME)
 
 # Additional locations of static files
-STATICFILES_DIRS = ()
+STATICFILES_DIRS = (
+    os.path.join(STATIC_ROOT, '_build'),
+)
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -136,7 +138,7 @@ STATICFILES_FINDERS = (
     'pipeline.finders.PipelineFinder',
 )
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = get_secret('SECRET_KEY')
@@ -200,7 +202,6 @@ INSTALLED_APPS = (
 
     # Third party apps
     'googletools',
-    'pipeline',
     'meta',
 
     # Local apps
@@ -256,6 +257,7 @@ PIPELINE_CSS = {
     'theme': {
         'source_filenames': (
             'less/theme.less',
+            'bower_components/font-awesome/css/font-awesome.css',
         ),
         'output_filename': 'css/theme.css',
     },

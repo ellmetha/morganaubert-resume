@@ -1,6 +1,6 @@
+{% load staticfiles %}
 {% load i18n %}
 {% load googletools %}
-{% load pipeline %}
 
 <!DOCTYPE html>
 <html {% get_current_language as LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}">
@@ -31,11 +31,10 @@
         {% endblock head %}
         
         {% block css %}
-            {% stylesheet 'theme' %}
-            {% stylesheet 'print' %}
+            <link href="{% static 'css/theme.min.css' %}" rel="stylesheet"/>
 
             <!--[if IE]>
-                {% stylesheet 'ie' %}
+                
             <![endif]-->
         {% endblock css %}
         
@@ -114,8 +113,12 @@
         {% endblock footer %}
         
         {% block js %}
-            {% javascript 'libraries' %}
-            {% javascript 'application' %}
+            {% if debug %}
+                <script src="{% static 'js/application.packages.min.js' %}"></script>
+                <script src="{% static 'js/application.js' %}"></script>
+            {% else %}
+                <script src="{% static 'js/application.production.min.js' %}"></script>
+            {% endif %}
         {% endblock js %}
         
         {% block extra-js %}

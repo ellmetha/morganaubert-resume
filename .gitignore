@@ -11,3 +11,5 @@ secrets.json
 src/morganaubert/static/less/*.css
 public/media/
 public/static/
+bower_components/
+_build/

@@ -3,7 +3,7 @@
 # Standard library imports
 # Third party imports
 # Local application / specific library imports
-from .base import *
+from .base import *  # noqa
 
 
 DEBUG = True
@@ -12,6 +12,10 @@ TEMPLATE_DEBUG = True
 MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'src/morganaubert/static/')
+STATICFILES_DIRS = (
+    os.path.join(STATIC_ROOT, '_build'),
+)
 
 ALLOWED_HOSTS = [
     'localhost:8000',
@@ -21,7 +25,7 @@ INTERNAL_IPS = (
     '127.0.0.1',
 )
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
