@@ -13,9 +13,6 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_PATH, 'src/morganaubert/static/')
-STATICFILES_DIRS = (
-    os.path.join(STATIC_ROOT, '_build'),
-)
 
 ALLOWED_HOSTS = [
     'localhost:8000',

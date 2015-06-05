@@ -127,7 +127,7 @@ STATIC_URL = 'http://static.{0}/'.format(DOMAIN_NAME)
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(STATIC_ROOT, '_build'),
+    os.path.join(PROJECT_PATH, 'src/morganaubert/static/_build/'),
 )
 
 # List of finder classes that know how to find static files in
