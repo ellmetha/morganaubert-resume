@@ -21,6 +21,8 @@ var build_dir = '_build';
 var bower_dir = 'bower_components';
 var less_dir = 'less';
 var js_dir = 'js';
+var img_dir = 'img';
+var font_dir = 'fonts';
 
 
 /* Include all needed javascript packages here. */
@@ -67,14 +69,45 @@ gulp.task('build-css', function () {
 		.pipe(gulp.dest(build_dir + '/css'));
 });
 
-/* Task to build our production javascript application. */
-gulp.task('build-js-production', ['build-css'], function () {
+
+/*
+ * Production specific tasks
+ */
+
+
+/* Task to copy images to the build directory. */
+gulp.task('build-img-production', function () {
+    gulp.src([img_dir + '/**/*']).pipe(gulp.dest(build_dir + '/' + img_dir));
+});
+
+/* Task to copy fonts to the build directory. */
+gulp.task('build-font-production', function () {
+    gulp.src([font_dir + '/**/*']).pipe(gulp.dest(build_dir + '/' + font_dir));
+});
+
+/* Task to copy bower components to the build directory. */
+gulp.task('build-bower-components-production', function () {
+    gulp.src([bower_dir + '/**/*']).pipe(gulp.dest(build_dir + '/' + bower_dir));
+});
+
+/* Task to build our production application. */
+gulp.task('build-js-production', function () {
     gulp.src(packages_includes.concat(application_includes))
         .pipe(concat(application_name + '.production.js'))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest(build_dir + '/js'))
 });
+
+/* Task to build our application in production. */
+gulp.task('build-application-production', [
+    'build-js-production', 'build-css', 'build-img-production', 
+    'build-font-production', 'build-bower-components-production', ]);
+
+
+/*
+ * Default task.
+ */
 
 /* Task to build our application. */
 gulp.task('build-application', ['build-js-packages', 'build-js-application', 'build-css']);
