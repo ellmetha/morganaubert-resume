@@ -30,6 +30,7 @@ var packages_includes = [
     bower_dir + '/jquery/dist/jquery.js',
     bower_dir + '/jquery.easing/js/jquery.easing.js',
     bower_dir + '/bootstrap/dist/js/bootstrap.js',
+    bower_dir + '/scrollReveal.js/dist/scrollReveal.js',
 ];
 
 /* Include all application related files here. */
