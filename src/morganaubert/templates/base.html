@@ -1,6 +1,5 @@
 {% load staticfiles %}
 {% load i18n %}
-{% load googletools %}
 
 <!DOCTYPE html>
 <html {% get_current_language as LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}">
@@ -8,7 +7,7 @@
         {% block head %}
             <meta name="viewport" content="width=device-width, maximum-scale=1.0">
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            {% site_verification_code %}
+            <meta name="google-site-verification" content="{{ google_site_verification_code }}" />
             
             <link rel="icon" href="/favicon.ico" type="image/x-icon" />
             <link rel="canonical" href="{% block canonical_url %}{{ canonical_url }}{% endblock canonical_url %}" />

@@ -37,3 +37,9 @@ def canonical_url(request):
     return {
         'canonical_url': url
     }
+
+
+def google_metadata(request):
+    return {
+        'google_site_verification_code': settings.GOOGLE_SITE_VERIFICATION_CODE,
+    }
