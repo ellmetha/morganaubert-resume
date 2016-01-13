@@ -68,7 +68,7 @@ header#intro{
 
 section.content-section{
     overflow-x: hidden;
-    
+
     &#about{
         .content{
             .avatar-wrapper{
@@ -91,9 +91,17 @@ section.content-section{
 
     &#resume{
         .content{
+            p {
+                a{
+                    font-family: @opensans-font-family;
+                    font-weight: 500;
+                    color: @gray-lighter;
+                }
+            }
+
             .diploma-title, .job-title{
                 margin: 10px 0;
-                font: 1em/1.3em @opensans-font-family;
+                font: 1em/1.3em @opensanslight-font-family;
                 font-weight: bold;
             }
 
