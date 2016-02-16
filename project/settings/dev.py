@@ -1,18 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Standard library imports
-# Third party imports
-# Local application / specific library imports
 from .base import *  # noqa
 
 
 DEBUG = True
-TEMPLATE_DEBUG = True
-
-MEDIA_URL = '/media/'
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_PATH, 'src/morganaubert/static/')
 
 ALLOWED_HOSTS = [
     'localhost:8000',

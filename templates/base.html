@@ -8,12 +8,12 @@
             <meta name="viewport" content="width=device-width, maximum-scale=1.0">
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <meta name="google-site-verification" content="{{ google_site_verification_code }}" />
-            
+
             <link rel="icon" href="/favicon.ico" type="image/x-icon" />
             <link rel="canonical" href="{% block canonical_url %}{{ canonical_url }}{% endblock canonical_url %}" />
 
-            <title>{% block title %}{{ site.name }}&nbsp;&ndash;&nbsp;{% block page_title %}{% endblock page_title %}{% endblock title %}</title>
-            
+            <title>{% block title %}{{ request.site.name }}&nbsp;&ndash;&nbsp;{% block page_title %}{% endblock page_title %}{% endblock title %}</title>
+
             {% block meta_tags %}
                 {% include 'meta.html' %}
             {% endblock meta_tags %}
@@ -28,18 +28,18 @@
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <![endif]-->
         {% endblock head %}
-        
+
         {% block css %}
             <link href="{% static 'css/theme.min.css' %}" rel="stylesheet"/>
 
             <!--[if IE]>
-                
+
             <![endif]-->
         {% endblock css %}
-        
+
         {% block extra-css %}
         {% endblock extra-css %}
-        
+
     </head>
     <body id="{% block body_id %}{% endblock body_id %}" class="{% block body_class %}{% endblock body_class %}" data-controller="{% block data_controller %}{% endblock data_controller %}" data-action="{% block data_action %}{% endblock data_action %}" data-spy="scroll" data-target=".navbar-fixed-top">
         <div id="top"></div>
@@ -83,10 +83,10 @@
                 <!-- /.container -->
             </nav>
         {% endblock header %}
-        
+
         {% block content %}
         {% endblock content %}
-        
+
         {% block footer %}
             <footer class="gray-background">
                 <section id="contact" class="container content-section">
@@ -110,7 +110,7 @@
                 </section>
             </footer>
         {% endblock footer %}
-        
+
         {% block js %}
             {% if debug %}
                 <script src="{% static 'js/application.packages.min.js' %}"></script>
@@ -119,7 +119,7 @@
                 <script src="{% static 'js/application.production.min.js' %}"></script>
             {% endif %}
         {% endblock js %}
-        
+
         {% block extra-js %}
         {% endblock extra-js %}
     </body>

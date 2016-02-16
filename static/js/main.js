@@ -37,5 +37,6 @@ $(function() {
         update_navbar_border(anchor_id, 200);
     });
 
-    window.sr = new scrollReveal();
+    window.sr = new ScrollReveal();
+    sr.reveal('[data-sr]');
 });

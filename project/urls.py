@@ -35,7 +35,6 @@ urlpatterns = i18n_patterns(
     url(r'^$', HomeView.as_view(), name='home'),
 
     # Test 503, 500, 404 and 403 pages
-    url(r'^bad/$', 'utils.views.bad'),
     url(r'^403/$', TemplateView.as_view(template_name='403.html')),
     url(r'^404/$', TemplateView.as_view(template_name='404.html')),
     url(r'^500/$', TemplateView.as_view(template_name='500.html')),

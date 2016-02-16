@@ -8,9 +8,11 @@ __pycache__
 dist
 docs/_build/
 secrets.json
-src/morganaubert/static/less/*.css
-public/media/
-public/static/
+static/less/*.css
+public/media/*
+!public/media/.gitkeep
+public/static/*
+!public/static/.gitkeep
 bower_components/
 node_modules/
 _build/

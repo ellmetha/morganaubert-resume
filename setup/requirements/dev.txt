@@ -1,3 +1,0 @@
--r prod.txt
-django-debug-toolbar
-django-devserver

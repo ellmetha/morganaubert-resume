@@ -1,20 +1,19 @@
 # -*- coding: utf-8 -*-
 
-# Standard library imports
 import json
-import os
 
-# Third party imports
+from unipath import Path
+
 from django.core.exceptions import ImproperlyConfigured
 
-# Local application / specific library imports
+PROJECT_PATH = Path(__file__).ancestor(3)
 
 
 # Secrets handling
 # --------------------------------------
 
 # JSON-based secrets module
-with open(os.path.dirname(os.path.realpath(__file__)) + '/' + 'secrets.json') as f:
+with open(PROJECT_PATH.child('secrets.json')) as f:
     secrets = json.loads(f.read())
 
 
@@ -32,10 +31,7 @@ def get_secret(setting, secrets=secrets):
 # Django settings
 # --------------------------------------
 
-PROJECT_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../..')
-
 DEBUG = False
-TEMPLATE_DEBUG = DEBUG
 
 DOMAIN_NAME = 'morganaubert.name'
 
@@ -49,21 +45,11 @@ MANAGERS = (
 
 ALLOWED_HOSTS = [
     DOMAIN_NAME,
-    'morganaubert.fr',
 ]
-
-
-# The from: field in errors emails
-SERVER_EMAIL = 'django-error@{0}'.format(DOMAIN_NAME)
-EMAIL_USE_TLS = True
-EMAIL_HOST = get_secret('EMAIL_HOST')
-EMAIL_HOST_USER = get_secret('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = get_secret('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': get_secret('DB_ENGINE'),
         'NAME': get_secret('DB_NAME'),
         'USER': get_secret('DB_USER'),
         'PASSWORD': get_secret('DB_PASSWORD'),
@@ -87,7 +73,7 @@ LANGUAGES = (
 )
 
 LOCALE_PATHS = (
-    os.path.join(PROJECT_PATH, 'src/morganaubert/locale'),
+    PROJECT_PATH.child('morganaubert', 'locale'),
 )
 
 SITE_ID = 1
@@ -104,30 +90,30 @@ USE_L10N = True
 USE_TZ = True
 
 # URL of the admin page
-ADMIN_URL = 'ma-admin/'
+ADMIN_URL = get_secret('ADMIN_URL')
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_PATH, 'public/media/')
+MEDIA_ROOT = PROJECT_PATH.child('public', 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://media.{0}/'.format(DOMAIN_NAME)
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_PATH, 'public/static/')
+STATIC_ROOT = PROJECT_PATH.child('public', 'static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = 'http://static.{0}/'.format(DOMAIN_NAME)
+STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_PATH, 'src/morganaubert/static/_build/'),
+    PROJECT_PATH.child('static', '_build'),
 )
 
 # List of finder classes that know how to find static files in
@@ -135,7 +121,6 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'pipeline.finders.PipelineFinder',
 )
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
@@ -147,7 +132,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': (
-            os.path.join(PROJECT_PATH, 'src/morganaubert/templates'),
+            PROJECT_PATH.child('templates'),
         ),
         'OPTIONS': {
             'context_processors': [
@@ -158,9 +143,8 @@ TEMPLATES = [
                 'django.core.context_processors.static',
                 'django.contrib.messages.context_processors.messages',
                 'django.core.context_processors.request',
-                'utils.context_processors.canonical_url',
-                'utils.context_processors.google_metadata',
-                'utils.context_processors.site',
+                'project.context_processors.canonical_url',
+                'project.context_processors.google_metadata',
             ],
             'loaders': [
                 ('django.template.loaders.cached.Loader', (
@@ -181,10 +165,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'pipeline.middleware.MinifyHTMLMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
 )
 
-ROOT_URLCONF = 'morganaubert.urls'
+ROOT_URLCONF = 'project.urls'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
@@ -247,66 +231,9 @@ LOGGING = {
 #  Debug toolbar settings
 # --------------------------------------
 
-# The debug toolbar patches the URL config when its models.py is loaded, which in turn triggers the plugin discovery to misbehave.
+# The debug toolbar patches the URL config when its models.py is loaded, which in turn trigger
+# the plugin discovery to misbehave.
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
-
-
-# Django pipeline settings
-# --------------------------------------
-
-PIPELINE_CSS = {
-    'theme': {
-        'source_filenames': (
-            'less/theme.less',
-            'bower_components/font-awesome/css/font-awesome.css',
-        ),
-        'output_filename': 'css/theme.css',
-    },
-    'print': {
-        'source_filenames': (
-            'less/print.less',
-        ),
-        'output_filename': 'css/print.css',
-        'extra_context': {
-            'media': 'print',
-        },
-    },
-    'ie': {
-        'source_filenames': (
-            'less/ie.less',
-        ),
-        'output_filename': 'css/ie.css',
-    },
-}
-
-PIPELINE_JS = {
-    'libraries': {
-        'source_filenames': (
-            'js/vendor/jquery.js',
-            'js/vendor/jquery.easing.js',
-            'js/vendor/bootstrap/affix.js',
-            'js/vendor/bootstrap/collapse.js',
-            'js/vendor/bootstrap/dropdown.js',
-            'js/vendor/bootstrap/modal.js',
-            'js/vendor/bootstrap/scrollspy.js',
-            'js/vendor/bootstrap/tab.js',
-            'js/vendor/bootstrap/tooltip.js',
-            'js/vendor/bootstrap/transition.js',
-        ),
-        'output_filename': 'js/libraries.js',
-    },
-
-    'application': {
-        'source_filenames': (
-            'js/main.js',
-        ),
-        'output_filename': 'js/application.js'
-    }
-}
-
-PIPELINE_COMPILERS = (
-    'pipeline.compilers.less.LessCompiler',
-)
 
 
 # Project settings

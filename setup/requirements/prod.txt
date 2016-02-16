@@ -1,5 +1,0 @@
-django>=1.9,<1.10
-python-dateutil==2.2
-django-meta
-psycopg2
-flup

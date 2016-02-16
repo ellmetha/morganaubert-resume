@@ -30,7 +30,7 @@ var packages_includes = [
     bower_dir + '/jquery/dist/jquery.js',
     bower_dir + '/jquery.easing/js/jquery.easing.js',
     bower_dir + '/bootstrap/dist/js/bootstrap.js',
-    bower_dir + '/scrollReveal.js/dist/scrollReveal.js',
+    bower_dir + '/scrollreveal/dist/scrollreveal.js',
 ];
 
 /* Include all application related files here. */
@@ -70,26 +70,25 @@ gulp.task('build-css', function () {
 		.pipe(gulp.dest(build_dir + '/css'));
 });
 
-
-/*
- * Production specific tasks
- */
-
-
 /* Task to copy images to the build directory. */
-gulp.task('build-img-production', function () {
+gulp.task('build-img', function () {
     gulp.src([img_dir + '/**/*']).pipe(gulp.dest(build_dir + '/' + img_dir));
 });
 
 /* Task to copy fonts to the build directory. */
-gulp.task('build-font-production', function () {
+gulp.task('build-font', function () {
     gulp.src([font_dir + '/**/*']).pipe(gulp.dest(build_dir + '/' + font_dir));
 });
 
 /* Task to copy bower components to the build directory. */
-gulp.task('build-bower-components-production', function () {
+gulp.task('build-bower-components', function () {
     gulp.src([bower_dir + '/**/*']).pipe(gulp.dest(build_dir + '/' + bower_dir));
 });
+
+
+/*
+ * Production specific tasks
+ */
 
 /* Task to build our production application. */
 gulp.task('build-js-production', function () {
@@ -102,8 +101,8 @@ gulp.task('build-js-production', function () {
 
 /* Task to build our application in production. */
 gulp.task('build-application-production', [
-    'build-js-production', 'build-css', 'build-img-production', 
-    'build-font-production', 'build-bower-components-production', ]);
+    'build-js-production', 'build-css', 'build-img',
+    'build-font', 'build-bower-components', ]);
 
 
 /*
@@ -111,7 +110,9 @@ gulp.task('build-application-production', [
  */
 
 /* Task to build our application. */
-gulp.task('build-application', ['build-js-packages', 'build-js-application', 'build-css']);
+gulp.task('build-application', [
+  'build-js-packages', 'build-js-application', 'build-css',
+  'build-img', 'build-font', 'build-bower-components', ]);
 
 /* Default task to use during development.
  * It provides livereloading by using BrowserSync. */
@@ -120,7 +121,7 @@ gulp.task('default', ['build-application', ], function () {
         notify: false,
         proxy: "127.0.0.1:8000"
     });
- 
+
     gulp.watch(packages_includes, ['build-js-packages', reload]);
     gulp.watch(application_includes, ['build-js-application', reload]);
     gulp.watch([less_dir + '/**/*.less',], ['build-css', reload]);
