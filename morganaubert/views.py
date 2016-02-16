@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# Standard library imports
 from datetime import datetime
 
-# Third party imports
 from dateutil.relativedelta import relativedelta
 from django.utils.timezone import get_default_timezone
 from django.utils.timezone import make_aware
@@ -13,7 +11,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
 from meta.views import MetadataMixin
 
-# Local application / specific library imports
 from .mixins import CacheMixin
 
 
@@ -25,7 +22,8 @@ class HomeView(CacheMixin, MetadataMixin, TemplateView):
 
     # Meta data
     title = _('Morgan Aubert')
-    description = _('I am Morgan Aubert. A self taught, French born Software Engineer with a focus on web development.')
+    description = _('I am Morgan Aubert. A self taught, French born Software Engineer '
+                    'with a focus on web development.')
     keywords = [
         'Morgan Aubert',
         ugettext('Interactive Resume'),

@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# Standard library imports
-# Third party imports
 from django.contrib import sitemaps
 from django.core.urlresolvers import reverse
-
-# Local application / specific library imports
 
 
 class MorganaubertViewSitemap(sitemaps.Sitemap):

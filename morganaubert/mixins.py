@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Standard library imports
-# Third party imports
 from django.views.decorators.cache import cache_page
-
-# Local application / specific library imports
 
 
 class CacheMixin(object):
