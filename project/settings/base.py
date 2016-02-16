@@ -45,6 +45,7 @@ MANAGERS = (
 
 ALLOWED_HOSTS = [
     DOMAIN_NAME,
+    'www.{}'.format(DOMAIN_NAME),
 ]
 
 DATABASES = {
