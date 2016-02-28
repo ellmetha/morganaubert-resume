@@ -174,7 +174,7 @@ ROOT_URLCONF = 'project.urls'
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'morganaubert.wsgi.application'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 INSTALLED_APPS = (
     # Django apps
