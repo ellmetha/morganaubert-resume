@@ -38,5 +38,9 @@ $(function() {
     });
 
     window.sr = new ScrollReveal();
-    sr.reveal('[data-sr]');
+    sr.reveal('.avatar-wrapper');
+    sr.reveal('.interest-icon-wrapper', { origin: 'left', rotate: { z : 15 }, distance : '20px', delay: 50, });
+    sr.reveal('a.twitter', { delay: 50, });
+    sr.reveal('a.linkedin', { delay: 100, });
+    sr.reveal('a.github', { delay: 150, });
 });
