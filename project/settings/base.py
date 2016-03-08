@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
 
 import json
-
-from unipath import Path
+import pathlib
 
 from django.core.exceptions import ImproperlyConfigured
 
-PROJECT_PATH = Path(__file__).ancestor(3)
+PROJECT_PATH = pathlib.Path(__file__).parents[2]
 
 
 # Secrets handling
 # --------------------------------------
 
 # JSON-based secrets module
-with open(PROJECT_PATH.child('secrets.json')) as f:
+with open(str(PROJECT_PATH / 'secrets.json')) as f:
     secrets = json.loads(f.read())
 
 
@@ -74,7 +73,7 @@ LANGUAGES = (
 )
 
 LOCALE_PATHS = (
-    PROJECT_PATH.child('morganaubert', 'locale'),
+    str(PROJECT_PATH / 'project' / 'locale'),
 )
 
 SITE_ID = 1
@@ -95,7 +94,7 @@ ADMIN_URL = get_secret('ADMIN_URL')
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = PROJECT_PATH.child('public', 'media')
+MEDIA_ROOT = str(PROJECT_PATH / 'public' / 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -106,7 +105,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = PROJECT_PATH.child('public', 'static')
+STATIC_ROOT = str(PROJECT_PATH / 'public' / 'static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -114,7 +113,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    PROJECT_PATH.child('static', '_build'),
+    str(PROJECT_PATH / 'static' / '_build'),
 )
 
 # List of finder classes that know how to find static files in
@@ -133,7 +132,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': (
-            PROJECT_PATH.child('templates'),
+            str(PROJECT_PATH / 'templates'),
         ),
         'OPTIONS': {
             'context_processors': [
