@@ -6,619 +6,553 @@
 
 {% block body_id %}id_home{% endblock body_id %}
 
-{% block content %}
-    <header id="intro">
-    	<div class="overlay"></div>
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Morgan Aubert</h1>
-                        <p class="intro-text">A self taught, French born Software Engineer</p>
-                        <a href="#about" class="btn btn-scroll goto">
-                            <i class="fa fa-angle-double-down"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Profile section -->
-    <section id="about" class="container content-section" itemscope itemtype="http://data-vocabulary.org/Person">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1 content">
-                <h2 class="text-center">{% trans "Profile" %}</h2>
-                <p class="lead text-center">{% trans "I'm a curious developer / creative software engineer" %}</p>
-                <hr />
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3>{% trans "About me" %}</h3>
-                        <p class="text-justify">I am an all-round <span itemprop="title">Software Engineer</span> with a focus on web development. Recently, I've been working in the fields of backend and frontend web development, software deployment, distributed systems and networking. I love building all kinds of software and I appreciate good design and architecture.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="text-center avatar-wrapper" data-sr="enter right, roll 180deg, over 0.5s">
-                            <img src="{% static 'img/avatar.jpg' %}" class="avatar" alt="Morgan Aubert" />
-                        </div>
-                    </div>
-                    <div class="col-md-4 general-information">
-                        <h3>{% trans "General information" %}</h3>
-                        <p>
-                            <b>{% trans "Full name:" %}</b><br />
-                            <span itemprop="name">{% trans "Morgan Aubert" %}</span>
-                        </p>
-                        <p>
-                            <b>{% trans "Age:" %}</b><br />
-                            {{ age }} years old
-                        </p>
-                        <p>
-                            <b>{% trans "Location:" %}</b><br />
-                            {% trans "Montréal, Canada" %}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experiences section -->
-    <div class="green-background">
-        <section id="resume" class="container content-section">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 content">
-                    <h2 class="text-center">{% trans "Resume" %}</h2>
-                    <p class="lead text-center">{% trans "My education and experience" %}</p>
-                    <hr />
-                    <h3>{% trans "Education" %}</h3>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h4>{% blocktrans %}Grenoble-INP&nbsp;<abbr title="Advanced Systems and Networks Engineering School">E.S.I.S.A.R.</abbr> University{% endblocktrans %}</h4>
-                            <p>2010&nbsp;&ndash;&nbsp;2013</p>
-                        </div>
-                        <div class="col-md-8">
-                            <p class="diploma-title">{% trans "Master's degree in Engineering" %}</p>
-                            <p>{% blocktrans %}Master's Degree in IT Engineering, specialized in Network administration &amp; Embedded Systems.{% endblocktrans %}
-                            <div class="tags">
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Algoritmics" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "C Programming" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Java Programming" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Computational mathematics" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network and system Administration" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded Systems" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Real-Time Systems" %}</span>
-                            </div>
-                            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Valence, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://esisar.grenoble-inp.fr/" target="_blank">esisar.grenoble-inp.fr</a></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h4>{% blocktrans %}Montpellier Institute of Technology{% endblocktrans %}</h4>
-                            <p>2008&nbsp;&ndash;&nbsp;2010</p>
-                        </div>
-                        <div class="col-md-8">
-                            <p class="diploma-title">{% trans "Two year degree in Networks and Telecommunications" %}</p>
-                            <p>{% blocktrans %}Two year university programs leading to an H.N.D. (DUT) "Networks &amp; Telecommunications".{% endblocktrans %}
-                            <div class="tags">
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "C Programming" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Java Programming" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network and system Administration" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Web Programming" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network Engineering" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Telecommunications" %}</span>
-                            </div>
-                            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Béziers, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://www.iutbeziers.univ-montp2.fr/" target="_blank">iutbeziers.univ-montp2.fr</a></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h4>{% blocktrans %}Lycée Docteur Lacroix{% endblocktrans %}</h4>
-                            <p>{% trans "Jun 2007" %}</p>
-                        </div>
-                        <div class="col-md-8">
-                            <p class="diploma-title">{% trans "High School Diploma" %}</p>
-                            <p>{% trans "Scientific High School Diploma (Baccalaurat - A level)." %}</p>
-                            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Narbonne, France</p>
-                        </div>
-                    </div>
-                    <hr />
-                    <h3>{% trans "Experience" %}</h3>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h4>Kapt</h4>
-                            <p>{% blocktrans %}Jul 2013&nbsp;&ndash;&nbsp;Dec 2015{% endblocktrans %}</p>
-                        </div>
-                        <div class="col-md-8">
-                            <p class="job-title">{% trans "Software Engineer" %}</p>
-                            <p>
-                                {% blocktrans %}
-                                    Kapt is a full service internet company with a focus on providing solutions for the tourism industry. In this light I designed and contributed to the development of an ERP software solution for tourism professionals. I developed a lot of web applications such as <a href="https://www.kookooning.com" target="_blank">Kookooning.com</a> - a matchmaking platform between travelers and accommodation owners - or <a href="https://www.10thingstosee.com" target="_blank">10ThingsToSee.com</a> - a guide of tourist attractions. I also maintained some interactive products based on touch-sensitive interfaces. Finally I was doing a bit of system administration to ensure that Kapt products keep working properly!
-                                {% endblocktrans %}
-                            </p>
-                            <div class="tags">
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Python Development" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Web Development" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Django Framework" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded Linux" %}</span>
-                            </div>
-                            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Valence, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://kapt.mobi" target="_blank">kapt.mobi</a></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h4>Kapt</h4>
-                            <p>{% blocktrans %}Feb 2013&nbsp;&ndash;&nbsp;Jul 2013{% endblocktrans %}</p>
-                        </div>
-                        <div class="col-md-8">
-                            <p class="job-title">{% trans "Software Engineer" %}</p>
-                            <p>
-                                {% blocktrans %}
-                                    5-months internship at Kapt, full service internet company. During this internship, I designed and developed an interactive touch-sensitive product and contributed to the construction of the Linux system embedded in this hardware. The solution was initially running on x86 based software and hardware and I migrated the product to an ARM based solution. I also developed communication tools based on the NFC technology.
-                                {% endblocktrans %}
-                            </p>
-                            <div class="tags">
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Python Development" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Django Framework" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded Linux" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "ARM" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "NFC" %}</span>
-                            </div>
-                            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Valence, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://kapt.mobi" target="_blank">kapt.mobi</a></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h4>Robodrill</h4>
-                            <p>{% blocktrans %}Jan 2012&nbsp;&ndash;&nbsp;Jul 2012{% endblocktrans %}</p>
-                        </div>
-                        <div class="col-md-8">
-                            <p class="job-title">{% trans "Embedded Systems Engineer" %}</p>
-                            <p>
-                                {% blocktrans %}
-                                    Industrial Project, conducted in a company specialized in drilling activities (rent of jumbo drill). During this project I contributed to the evolution of a jumbo drill control application in order to make its configuration dynamic and I migrated the solution to a real-time Linux system (Xenomai).
-                                {% endblocktrans %}
-                            </p>
-                            <div class="tags">
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "C Development" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Real-Time Linux" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Xenomai Framework" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded target" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "CAN bus" %}</span>
-                            </div>
-                            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Lyon, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://www.robodrill-sa.com/" target="_blank">robodrill-sa.com</a></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h4>Trafic Transport Sûreté</h4>
-                            <p>{% blocktrans %}Mar 2010&nbsp;&ndash;&nbsp;Jun 2010{% endblocktrans %}</p>
-                        </div>
-                        <div class="col-md-8">
-                            <p class="diploma-title">{% trans "Multiservice Network technician and Developer" %}</p>
-                            <p>
-                                {% blocktrans %}
-                                    Last internship before diploma obtention (DUT), conducted in a company specialized in multi-service networks (videosurveillance). Installation and supervision of video surveillance networks. C++ programming (NVR test client, RTSP server).
-                                {% endblocktrans %}
-                            </p>
-                            <div class="tags">
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans " C++ Development" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Multiservice Network" %}</span>
-                                <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network Monitoring" %}</span>
-                            </div>
-                            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Narbonne, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://www.traficsurete.com/" target="_blank">traficsurete.com</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+{% block body %}
+<!-- Navigation -->
+<nav class="navbar navbar-morganaubert navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"><i class="fa fa-bars"></i></button>
+      <a class="navbar-brand goto" href="#top"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;<span class="light">Morgan</span>&nbsp;Aubert</a>
     </div>
-
-    <!-- Skills section -->
-    <section id="skills" class="container content-section">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1 content">
-                <h2 class="text-center">{% trans "Skills" %}</h2>
-                <p class="lead text-center">{% trans "I can say i’m quite good at" %}</p>
-                <hr />
-                <h3>{% trans "Software development" %}</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">Python</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">{% trans "Django Framework" %}</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">{% trans "MVC pattern" %}</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">HTML &amp; CSS</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">LESS</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">Javascript</span>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">jQuery</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">Bourne shell scripting</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">Java</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">UML</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">C</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">C++</span>
-                        </p>
-                    </div>
-                </div>
-                <hr />
-                <h3>{% trans "Databases" %}</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">PostgreSQL</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">MySQL</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">MongoDB</span>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star "></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">Elasticsearch</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">Oracle</span>
-                        </p>
-                    </div>
-                </div>
-                <hr />
-                <h3>{% trans "DevOps tools" %}</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">Fabric</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">{% trans "Docker" %}</span>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">{% trans "Vagrant" %}</span>
-                        </p>
-                    </div>
-                </div>
-                <hr />
-                <h3>{% trans "Languages" %}</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">{% trans "French (mother tongue)" %}</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">{% trans "English (TOEIC 850 points)" %}</span>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">{% trans "Spanish (basic)" %}</span>
-                        </p>
-                    </div>
-                </div>
-                <hr />
-                <h3>{% trans "Tools" %}</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">Mercurial</span>
-                        </p>
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                            </span>
-                            <span class="skill-name">Git</span>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>
-                            <span class="skill-stars">
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star yes"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>
-                            <span class="skill-name">SVN</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interests section -->
-    <div class="green-background">
-        <section id="interests" class="container content-section">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 content">
-                    <h2 class="text-center">{% trans "Interests" %}</h2>
-                    <p class="lead text-center">{% trans "In my spare time I like to" %}</p>
-                    <hr />
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <div class="interest-icon-wrapper">
-                                <i class="fa fa-tablet huge"></i>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="interest-wrapper">
-                                <h3>{% trans "New technologies" %}</h3>
-                                <p>
-                                    {% blocktrans %}
-                                        I am interested in new technologies. Regularly I try to keep contact with new advances in the areas of web and computer services which are intended to the professional world or the public.
-                                    {% endblocktrans %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <div class="interest-icon-wrapper">
-                                <i class="fa fa-laptop huge"></i>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="interest-wrapper">
-                                <h3>{% trans "Programming" %}</h3>
-                                <p>
-                                    {% blocktrans %}
-                                        I like learning new tricks on programming by writing some programs or by reading specialized books. My favorite social network is Github. I love building stuff from scratch and I contribute to free software, mainly Django-related libraries.
-                                    {% endblocktrans %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <div class="interest-icon-wrapper">
-                                <i class="fa fa-headphones huge"></i>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="interest-wrapper">
-                                <h3>{% trans "Music" %}</h3>
-                                <p>
-                                    {% blocktrans %}
-                                        I have a so varied taste in music that I think I could listen to music for days! I have <em>a lot</em> of playlists on Spotify, really. I have also played the guitar since I was 10 years old. I try to cover many musical styles: classical, jazz, rock, blues, etc.
-                                    {% endblocktrans %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <div class="interest-icon-wrapper">
-                                <i class="fa fa-book huge"></i>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="interest-wrapper">
-                                <h3>{% trans "Reading" %}</h3>
-                                <p>
-                                    {% blocktrans %}
-                                        I love reading. I read all kinds of novels (thrillers, detective stories, fantasy books) and I read books specialized in computers or networks.
-                                    {% endblocktrans %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4 text-center">
-                            <div class="interest-icon-wrapper">
-                                <i class="fa fa-plane huge"></i>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="interest-wrapper">
-                                <h3>{% trans "Travel" %}</h3>
-                                <p>
-                                    {% blocktrans %}
-                                        I love travelling and discovering new things : new people, other cultures, different habits... Spain, England, Canada, United States or Scotland are some of the places where I travelled.
-                                    {% endblocktrans %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+        <li class="hidden"><a href="#top"></a></li>
+        <li><a class="goto" href="#about">{% trans "About" %}</a></li>
+        <li><a class="goto" href="#resume">{% trans "Resume" %}</a></li>
+        <li><a class="goto" href="#skills">{% trans "Skills" %}</a></li>
+        <li><a class="goto" href="#interests">{% trans "Interests" %}</a></li>
+        <li><a class="goto" href="#contact">{% trans "Contact" %}</a></li>
+      </ul>
     </div>
-{% endblock content %}
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+
+<header id="intro">
+  <div class="overlay"></div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 class="brand-heading">Morgan Aubert</h1>
+          <p class="intro-text">A self taught, French born Software Engineer</p>
+          <a href="#about" class="btn btn-scroll goto"><i class="fa fa-angle-double-down"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Profile section -->
+<section id="about" class="container content-section" itemscope itemtype="http://data-vocabulary.org/Person">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content">
+      <h2 class="text-center">{% trans "Profile" %}</h2>
+      <p class="lead text-center">{% trans "I'm a curious developer / creative software engineer" %}</p>
+      <hr />
+      <div class="row">
+        <div class="col-md-4">
+          <h3>{% trans "About me" %}</h3>
+          <p class="text-justify">I am an all-round <span itemprop="title">Software Engineer</span> with a focus on web development. Recently, I've been working in the fields of backend and frontend web development, software deployment, distributed systems and networking. I love building all kinds of software and I appreciate good design and architecture.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center avatar-wrapper" data-sr="enter right, roll 180deg, over 0.5s">
+            <img src="{% static 'img/avatar.jpg' %}" class="avatar" alt="Morgan Aubert" />
+          </div>
+        </div>
+        <div class="col-md-4 general-information">
+          <h3>{% trans "General information" %}</h3>
+          <p>
+            <b>{% trans "Full name:" %}</b><br />
+            <span itemprop="name">{% trans "Morgan Aubert" %}</span>
+          </p>
+          <p>
+            <b>{% trans "Age:" %}</b><br />
+            {{ age }} years old
+          </p>
+          <p>
+            <b>{% trans "Location:" %}</b><br />
+            {% trans "Montréal, Canada" %}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experiences section -->
+<div class="green-background">
+  <section id="resume" class="container content-section">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 content">
+        <h2 class="text-center">{% trans "Resume" %}</h2>
+        <p class="lead text-center">{% trans "My education and experience" %}</p>
+        <hr />
+        <h3>{% trans "Education" %}</h3>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>{% blocktrans %}Grenoble-INP&nbsp;<abbr title="Advanced Systems and Networks Engineering School">E.S.I.S.A.R.</abbr> University{% endblocktrans %}</h4>
+            <p>2010&nbsp;&ndash;&nbsp;2013</p>
+          </div>
+          <div class="col-md-8">
+            <p class="diploma-title">{% trans "Master's degree in Engineering" %}</p>
+            <p>{% blocktrans %}Master's Degree in IT Engineering, specialized in Network administration &amp; Embedded Systems.{% endblocktrans %}
+            <div class="tags">
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Algoritmics" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "C Programming" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Java Programming" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Computational mathematics" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network and system Administration" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded Systems" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Real-Time Systems" %}</span>
+            </div>
+            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Valence, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://esisar.grenoble-inp.fr/" target="_blank">esisar.grenoble-inp.fr</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>{% blocktrans %}Montpellier Institute of Technology{% endblocktrans %}</h4>
+            <p>2008&nbsp;&ndash;&nbsp;2010</p>
+          </div>
+          <div class="col-md-8">
+            <p class="diploma-title">{% trans "Two year degree in Networks and Telecommunications" %}</p>
+            <p>{% blocktrans %}Two year university programs leading to an H.N.D. (DUT) "Networks &amp; Telecommunications".{% endblocktrans %}
+            <div class="tags">
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "C Programming" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Java Programming" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network and system Administration" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Web Programming" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network Engineering" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Telecommunications" %}</span>
+            </div>
+            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Béziers, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://www.iutbeziers.univ-montp2.fr/" target="_blank">iutbeziers.univ-montp2.fr</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>{% blocktrans %}Lycée Docteur Lacroix{% endblocktrans %}</h4>
+            <p>{% trans "Jun 2007" %}</p>
+          </div>
+          <div class="col-md-8">
+            <p class="diploma-title">{% trans "High School Diploma" %}</p>
+            <p>{% trans "Scientific High School Diploma (Baccalaurat - A level)." %}</p>
+            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Narbonne, France</p>
+          </div>
+        </div>
+        <hr />
+        <h3>{% trans "Experience" %}</h3>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Savoir-faire Linux</h4>
+            <p>{% blocktrans %}Jan 2016&nbsp;&ndash;&nbsp;Present{% endblocktrans %}</p>
+          </div>
+          <div class="col-md-8">
+            <p class="job-title">{% trans "Software Engineer" %}</p>
+            <p>
+              {% blocktrans %}
+                Savoir-faire Linux is a specialist in the professional implementation of Open Source Software. The company provides expertise on Open Source softwares through services such as consulting and development. In this light I design and I develop modern web applications based on Open Source solutions. Recently I've worked on the design and the developement of the next release of Érudit platform, which is the largest provider of Canadian French and bilingual research publications in North America.
+              {% endblocktrans %}
+            </p>
+            <div class="tags">
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Python Development" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Web Development" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Django Framework" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Ansible" %}</span>
+            </div>
+            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Montréal, Canada&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="https://www.savoirfairelinux.com" target="_blank">savoirfairelinux.com</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Kapt</h4>
+            <p>{% blocktrans %}Jul 2013&nbsp;&ndash;&nbsp;Dec 2015{% endblocktrans %}</p>
+          </div>
+          <div class="col-md-8">
+            <p class="job-title">{% trans "Software Engineer" %}</p>
+            <p>
+              {% blocktrans %}
+                Kapt is a full service internet company with a focus on providing solutions for the tourism industry. In this light I designed and contributed to the development of an ERP software solution for tourism professionals. I developed a lot of web applications such as <a href="https://www.kookooning.com" target="_blank">Kookooning.com</a> - a matchmaking platform between travelers and accommodation owners - or <a href="https://www.10thingstosee.com" target="_blank">10ThingsToSee.com</a> - a guide of tourist attractions. I also maintained some interactive products based on touch-sensitive interfaces. Finally I was doing a bit of system administration to ensure that Kapt products keep working properly!
+              {% endblocktrans %}
+            </p>
+            <div class="tags">
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Python Development" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Web Development" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Django Framework" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded Linux" %}</span>
+            </div>
+            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Valence, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://kapt.mobi" target="_blank">kapt.mobi</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Kapt</h4>
+            <p>{% blocktrans %}Feb 2013&nbsp;&ndash;&nbsp;Jul 2013{% endblocktrans %}</p>
+          </div>
+          <div class="col-md-8">
+            <p class="job-title">{% trans "Software Engineer" %}</p>
+            <p>
+              {% blocktrans %}
+                5-months internship at Kapt, full service internet company. During this internship, I designed and developed an interactive touch-sensitive product and contributed to the construction of the Linux system embedded in this hardware. The solution was initially running on x86 based software and hardware and I migrated the product to an ARM based solution. I also developed communication tools based on the NFC technology.
+              {% endblocktrans %}
+            </p>
+            <div class="tags">
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Python Development" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Django Framework" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded Linux" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "ARM" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "NFC" %}</span>
+            </div>
+            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Valence, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://kapt.mobi" target="_blank">kapt.mobi</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Robodrill</h4>
+            <p>{% blocktrans %}Jan 2012&nbsp;&ndash;&nbsp;Jul 2012{% endblocktrans %}</p>
+          </div>
+          <div class="col-md-8">
+            <p class="job-title">{% trans "Embedded Systems Engineer" %}</p>
+            <p>
+              {% blocktrans %}
+                Industrial Project, conducted in a company specialized in drilling activities (rent of jumbo drill). During this project I contributed to the evolution of a jumbo drill control application in order to make its configuration dynamic and I migrated the solution to a real-time Linux system (Xenomai).
+              {% endblocktrans %}
+            </p>
+            <div class="tags">
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "C Development" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Real-Time Linux" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Xenomai Framework" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded target" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "CAN bus" %}</span>
+            </div>
+            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Lyon, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://www.robodrill-sa.com/" target="_blank">robodrill-sa.com</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Trafic Transport Sûreté</h4>
+            <p>{% blocktrans %}Mar 2010&nbsp;&ndash;&nbsp;Jun 2010{% endblocktrans %}</p>
+          </div>
+          <div class="col-md-8">
+            <p class="diploma-title">{% trans "Multiservice Network technician and Developer" %}</p>
+            <p>
+              {% blocktrans %}
+                Last internship before diploma obtention (DUT), conducted in a company specialized in multi-service networks (videosurveillance). Installation and supervision of video surveillance networks. C++ programming (NVR test client, RTSP server).
+              {% endblocktrans %}
+            </p>
+            <div class="tags">
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans " C++ Development" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Multiservice Network" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network Monitoring" %}</span>
+            </div>
+            <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Narbonne, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://www.traficsurete.com/" target="_blank">traficsurete.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Skills section -->
+<section id="skills" class="container content-section">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content">
+      <h2 class="text-center">{% trans "Skills" %}</h2>
+      <p class="lead text-center">{% trans "I can say i’m quite good at" %}</p>
+      <hr />
+      <h3>{% trans "Software development" %}</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Python</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Django Framework</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Django Framework</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Javascript</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">HTML &amp; CSS</span>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Sass, LESS</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Bourne shell scripting</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Java</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">C</span>
+          </p>
+        </div>
+      </div>
+      <hr />
+      <h3>{% trans "Databases / Stores" %}</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">PostgreSQL</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">MySQL</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">MongoDB</span>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Elasticsearch</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Oracle</span>
+          </p>
+        </div>
+      </div>
+      <hr />
+      <h3>{% trans "DevOps tools" %}</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Fabric</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Docker</span>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Vagrant</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Ansible</span>
+          </p>
+        </div>
+      </div>
+      <hr />
+      <h3>{% trans "Frontend Libraries and Frameworks" %}</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">JQuery</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Twitter Bootstrap</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Gulp</span>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Bower</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Webpack</span>
+          </p>
+        </div>
+      </div>
+      <hr />
+      <h3>{% trans "Languages" %}</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">{% trans "French (mother tongue)" %}</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">{% trans "English (TOEIC 850 points)" %}</span>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">{% trans "Spanish (basic)" %}</span>
+          </p>
+        </div>
+      </div>
+      <hr />
+      <h3>{% trans "Tools" %}</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Mercurial</span>
+          </p>
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">Git</span>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <span class="skill-check"><i class="fa fa-check-circle"></i></span>
+            <span class="skill-name">SVN</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interests section -->
+<div class="green-background">
+  <section id="interests" class="container content-section">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 content">
+        <h2 class="text-center">{% trans "Interests" %}</h2>
+        <p class="lead text-center">{% trans "In my spare time I like to" %}</p>
+        <hr />
+        <div class="row">
+          <div class="col-sm-4 text-center">
+            <div class="interest-icon-wrapper">
+              <i class="fa fa-tablet huge"></i>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="interest-wrapper">
+              <h3>{% trans "New technologies" %}</h3>
+              <p>
+              {% blocktrans %}
+                I am interested in new technologies. Regularly I try to keep contact with new advances in the areas of web and computer services which are intended to the professional world or the public.
+              {% endblocktrans %}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 text-center">
+            <div class="interest-icon-wrapper">
+              <i class="fa fa-laptop huge"></i>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="interest-wrapper">
+              <h3>{% trans "Programming" %}</h3>
+              <p>
+              {% blocktrans %}
+                I like learning new tricks on programming by writing some programs or by reading specialized books. My favorite social network is Github. I love building stuff from scratch and I contribute to free software, mainly Django-related libraries.
+              {% endblocktrans %}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 text-center">
+            <div class="interest-icon-wrapper">
+              <i class="fa fa-headphones huge"></i>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="interest-wrapper">
+              <h3>{% trans "Music" %}</h3>
+              <p>
+              {% blocktrans %}
+                I have a so varied taste in music that I think I could listen to music for days! I have <em>a lot</em> of playlists on Spotify, really. I have also played the guitar since I was 10 years old. I try to cover many musical styles: classical, jazz, rock, blues, etc.
+              {% endblocktrans %}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 text-center">
+            <div class="interest-icon-wrapper">
+              <i class="fa fa-book huge"></i>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="interest-wrapper">
+              <h3>{% trans "Reading" %}</h3>
+              <p>
+              {% blocktrans %}
+                I love reading. I read all kinds of novels (thrillers, detective stories, fantasy books) and I read books specialized in computers or networks.
+              {% endblocktrans %}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 text-center">
+            <div class="interest-icon-wrapper">
+              <i class="fa fa-plane huge"></i>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="interest-wrapper">
+              <h3>{% trans "Travel" %}</h3>
+              <p>
+              {% blocktrans %}
+                I love travelling and discovering new things : new people, other cultures, different habits... Spain, England, Canada, United States or Scotland are some of the places where I travelled.
+              {% endblocktrans %}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="gray-background">
+  <section id="contact" class="container content-section">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 content">
+        <h2 class="text-center">{% trans "Contact" %}</h2>
+        <p class="lead text-center">{% trans "Let's get in touch" %}</p>
+        <hr />
+        <a href="mailto:hello@morganaubert.name" class="mailto"><i class="fa fa-envelope-o "></i>&nbsp;hello@morganaubert.name</a>
+        <div class="social-links">
+          <a href="https://twitter.com/ellmetha" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a href="http://fr.linkedin.com/pub/morgan-aubert/46/82a/430/en" class="linkedin" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+          <a href="https://github.com/ellmetha" class="github" target="_blank"><i class="fa fa-github"></i></a>
+        </div>
+      </div>
+      <div class="copy">
+        &copy;&nbsp;2014&#45;{{ current_year }}&nbsp;{% blocktrans %}Hand-coded with&nbsp;&nbsp;<i class="fa fa-heart"></i>&nbsp;&nbsp;by Morgan Aubert{% endblocktrans %}
+      </div>
+    </div>
+  </section>
+</footer>
+{% endblock body %}

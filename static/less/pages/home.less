@@ -2,414 +2,492 @@
 // --
 
 
+.navbar-morganaubert{
+  margin-bottom: 0;
+  border-bottom: 1px solid fade(@gray-lighter, 30%);
+  text-transform: uppercase;
+  background-color: @gray-darker;
+
+  .navbar-brand{
+    padding: 11px;
+    text-transform: none;
+    font: 1.3em @ptserif-font-family;
+    color: @white;
+
+    &:focus{
+      outline: none;
+    }
+
+    .fa{
+      color: @morganaubert-green;
+    }
+  }
+
+  .navbar-toggle{
+    padding: 4px 6px;
+    font-size: 16px;
+    color: @gray-lighter;
+
+    &:focus, &:active{
+      outline: none;
+    }
+  }
+
+  a{
+    color: @gray-lighter;
+  }
+
+  .nav{
+    li{
+      &.active{
+        outline: none;
+        background-color: fade(@morganaubert-green, 30%);
+      }
+
+      a{
+        -webkit-transition: background .3s ease-in-out;
+        -moz-transition: background .3s ease-in-out;
+        transition: background .3s ease-in-out;
+
+        &:hover, &:focus, &.active{
+          outline: none;
+          background-color: fade(@morganaubert-green, 30%);
+        }
+      }
+    }
+  }
+}
+
 header#intro{
-	position: relative;
-    display: table;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 100%;
+  padding: 100px 0;
+  text-align: center;
+  color: @gray-lighter;
+  background: url('@{baseUrl}img/bg.gif') no-repeat bottom center scroll;
+  background-color: @gray-darker;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+  .overlay{
+    position: absolute;
+    top: 0;
     width: 100%;
     height: 100%;
-    padding: 100px 0;
-    text-align: center;
-    color: @gray-lighter;
-    background: url('@{baseUrl}img/bg.gif') no-repeat bottom center scroll;
-    background-color: @gray-darker;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    background: @gray-darker;
+    opacity: 0.5;
+  }
 
-    .overlay{
-    	position: absolute;
-    	top: 0;
-    	width: 100%;
-    	height: 100%;
-    	background: @gray-darker;
-    	opacity: 0.5;
+
+  .intro-body{
+    display: table-cell;
+    vertical-align: middle;
+
+    .brand-heading{
+      margin-bottom: 25px;
+      display: inline-block;
+      border-bottom: 1px solid @morganaubert-green;
+      font: 4.3em/2em @ptserif-font-family;
+
     }
 
-
-    .intro-body{
-        display: table-cell;
-        vertical-align: middle;
-
-        .brand-heading{
-        	margin-bottom: 25px;
-        	display: inline-block;
-        	border-bottom: 1px solid @morganaubert-green;
-        	font: 4.3em/2em @ptserif-font-family;
-
-        }
-
-        .intro-text{
-            font : 300 23px @opensanslight-font-family;
-            color: @white;
-        }
+    .intro-text{
+      font : 300 23px @opensanslight-font-family;
+      color: @white;
     }
+  }
 
-    .btn-scroll{
-        margin-top: 40px;
-        padding: 7px 16px;
-        width: 70px;
-        height: 70px;
-        background: none;
-        border: 2px solid @white;
-        .rounded(50%);
-        font-size: 40px;
-        color: @morganaubert-green;
-        background: none;
-        .transition(all .5s ease-in-out);
+  .btn-scroll{
+    margin-top: 40px;
+    padding: 7px 16px;
+    width: 70px;
+    height: 70px;
+    background: none;
+    border: 2px solid @white;
+    .rounded(50%);
+    font-size: 40px;
+    color: @morganaubert-green;
+    background: none;
+    .transition(all .5s ease-in-out);
 
-        &:hover, &:focus{
-            outline: none;
-            color: @white;
-            background: fade(@white, 10%);
-        }
+    &:hover, &:focus{
+      outline: none;
+      color: @white;
+      background: fade(@white, 10%);
     }
+  }
 }
 
 section.content-section{
-    overflow-x: hidden;
+  overflow-x: hidden;
 
-    &#about{
-        .content{
-            .avatar-wrapper{
-                margin: 0 auto;
-                width: 200px;
-                height: 200px;
-                border: 12px solid @morganaubert-beige;
-                .rounded(50%);
-
-                img.avatar{
-                    margin-top: -1px;
-                    margin-left: -1px;
-                    width: 178px;
-                    height: 178px;
-                    .rounded(50%);
-                }
-            }
-        }
-    }
-
-    &#resume{
-        .content{
-            p {
-                a{
-                    font-family: @opensans-font-family;
-                    font-weight: 500;
-                    color: @gray-lighter;
-                }
-            }
-
-            .diploma-title, .job-title{
-                margin: 10px 0;
-                font: 1em/1.3em @opensanslight-font-family;
-                font-weight: bold;
-            }
-
-            .tags{
-                .tag{
-                    margin-right: 4px;
-                    margin-bottom: 5px;
-                    padding: 2px 5px;
-                    display: inline-block;
-                    background: fade(@black, 10%);
-                    .rounded(3px);
-                    font: 0.9em/1.25 @opensanslight-font-family;
-                    color: @gray-lighter;
-                }
-            }
-
-            .metadata{
-                color: @white;
-
-                a{
-                    color: @white;
-                }
-            }
-        }
-    }
-
-    &#skills{
-        .content{
-            h3{
-                margin-bottom: 15px;
-            }
-
-            .skill-stars{
-                float: right;
-
-                i{
-                    &.yes{
-                        color: @morganaubert-green;
-                    }
-                }
-            }
-
-            .skill-name{
-
-            }
-        }
-    }
-
-    &#interests{
-        .content{
-            .interest-icon-wrapper{
-                margin: 0 auto;
-                width: 140px;
-                height: 140px;
-                background: @white;
-                .rounded(50%);
-
-                i.fa.huge{
-                    font-size: 80px;
-                    line-height: 140px;
-                    color: @morganaubert-green;
-                }
-            }
-
-            .interest-wrapper{
-                padding: 10px 0 30px 0;
-
-                p{
-                    min-height: 80px;
-                }
-            }
-        }
-    }
-
-    &#contact{
-        position: relative;
-
-        .content{
-            a.mailto{
-                display: block;
-                font: 1.8em/2em @opensanslight-font-family;
-                text-align: center;
-                letter-spacing: 3px;
-                color: @gray-lighter;
-                .transition(color .5s ease-in-out);
-
-                &:hover, &:focus{
-                    text-decoration: none;
-                    color: @morganaubert-green;
-                }
-
-                i.fa{
-                    color: @morganaubert-green;
-                }
-            }
-
-            .social-links{
-                margin-top: 40px;
-                margin-bottom: 20px;
-                text-align: center;
-
-                a{
-                    margin: 0 25px;
-                    display: inline-block;
-                    font-size: 36px;
-                    color: @white;
-                    .transition(color .5s ease-in-out);
-
-                    &:hover, &:focus{
-                        color: @morganaubert-green;
-                    }
-                }
-            }
-        }
-
-        .copy{
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            color: @gray;
-        }
-    }
-
+  &#about{
     .content{
-        padding-top: 80px;
-        padding-bottom: 80px;
+      .avatar-wrapper{
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        border: 12px solid @morganaubert-beige;
+        .rounded(50%);
 
-        h2{
-            margin-top: 0;
-            margin-bottom: 20px;
-            font: 3.6em/2em @opensanslight-font-family;
-            line-height: 1.2em;
-            color: @morganaubert-green;
+        img.avatar{
+          margin-top: -1px;
+          margin-left: -1px;
+          width: 178px;
+          height: 178px;
+          .rounded(50%);
         }
+      }
+    }
+  }
 
-        h3{
-            margin-top: 0;
-            font: 1.8em/2em @opensanslight-font-family;
-            line-height: 1.2em;
-            color: @morganaubert-green;
+  &#resume{
+    .content{
+      p {
+        a{
+          font-family: @opensans-font-family;
+          font-weight: 500;
+          color: @gray-lighter;
         }
+      }
 
-        h4{
-            font: 1em/1.2em @opensans-font-family;
-            font-weight: bold;
-            color: @morganaubert-green;
-        }
+      .diploma-title, .job-title{
+        margin: 10px 0;
+        font: 1em/1.3em @opensanslight-font-family;
+        font-weight: bold;
+      }
 
-        hr{
-            margin-top: 40px;
-            margin-bottom: 40px;
+      .tags{
+        .tag{
+          margin-right: 4px;
+          margin-bottom: 5px;
+          padding: 2px 5px;
+          display: inline-block;
+          background: fade(@black, 10%);
+          .rounded(3px);
+          font: 0.9em/1.25 @opensanslight-font-family;
+          color: @gray-lighter;
         }
+      }
+
+      .metadata{
+        color: @white;
+
+        a{
+          color: @white;
+        }
+      }
+    }
+  }
+
+  &#skills{
+    .content{
+      h3{
+        margin-bottom: 15px;
+      }
+
+      .skill-check{
+        float: right;
+
+        i{
+          color: @morganaubert-green;
+        }
+      }
+    }
+  }
+
+  &#interests{
+    .content{
+      .interest-icon-wrapper{
+        margin: 0 auto;
+        width: 140px;
+        height: 140px;
+        background: @white;
+        .rounded(50%);
+
+        i.fa.huge{
+	        font-size: 80px;
+	        line-height: 140px;
+	        color: @morganaubert-green;
+        }
+      }
+
+      .interest-wrapper{
+        padding: 10px 0 30px 0;
 
         p{
-            line-height: 1.5em;
+          min-height: 80px;
         }
+      }
     }
+  }
+
+  &#contact{
+    position: relative;
+
+    .content{
+      a.mailto{
+        display: block;
+        font: 1.8em/2em @opensanslight-font-family;
+        text-align: center;
+        letter-spacing: 3px;
+        color: @gray-lighter;
+        .transition(color .5s ease-in-out);
+
+        &:hover, &:focus{
+          text-decoration: none;
+          color: @morganaubert-green;
+        }
+
+        i.fa{
+          color: @morganaubert-green;
+        }
+      }
+
+      .social-links{
+        margin-top: 40px;
+        margin-bottom: 20px;
+        text-align: center;
+
+        a{
+          margin: 0 25px;
+          display: inline-block;
+          font-size: 36px;
+          color: @white;
+          .transition(color .5s ease-in-out);
+
+          &:hover, &:focus{
+            color: @morganaubert-green;
+          }
+        }
+      }
+    }
+
+    .copy{
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      color: @gray;
+    }
+  }
+
+  .content{
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    h2{
+      margin-top: 0;
+      margin-bottom: 20px;
+      font: 3.6em/2em @opensanslight-font-family;
+      line-height: 1.2em;
+      color: @morganaubert-green;
+    }
+
+    h3{
+      margin-top: 0;
+      font: 1.8em/2em @opensanslight-font-family;
+      line-height: 1.2em;
+      color: @morganaubert-green;
+    }
+
+    h4{
+      font: 1em/1.2em @opensans-font-family;
+      font-weight: bold;
+      color: @morganaubert-green;
+    }
+
+    hr{
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    p{
+      line-height: 1.5em;
+    }
+  }
 }
 
 .green-background{
-    section.content-section{
-        .content{
-            p{
-                color: @gray-lighter;
-            }
+  section.content-section{
+    .content{
+      p{
+        color: @gray-lighter;
+      }
 
-            h2{
-                color: @white;
-            }
+      h2{
+        color: @white;
+      }
 
-            h3{
-                color: @white;
-            }
+      h3{
+        color: @white;
+      }
 
-            h4{
-                color: @white;
-            }
-        }
+      h4{
+        color: @white;
+      }
     }
+  }
 }
 
 .gray-background{
-    section.content-section{
-        .content{
-            p{
-                color: @gray-light;
-            }
+  section.content-section{
+    .content{
+      p{
+        color: @gray-light;
+      }
 
-            h2{
-                color: @gray-lighter;
-            }
+      h2{
+        color: @gray-lighter;
+      }
 
-            h3{
-                color: @gray-lighter;
-            }
+      h3{
+        color: @gray-lighter;
+      }
 
-            h4{
-                color: @gray-lighter;
-            }
+      h4{
+        color: @gray-lighter;
+      }
 
-            hr{
-                border-color: @gray;
-            }
-        }
+      hr{
+        border-color: @gray;
+      }
     }
+  }
 }
 
 
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max){
-    section.content-section{
-        &#interests{
-            .content{
-                .interest-wrapper{
-                    p{
-                        min-height: 100px;
-                    }
-                }
-            }
+  section.content-section{
+    &#interests{
+      .content{
+        .interest-wrapper{
+          p{
+            min-height: 100px;
+          }
         }
+      }
     }
+  }
 }
 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max){
-    section.content-section{
-        &#about{
-            .avatar-wrapper{
-                margin-top: 20px !important;
-                margin-bottom: 20px !important;
-            }
-        }
-
-        &#resume{
-            .content{
-                h4{
-                    font: 1.2em/1.2em @opensans-font-family;
-                    font-weight: bold;
-                }
-            }
-        }
-
-        &#interests{
-            .content{
-                .interest-wrapper{
-                    p{
-                        min-height: 100px;
-                    }
-                }
-            }
-        }
+  section.content-section{
+    &#about{
+      .avatar-wrapper{
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+      }
     }
+
+    &#resume{
+      .content{
+        h4{
+	        font: 1.2em/1.2em @opensans-font-family;
+	        font-weight: bold;
+        }
+      }
+    }
+
+    &#interests{
+      .content{
+        .interest-wrapper{
+          p{
+            min-height: 100px;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: @screen-xs-max){
-    header#intro{
-        .intro-body{
-            h1.brand-heading{
-                font: 2.2em/2em @ptserif-font-family;
-            }
+  header#intro{
+    .intro-body{
+      h1.brand-heading{
+        font: 2.2em/2em @ptserif-font-family;
+      }
+    }
+  }
+
+  section.content-section{
+    &#about{
+      .avatar-wrapper{
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+      }
+
+      .general-information{
+        p{
+          text-align: center;
         }
+      }
     }
 
-    section.content-section{
-        &#about{
-            .avatar-wrapper{
-                margin-top: 20px !important;
-                margin-bottom: 20px !important;
-            }
-
-            .general-information{
-                p{
-                    text-align: center;
-                }
-            }
+    &#interests{
+      .content{
+        .interest-wrapper{
+          p{
+            text-align: center;
+          }
         }
-
-        &#interests{
-            .content{
-                .interest-wrapper{
-                    p{
-                        text-align: center;
-                    }
-                }
-            }
-        }
-
-        &#contact{
-            .content{
-                a.mailto{
-                    font: 1.2em/2em @opensanslight-font-family;
-
-                    i{
-                        margin-bottom: 10px;
-                        font-size: 24px;
-                        display: block;
-                    }
-                }
-            }
-
-            .copy{
-                font-size: 0.8em;
-            }
-        }
-
-        .content{
-            h3{
-                text-align: center;
-            }
-        }
+      }
     }
+
+    &#contact{
+      .content{
+        a.mailto{
+          font: 1.2em/2em @opensanslight-font-family;
+
+          i{
+            margin-bottom: 10px;
+            font-size: 24px;
+            display: block;
+          }
+        }
+      }
+
+      .copy{
+        font-size: 0.8em;
+      }
+    }
+
+    .content{
+      h3{
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media(min-width:767px){
+  .navbar{
+    padding: 20px 0;
+    border-bottom: none;
+    letter-spacing: 1px;
+    background: transparent;
+    .transition(all .5s ease-in-out);
+  }
+
+  .top-nav-collapse{
+    padding: 0;
+    background-color: @gray-dark;
+  }
+
+  .navbar-morganaubert.top-nav-collapse{
+    border-bottom: 2px solid @morganaubert-green;
+    .transition(all .5s ease-in-out);
+
+    &.anchor-top, &.anchor-profile, &.anchor-skills{
+      border-bottom: 2px solid @morganaubert-green;
+    }
+
+    &.anchor-resume, &.anchor-interests, &.anchor-contact{
+      border-bottom: 2px solid @morganaubert-white;
+    }
+  }
 }

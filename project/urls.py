@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# Standard library imports
-# Third party imports
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import patterns
@@ -11,7 +9,6 @@ from django.contrib.sitemaps import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 
-# Local application / specific library imports
 from morganaubert.sitemaps import MorganaubertViewSitemap
 from morganaubert.views import HomeView
 
@@ -38,10 +35,12 @@ urlpatterns = [
     url(r'^503/$', TemplateView.as_view(template_name='503.html')),
 
     # Sitemaps
-    url(r'^sitemap\.xml$', views.sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    url(r'^sitemap\.xml$', views.sitemap, {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'),
 
     # Robots
-    url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
+    url(r'^robots.txt$',
+        TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
 ]
 
 if settings.DEBUG:
@@ -58,5 +57,6 @@ if settings.DEBUG:
     media_url = settings.MEDIA_URL.lstrip('/').rstrip('/')
     urlpatterns += patterns(
         '',
-        url(r'^%s/(?P<path>.*)$' % media_url, 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+        url(r'^%s/(?P<path>.*)$' % media_url, 'django.views.static.serve',
+            {'document_root': settings.MEDIA_ROOT}),
     )
