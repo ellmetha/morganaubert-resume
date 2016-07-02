@@ -28,11 +28,9 @@
     {% endblock head %}
 
     {% block css %}
-    <link href="{% static 'css/theme.min.css' %}" rel="stylesheet"/>
-
-    <!--[if IE]>
-
-    <![endif]-->
+    {% if not WEBPACK_DEV_SERVER_URL %}
+    <link href="{% static 'css/App1.css' %}" rel="stylesheet" />
+    {% endif %}
     {% endblock css %}
 
     {% block extra_css %}
@@ -40,27 +38,23 @@
 
   </head>
   <body id="{% block body_id %}{% endblock body_id %}" class="{% block body_class %}{% endblock body_class %}" data-controller="{% block data_controller %}{% endblock data_controller %}" data-action="{% block data_action %}{% endblock data_action %}" data-spy="scroll" data-target=".navbar-fixed-top">
-      <div id="top"></div>
+    <div id="top"></div>
 
-      {% block body %}
-      {% block header %}
-      {% endblock header %}
-      {% block content %}
-      {% endblock content %}
-      {% block footer %}
-      {% endblock footer %}
-      {% endblock body %}
+    {% block body %}
+    {% block header %}
+    {% endblock header %}
+    {% block content %}
+    {% endblock content %}
+    {% block footer %}
+    {% endblock footer %}
+    {% endblock body %}
 
-      {% block js %}
-          {% if debug %}
-              <script src="{% static 'js/application.packages.min.js' %}"></script>
-              <script src="{% static 'js/application.js' %}"></script>
-          {% else %}
-              <script src="{% static 'js/application.production.min.js' %}"></script>
-          {% endif %}
-      {% endblock js %}
+    {% block js %}
+    {{ block.super }}
+    <script src="{{ WEBPACK_DEV_SERVER_URL|default:'' }}{% static 'js/App.js' %}"></script>
+    {% endblock js %}
 
-      {% block extra_js %}
-      {% endblock extra_js %}
+    {% block extra_js %}
+    {% endblock extra_js %}
   </body>
 </html>

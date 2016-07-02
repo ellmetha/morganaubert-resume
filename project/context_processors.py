@@ -26,3 +26,9 @@ def google_metadata(request):
     return {
         'google_site_verification_code': settings.GOOGLE_SITE_VERIFICATION_CODE,
     }
+
+
+def webpack(request):
+    return {
+        'WEBPACK_DEV_SERVER_URL': getattr(settings, 'WEBPACK_DEV_SERVER_URL', ''),
+    }

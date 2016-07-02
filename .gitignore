@@ -17,3 +17,5 @@ bower_components/
 node_modules/
 _build/
 npm-debug.log
+static/build_dev/*
+!static/build_dev/.gitkeep
