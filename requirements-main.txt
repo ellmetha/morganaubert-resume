@@ -1,4 +1,14 @@
-django==1.9.7
-django-meta==1.3
-mysqlclient==1.3.7
-python-dateutil==2.5.3
+django-meta==1.3 \
+    --hash=sha256:d17e95880b8265a0428930dfac04bdca29993e1a7319d53a8b273ad1bcb893ac \
+    --hash=sha256:db14196545f1ff791cfeef6bc9a2cb3f8ba06d998ae609d7f58a306fc1c87650
+mysqlclient==1.3.7 \
+    --hash=sha256:c54e3045e883fa7cfd20be61f112835d4f9fae07f8db057f6c0fa6816fe52a93 \
+    --hash=sha256:835faf2f26a2329c392ac20b14fc41ab0105b47b8b7126ed7058e8c56bfe05f4 \
+    --hash=sha256:c74a83b4cb2933d0e43370117eeebdfa03077ae72686d2df43d31879267f1f1b
+python-dateutil==2.5.3 \
+    --hash=sha256:1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed \
+    --hash=sha256:9d94861f04ce14f9a3d835206067c889b8f1244f1415035dadcf9c10066adf04 \
+    --hash=sha256:598499a75be2e5e18a66f12c00dd47a069de24794effeda4228bfc760f44f527
+Django==1.9.7 \
+    --hash=sha256:74676acbe69964f3aabfe5eb8697a2c82e6095d3fab57589eaab962a98575f58 \
+    --hash=sha256:2b29e81c8c32b3c0d9a0119217416887c480d927ae2630bada2da83078c93bf6
