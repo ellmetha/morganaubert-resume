@@ -37,7 +37,12 @@
     {% endblock extra_css %}
 
   </head>
-  <body id="{% block body_id %}{% endblock body_id %}" class="{% block body_class %}{% endblock body_class %}" data-controller="{% block data_controller %}{% endblock data_controller %}" data-action="{% block data_action %}{% endblock data_action %}" data-spy="scroll" data-target=".navbar-fixed-top">
+  <body
+      id="{% block body_id %}{% endblock body_id %}"
+      class="{% block body_class %}{% endblock body_class %}"
+      data-controller="{% block body_data_controller %}{% endblock body_data_controller %}"
+      data-action="{% block body_data_action %}{% endblock body_data_action %}"
+      {% block body_data_attributes %}{% endblock body_data_attributes %}>
     <div id="top"></div>
 
     {% block body %}
