@@ -2,10 +2,10 @@
 
 from django.conf import settings
 from django.conf.urls import include
-from django.conf.urls import patterns
 from django.conf.urls import url
 from django.contrib import admin
-from django.contrib.sitemaps import views
+from django.contrib.sitemaps import views as sitemaps_views
+from django.views import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 
@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^503/$', TemplateView.as_view(template_name='503.html')),
 
     # Sitemaps
-    url(r'^sitemap\.xml$', views.sitemap, {'sitemaps': sitemaps},
+    url(r'^sitemap\.xml$', sitemaps_views.sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),
 
     # Robots
@@ -46,17 +46,15 @@ urlpatterns = [
 if settings.DEBUG:
     # Add the Debug Toolbar’s URLs to the project’s URLconf
     import debug_toolbar
-    urlpatterns += patterns(
-        '',
+    urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
-    )
+    ]
 
     # In DEBUG mode, serve media files through Django.
     urlpatterns += staticfiles_urlpatterns()
     # Remove leading and trailing slashes so the regex matches.
     media_url = settings.MEDIA_URL.lstrip('/').rstrip('/')
-    urlpatterns += patterns(
-        '',
-        url(r'^%s/(?P<path>.*)$' % media_url, 'django.views.static.serve',
+    urlpatterns += [
+        url(r'^%s/(?P<path>.*)$' % media_url, static.serve,
             {'document_root': settings.MEDIA_ROOT}),
-    )
+    ]
