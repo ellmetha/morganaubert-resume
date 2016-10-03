@@ -13,6 +13,8 @@ public/media/*
 !public/media/.gitkeep
 public/static/*
 !public/static/.gitkeep
+public/*.txt
+!public/robots.txt
 bower_components/
 node_modules/
 _build/
