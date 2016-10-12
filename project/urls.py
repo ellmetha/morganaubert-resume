@@ -3,7 +3,6 @@
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
-from django.contrib import admin
 from django.contrib.sitemaps import views as sitemaps_views
 from django.views import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -13,18 +12,12 @@ from morganaubert.sitemaps import MorganaubertViewSitemap
 from morganaubert.views import HomeView
 
 
-# Admin autodiscover
-admin.autodiscover()
-
 sitemaps = {
     'static': MorganaubertViewSitemap,
 }
 
 # Patterns
 urlpatterns = [
-    # Admin
-    url(r'^' + settings.ADMIN_URL, include(admin.site.urls)),
-
     # Apps
     url(r'^$', HomeView.as_view(), name='home'),
 

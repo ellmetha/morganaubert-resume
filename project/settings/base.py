@@ -89,9 +89,6 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-# URL of the admin page
-ADMIN_URL = get_secret('ADMIN_URL')
-
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = str(PROJECT_PATH / 'public' / 'media')
@@ -185,7 +182,6 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.admin',
 
     # Third party apps
     'meta',
