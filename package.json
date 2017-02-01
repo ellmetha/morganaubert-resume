@@ -32,6 +32,6 @@
   },
   "scripts": {
     "bower": "bower",
-    "gulp": "cd tools && gulp"
+    "gulp": "gulp"
   }
 }

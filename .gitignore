@@ -7,7 +7,7 @@ __pycache__
 *.egg/
 dist
 docs/_build/
-secrets.json
+.env.json
 static/less/*.css
 public/media/*
 !public/media/.gitkeep
@@ -19,5 +19,5 @@ bower_components/
 node_modules/
 _build/
 npm-debug.log
-static/build_dev/*
-!static/build_dev/.gitkeep
+ma/static/build_dev/*
+!ma/static/build_dev/.gitkeep

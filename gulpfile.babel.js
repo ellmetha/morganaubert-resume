@@ -16,8 +16,7 @@ import webpackStream from 'webpack-stream';
 const PROD_ENV = gutil.env.production;
 
 /* Directories */
-var root_dir = '../';
-var static_dir = root_dir + 'static/';
+var static_dir = './ma/static/';
 var build_dir = PROD_ENV ? static_dir + 'build' : static_dir + 'build_dev';
 var less_dir = static_dir + 'less';
 var js_dir = static_dir + 'js';

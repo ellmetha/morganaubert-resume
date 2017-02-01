@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
@@ -11,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
 from meta.views import MetadataMixin
 
-from .mixins import CacheMixin
+from ma.common.viewmixins import CacheMixin
 
 
 class HomeView(CacheMixin, MetadataMixin, TemplateView):

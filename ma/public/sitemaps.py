@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from django.contrib import sitemaps
 from django.core.urlresolvers import reverse
 
