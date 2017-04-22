@@ -14,7 +14,20 @@ import pathlib
 
 from django.core.exceptions import ImproperlyConfigured
 
+
+# BASE DIRECTORIES
+# ------------------------------------------------------------------------------
+
+# Two base directories are considered for this project:
+# The PROJECT_PATH corresponds to the path towards the root of this project (the root of the
+# repository).
+# The INSTALL_PATH corresponds to the path towards the directory where the project's repository
+# is present on the filesystem.
+# By default INSTALL_PATH has the same than PROJECT_PATH.
+
 PROJECT_PATH = pathlib.Path(__file__).parents[2]
+INSTALL_PATH = pathlib.Path(os.environ.get('DJANGO_INSTALL_PATH')) \
+    if 'DJANGO_INSTALL_PATH' in os.environ else PROJECT_PATH
 
 
 # ENVIRONMENT SETTINGS HANDLING
