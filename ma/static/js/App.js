@@ -1,8 +1,8 @@
 import 'babel-polyfill';
 
 // Forces the evaluation of jQuery and Twitter Bootstrap code in the global context
-import '!!script!jquery/dist/jquery.min';
-import '!!script!bootstrap/dist/js/bootstrap.min';
+import '!!script-loader!jquery/dist/jquery.min';
+import '!!script-loader!bootstrap/dist/js/bootstrap.min';
 
 import controllers from './controllers';
 import DOMRouter from './core/DOMRouter';

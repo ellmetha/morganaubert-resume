@@ -3,6 +3,7 @@
 *.db
 __pycache__
 .coverage
+coverage/
 *.egg-info/
 *.egg/
 dist
@@ -21,3 +22,4 @@ _build/
 npm-debug.log
 ma/static/build_dev/*
 !ma/static/build_dev/.gitkeep
+.vaultpass
