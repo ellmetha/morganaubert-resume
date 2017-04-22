@@ -19,7 +19,7 @@ from .base import *  # noqa
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
 
-INSTALLED_APPS += (
+INSTALLED_APPS += (  # noqa: F405
     'debug_toolbar',
 )
 
@@ -27,7 +27,7 @@ INSTALLED_APPS += (
 # MIDDLEWARE CONFIGURATION
 # ------------------------------------------------------------------------------
 
-MIDDLEWARE += (
+MIDDLEWARE += (  # noqa: F405
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
@@ -50,9 +50,9 @@ MANAGERS = ()
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
 
-TEMPLATES[0]['OPTIONS']['context_processors'] += (
+TEMPLATES[0]['OPTIONS']['context_processors'] += (  # noqa: F405
     'ma_project.context_processors.webpack', )
-TEMPLATES[0]['OPTIONS']['loaders'] = (
+TEMPLATES[0]['OPTIONS']['loaders'] = (  # noqa: F405
     # Disables cached loader if any
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
@@ -63,9 +63,9 @@ TEMPLATES[0]['OPTIONS']['loaders'] = (
 # ------------------------------------------------------------------------------
 
 STATICFILES_DIRS = (
-    str(PROJECT_PATH / 'ma' / 'static' / 'build_dev'),
-    str(PROJECT_PATH / 'ma' / 'static' / 'build'),
-    str(PROJECT_PATH / 'ma' / 'static'),
+    str(PROJECT_PATH / 'ma' / 'static' / 'build_dev'),  # noqa: F405
+    str(PROJECT_PATH / 'ma' / 'static' / 'build'),  # noqa: F405
+    str(PROJECT_PATH / 'ma' / 'static'),  # noqa: F405
 )
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
@@ -74,7 +74,7 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # LOGGING CONFIGURATION
 # ------------------------------------------------------------------------------
 
-LOGGING['loggers'] = {
+LOGGING['loggers'] = {  # noqa: F405
     'django.request': {
         'handlers': ['console'],
         'level': 'ERROR',
