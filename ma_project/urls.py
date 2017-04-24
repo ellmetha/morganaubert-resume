@@ -3,6 +3,7 @@
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls import url
+from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView
 
 
@@ -12,8 +13,8 @@ urlpatterns = [
     url(r'^', include('ma.public.urls')),
 
     # Robots
-    url(r'^robots.txt$',
-        TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
+    url(r'^robots.txt$', cache_page(60 * 15)(
+        TemplateView.as_view(template_name='robots.txt', content_type='text/plain'))),
 ]
 
 if settings.DEBUG:
