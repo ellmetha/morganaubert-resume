@@ -9,6 +9,6 @@ isort = "*"
 
 [packages]
 django-meta = "*"
-mysqlclient = "*"
 python-dateutil = "*"
+psycopg2 = "*"
 Django = "*"
