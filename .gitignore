@@ -37,6 +37,7 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+coverage/
 .coverage
 .coverage.*
 .cache
@@ -105,3 +106,7 @@ npm-debug.log
 __snapshots__/
 /ma/static/build_dev/*
 !ma/static/build_dev/.gitkeep
+
+# Provisioning / deployments
+*.retry
+.vaultpass
