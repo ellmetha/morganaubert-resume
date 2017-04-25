@@ -37,7 +37,7 @@ ENVSETTINGS_FILENAME = '.env.json'
 ENVSETTINGS_NIL = object()
 
 # JSON-based environment module
-with open(os.environ.get('ENVSETTINGS_FILEPATH') or str(PROJECT_PATH / ENVSETTINGS_FILENAME)) as f:
+with open(os.environ.get('ENVSETTINGS_FILEPATH') or str(INSTALL_PATH / ENVSETTINGS_FILENAME)) as f:
     secrets = json.loads(f.read())
 
 
