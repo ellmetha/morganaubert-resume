@@ -1,0 +1,43 @@
+- name: Deploy the project
+  hosts: all
+  vars_files:
+    - vars/secrets.yml
+    - vars/project.yml
+
+  pre_tasks:
+
+    - name: Ensure that the target user exists
+      user:
+        name: "{{ project_username }}"
+        createhome: yes
+
+    - name: Ensure that the project path exists
+      file:
+        path: "{{ project_path }}"
+        state: directory
+        owner: "{{ project_username }}"
+
+  roles:
+
+    - role: common
+      common_fix_sudoers: yes
+      common_sudoers_file_to_remove: debian-cloud-init
+      tags: ['base', ]
+
+    - role: postgres-install
+
+    - role: nginx
+      nginx_delete_default_site: yes
+      nginx_catchall_enable: yes
+      nginx_override_conf: |
+        server_names_hash_bucket_size 128;
+
+    - role: gitpush-deploy
+      become: yes
+      become_user: "{{ project_username }}"
+
+    - role: django
+
+    - role: django-deploy
+      become: yes
+      become_user: "{{ project_username }}"

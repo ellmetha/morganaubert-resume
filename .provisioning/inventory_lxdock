@@ -1,0 +1,5 @@
+[lxdock]
+do-01 ansible_host=do-01
+
+[prod]
+do-01

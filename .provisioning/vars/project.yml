@@ -1,0 +1,36 @@
+project_username: resume
+project_path: /opt/resume
+
+common_extra_packages:
+  - python-tox
+
+django_name: resume
+django_user: "{{ project_username }}"
+django_requirements_file: "{{ django_project_path }}/requirements.freeze"
+django_src_path: "{{ django_project_path }}"
+django_domain_name: "{{ host_public_domain_name }}"
+django_disallow_robots: yes
+django_secret_key: "{{ secret__django_secret_key }}"
+django_env_variables:
+  DJANGO_INSTALL_PATH: "{{ django_path }}"
+django_settings_pattern: jsonsettings
+django_jsonsettings_properties:
+  SECRET_KEY: "{{ django_secret_key }}"
+  ADMIN_URL: admin/
+  DB_ENGINE: "{{ django_dbengine_name }}"
+  DB_NAME: "{{ django_dbname }}"
+  DB_USER: "{{ django_dbuser }}"
+  DB_PASSWORD: "{{ django_dbpass }}"
+  DB_HOST: ""
+  DB_PORT: ""
+  DB_OPTIONS: {}
+  ALLOWED_HOSTS: "['{{ django_domain_name }}', ] + {{ django_extra_domain_names|default([]) }}"
+  EMAIL_DEV: "{{ secret__django_secret_email_dev }}"
+  EMAIL_TEAM: "{{ secret__django_secret_email_team }}"
+  GOOGLE_SITE_VERIFICATION_CODE: "{{ secret__google_site_verification_code }}"
+
+gitpush_repo_path: "/opt/{{ django_name }}/gitrepo"
+gitpush_workdir_path: "/opt/{{ django_name }}/project"
+gitpush_local_repo_path: ../.git
+gitpush_owner: "{{ project_username }}"
+gitpush_group: "www-data"
