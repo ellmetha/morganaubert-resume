@@ -32,6 +32,11 @@
       nginx_override_conf: |
         server_names_hash_bucket_size 128;
 
+    - role: acme-nginx
+      acme_domains:
+        - "{{ host_public_domain_name }}"
+      when: host_enable_acme_ssl|default(False)
+
     - role: gitpush-deploy
       become: yes
       become_user: "{{ project_username }}"
