@@ -30,8 +30,8 @@ django_jsonsettings_properties:
   EMAIL_TEAM: "{{ secret__django_secret_email_team }}"
   GOOGLE_SITE_VERIFICATION_CODE: "{{ secret__google_site_verification_code }}"
 
-gitpush_repo_path: "/opt/{{ django_name }}/gitrepo"
-gitpush_workdir_path: "/opt/{{ django_name }}/project"
+gitpush_repo_path: "{{ project_path }}/gitrepo"
+gitpush_workdir_path: "{{ project_path }}/project"
 gitpush_local_repo_path: ../.git
 gitpush_owner: "{{ project_username }}"
 gitpush_group: "www-data"
