@@ -32,6 +32,14 @@
       nginx_override_conf: |
         server_names_hash_bucket_size 128;
 
+    - role: nginx-redirect
+      nginx_redirects:
+        - from: "{{ host_public_domain_name_redirect_from }}"
+          to: "{{ host_public_domain_name }}"
+          ssl: yes
+          ssl_conf_name: "{{ host_public_domain_name_redirect_ssl_conf_name }}"
+      when: "{{ host_is_the_real_thing }}"
+
     - role: acme-nginx
       acme_domains:
         - "{{ host_public_domain_name }}"

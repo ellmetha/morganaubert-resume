@@ -19,3 +19,6 @@
 [submodule ".provisioning/roles/acme-nginx"]
 	path = .provisioning/roles/acme-nginx
 	url = https://github.com/hsoft/ansible-acme-nginx
+[submodule ".provisioning/roles/nginx-redirect"]
+	path = .provisioning/roles/nginx-redirect
+	url = https://github.com/hsoft/ansible-nginx-redirect
