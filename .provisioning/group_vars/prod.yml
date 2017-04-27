@@ -1,3 +1,8 @@
 host_public_domain_name: www.morganaubert.name
 host_public_domain_name_redirect_from: morganaubert.name
-host_public_domain_name_redirect_ssl_conf_name: www.morganaubert.name
+
+host_acme_multi_domains:
+  - base_name: morganaubert.name
+    domains:
+      - morganaubert.name
+      - www.morganaubert.name

@@ -37,12 +37,10 @@
         - from: "{{ host_public_domain_name_redirect_from }}"
           to: "{{ host_public_domain_name }}"
           ssl: yes
-          ssl_conf_name: "{{ host_public_domain_name_redirect_ssl_conf_name }}"
       when: "{{ host_is_the_real_thing }}"
 
     - role: acme-nginx
-      acme_domains:
-        - "{{ host_public_domain_name }}"
+      acme_multi_domains: "{{ host_acme_multi_domains|default([]) }}"
       when: host_enable_acme_ssl|default(False)
 
     - role: gitpush-deploy
