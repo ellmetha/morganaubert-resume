@@ -120,11 +120,7 @@ TIME_ZONE = 'EST'
 LANGUAGE_CODE = 'en'
 
 # See https://docs.djangoproject.com/en/1.6/ref/settings/#allowed-hosts
-DOMAIN_NAME = 'morganaubert.name'
-ALLOWED_HOSTS = [
-    DOMAIN_NAME,
-    'www.{}'.format(DOMAIN_NAME),
-]
+ALLOWED_HOSTS = get_envsetting('ALLOWED_HOSTS')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
 USE_I18N = True
