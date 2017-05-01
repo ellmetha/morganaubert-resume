@@ -1,9 +1,0 @@
-- name: Sets up provisioned containers
-  hosts: all
-  become: yes
-  tasks:
-    - authorized_key:
-        user: root
-        key: "{{ item }}"
-      with_file:
-        - ~/.ssh/id_rsa.pub
