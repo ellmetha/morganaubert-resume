@@ -1,0 +1,5 @@
+[digitalocean]
+do-01 ansible_host=morganaubert.name
+
+[prod]
+do-01

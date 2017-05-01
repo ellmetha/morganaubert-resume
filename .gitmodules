@@ -7,9 +7,6 @@
 [submodule ".provisioning/roles/postgres-install"]
 	path = .provisioning/roles/postgres-install
 	url = https://github.com/savoirfairelinux/ansible-postgres-install
-[submodule ".provisioning/roles/gitpush-deploy"]
-	path = .provisioning/roles/gitpush-deploy
-	url = https://github.com/savoirfairelinux/ansible-gitpush-deploy
 [submodule ".provisioning/roles/django"]
 	path = .provisioning/roles/django
 	url = https://github.com/savoirfairelinux/ansible-django

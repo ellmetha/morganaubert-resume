@@ -4,19 +4,6 @@
     - vars/secrets.yml
     - vars/project.yml
 
-  pre_tasks:
-
-    - name: Ensure that the target user exists
-      user:
-        name: "{{ project_username }}"
-        createhome: yes
-
-    - name: Ensure that the project path exists
-      file:
-        path: "{{ project_path }}"
-        state: directory
-        owner: "{{ project_username }}"
-
   roles:
 
     - role: common
@@ -32,23 +19,22 @@
       nginx_override_conf: |
         server_names_hash_bucket_size 128;
 
-    - role: nginx-redirect
-      nginx_redirects:
-        - from: "{{ host_public_domain_name_redirect_from }}"
-          to: "{{ host_public_domain_name }}"
-          ssl: yes
-      when: "{{ host_is_the_real_thing }}"
-
     - role: acme-nginx
-      acme_multi_domains: "{{ host_acme_multi_domains|default([]) }}"
+      acme_domains:
+        - "{{ host_public_domain_name }}"
+      # acme_multi_domains: "{{ host_acme_multi_domains }}"
       when: host_enable_acme_ssl|default(False)
-
-    - role: gitpush-deploy
-      become: yes
-      become_user: "{{ project_username }}"
+      tags: ['acme', ]
 
     - role: django
 
     - role: django-deploy
       become: yes
-      become_user: "{{ project_username }}"
+      become_user: "{{ django_user }}"
+
+    # - role: nginx-redirect
+    #   nginx_redirects:
+    #     - from: "{{ host_public_domain_name_redirect_from }}"
+    #       to: "{{ host_public_domain_name }}"
+    #       ssl: yes
+    #   when: host_is_the_real_thing

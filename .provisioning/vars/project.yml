@@ -1,15 +1,15 @@
-project_username: resume
-project_path: /opt/resume
+---
 
 common_extra_packages:
   - python-tox
 
 django_name: resume
-django_user: "{{ project_username }}"
+django_path: "/webapps/{{ django_name }}"
 django_requirements_file: "{{ django_project_path }}/requirements.freeze"
 django_src_path: "{{ django_project_path }}"
 django_domain_name: "{{ host_public_domain_name }}"
-django_disallow_robots: yes
+django_disallow_robots: no
+django_project_repo_url: https://github.com/ellmetha/morganaubert-resume.git
 django_secret_key: "{{ secret__django_secret_key }}"
 django_ssl_only: yes
 django_env_variables:
@@ -29,9 +29,3 @@ django_jsonsettings_properties:
   EMAIL_DEV: "{{ secret__django_secret_email_dev }}"
   EMAIL_TEAM: "{{ secret__django_secret_email_team }}"
   GOOGLE_SITE_VERIFICATION_CODE: "{{ secret__google_site_verification_code }}"
-
-gitpush_repo_path: "{{ project_path }}/gitrepo"
-gitpush_workdir_path: "{{ project_path }}/project"
-gitpush_local_repo_path: ../.git
-gitpush_owner: "{{ project_username }}"
-gitpush_group: "www-data"
