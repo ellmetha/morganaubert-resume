@@ -22,19 +22,22 @@
     - role: acme-nginx
       acme_domains:
         - "{{ host_public_domain_name }}"
-      # acme_multi_domains: "{{ host_acme_multi_domains }}"
+        - "{{ host_public_domain_name_redirect_from }}"
       when: host_enable_acme_ssl|default(False)
       tags: ['acme', ]
 
     - role: django
+      tags: ['django', ]
 
     - role: django-deploy
       become: yes
       become_user: "{{ django_user }}"
+      tags: ['django', ]
 
-    # - role: nginx-redirect
-    #   nginx_redirects:
-    #     - from: "{{ host_public_domain_name_redirect_from }}"
-    #       to: "{{ host_public_domain_name }}"
-    #       ssl: yes
-    #   when: host_is_the_real_thing
+    - role: nginx-redirect
+      nginx_redirects:
+        - from: "{{ host_public_domain_name_redirect_from }}"
+          to: "{{ host_public_domain_name }}"
+          ssl: yes
+      when: host_is_the_real_thing
+      tags: ['redirect', ]
