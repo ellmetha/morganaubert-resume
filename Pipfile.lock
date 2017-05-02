@@ -12,7 +12,7 @@
         ]
     },
     "default": {
-        "Django": {
+        "django": {
             "hash": "sha256:0120b3b60760fb0617848b58aaa9702c0bf963320ed472f0879c5c55ab75b64a",
             "version": "==1.11"
         },
@@ -21,7 +21,7 @@
             "version": "==1.3.2"
         },
         "psycopg2": {
-            "hash": "sha256:4cae3856e9b41a4861ad32fd8a4aabc7669a0b828776bb3ce0ca29333dabf40c",
+            "hash": "sha256:74ee532d6068a1456d5eda254513656c716cdee0a7389c91c094c7ce3500a9c9",
             "version": "==2.7.1"
         },
         "python-dateutil": {
@@ -38,7 +38,7 @@
         }
     },
     "develop": {
-        "Django": {
+        "django": {
             "hash": "sha256:0120b3b60760fb0617848b58aaa9702c0bf963320ed472f0879c5c55ab75b64a",
             "version": "==1.11"
         },
