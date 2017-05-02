@@ -1,4 +1,7 @@
-.PHONY: init lint isort
+.PHONY: devserver init lint isort
+
+devserver:
+	pipenv run python manage.py runserver --settings=ma_project.settings.dev
 
 init:
 	pip install pipenv
