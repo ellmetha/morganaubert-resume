@@ -29,11 +29,6 @@
     - role: django
       tags: ['django', ]
 
-    - role: django-deploy
-      become: yes
-      become_user: "{{ django_user }}"
-      tags: ['django', ]
-
     - role: nginx-redirect
       nginx_redirects:
         - from: "{{ host_public_domain_name_redirect_from }}"

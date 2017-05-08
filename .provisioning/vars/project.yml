@@ -6,22 +6,20 @@ common_extra_packages:
 django_name: resume
 django_path: "/webapps/{{ django_name }}"
 django_requirements_file: "{{ django_project_path }}/requirements.freeze"
-django_src_path: "{{ django_project_path }}"
 django_domain_name: "{{ host_public_domain_name }}"
 django_disallow_robots: no
 django_project_repo_url: https://github.com/ellmetha/morganaubert-resume.git
-django_secret_key: "{{ secret__django_secret_key }}"
 django_ssl_only: yes
 django_env_variables:
   DJANGO_INSTALL_PATH: "{{ django_path }}"
 django_settings_pattern: jsonsettings
 django_jsonsettings_properties:
-  SECRET_KEY: "{{ django_secret_key }}"
+  SECRET_KEY: "{{ secret__django_secret_key }}"
   ADMIN_URL: admin/
-  DB_ENGINE: "{{ django_dbengine_name }}"
-  DB_NAME: "{{ django_dbname }}"
-  DB_USER: "{{ django_dbuser }}"
-  DB_PASSWORD: "{{ django_dbpass }}"
+  DB_ENGINE: "django.db.backends.postgresql_psycopg2"
+  DB_NAME: "{{ django_db_name }}"
+  DB_USER: "{{ django_db_user }}"
+  DB_PASSWORD: "{{ django_db_password }}"
   DB_HOST: ""
   DB_PORT: ""
   DB_OPTIONS: {}
