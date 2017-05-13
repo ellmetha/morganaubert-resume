@@ -1,4 +1,4 @@
-[digitalocean]
+[target_realthing]
 do-01 ansible_host=morganaubert.name
 
 [prod]
