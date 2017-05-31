@@ -1,13 +1,15 @@
 machine:
   python:
     version: 3.6.1
+  node:
+    version: 7.10.0
 
 dependencies:
   pre:
     - pip install pipenv
     - pipenv install --dev
-    - npm install
-    - npm run bower - install
+    - npm install --dev
+    - npm run bower -- install
 
 test:
   override:
