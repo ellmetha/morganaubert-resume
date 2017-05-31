@@ -11,16 +11,9 @@ dependencies:
     - pipenv install --dev
     - npm install --dev
     - npm run bower -- install
-    - echo $ANSIBLE_VAULT_PASSWORD > ~/.vaultpass
 
 test:
   override:
     - make lint
     - make isort
     - npm run lint
-
-deployment:
-  prod:
-    branch: master
-    commands:
-      - ansible-playbook -i .provisioning/inventory .provisioning/deploy.yml --vault-password-file ~/.vaultpass
