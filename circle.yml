@@ -1,0 +1,16 @@
+machine:
+  python:
+    version: 3.6.1
+
+dependencies:
+  pre:
+    - pip install pipenv
+    - pipenv install --dev
+    - npm install
+    - npm run bower - install
+
+test:
+  override:
+    - make lint
+    - make isort
+    - npm run lint
