@@ -25,7 +25,7 @@ MIDDLEWARE += ('django.middleware.security.SecurityMiddleware', )  # noqa: F405
 # ------------------------------------------------------------------------------
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-SECURE_HSTS_SECONDS
-SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_SECONDS = 31536000
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-SECURE_HSTS_INCLUDE_SUBDOMAINS  # noqa
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
