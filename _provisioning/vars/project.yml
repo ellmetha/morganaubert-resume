@@ -5,6 +5,7 @@ common_extra_packages:
 
 django_name: resume
 django_path: "/webapps/{{ django_name }}"
+django_touch_reload_path: "{{ django_path }}/.uwsgi_touch"
 django_requirements_file: "{{ django_project_path }}/requirements.freeze"
 django_domain_name: "{{ host_public_domain_name }}"
 django_disallow_robots: no
