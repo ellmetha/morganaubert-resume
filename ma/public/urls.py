@@ -1,8 +1,7 @@
 from django.conf.urls import url
 from django.contrib.sitemaps import views as sitemaps_views
 
-from . import sitemaps
-from . import views
+from . import sitemaps, views
 
 
 sitemaps = {

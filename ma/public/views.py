@@ -1,9 +1,7 @@
 from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
-from django.utils.timezone import get_default_timezone
-from django.utils.timezone import make_aware
-from django.utils.timezone import now
+from django.utils.timezone import get_default_timezone, make_aware, now
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ugettext
 from django.views.generic import TemplateView
