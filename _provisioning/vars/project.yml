@@ -12,6 +12,7 @@ django_project_repo_url: https://github.com/ellmetha/morganaubert-resume.git
 django_ssl_only: yes
 django_env_variables:
   DJANGO_INSTALL_PATH: "{{ django_path }}"
+  DJANGO_SETTINGS_MODULE: "ma_project.settings.prod"
 django_settings_pattern: jsonsettings
 django_jsonsettings_properties:
   SECRET_KEY: "{{ secret__django_secret_key }}"
