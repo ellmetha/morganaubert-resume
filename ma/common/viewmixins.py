@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.views.decorators.cache import cache_page
 
 
@@ -9,4 +10,5 @@ class CacheMixin(object):
 
     def dispatch(self, *args, **kwargs):
         return cache_page(
-            self.get_cache_timeout())(super(CacheMixin, self).dispatch)(*args, **kwargs)
+            self.get_cache_timeout())(super(CacheMixin, self).dispatch)(*args, **kwargs) \
+            if not settings.DEBUG else super(CacheMixin, self).dispatch(*args, **kwargs)
