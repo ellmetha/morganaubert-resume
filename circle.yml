@@ -9,8 +9,7 @@ dependencies:
     - pip install ansible pipenv
     - pip install --upgrade setuptools
     - pipenv install --dev
-    - npm install --dev
-    - npm run bower -- install
+    - npm install
 
 test:
   override:
