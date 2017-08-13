@@ -1,17 +1,23 @@
 /* eslint-env browser, jquery */
 
 import ScrollReveal from 'scrollreveal/dist/scrollreveal';
-import jQueryEasing from 'jquery.easing/js/jquery.easing.min'; // eslint-disable-line no-unused-vars
+import jQueryEasing from 'jquery.easing/jquery.easing.min'; // eslint-disable-line no-unused-vars
 
 
 export default {
   init() {
+    // Hide collapse menu on mobile when a menu item is clicked
+    const navMain = $('.navbar-collapse');
+    navMain.on('click', 'a:not([data-toggle])', null, () => {
+      navMain.collapse('hide');
+    });
+
     // Collapse the navbar on scroll
     $(window).scroll(() => {
       if ($('.navbar').offset().top > 50) {
-        $('.navbar-fixed-top').addClass('top-nav-collapse');
+        $('.fixed-top').addClass('top-nav-collapse');
       } else {
-        $('.navbar-fixed-top').removeClass('top-nav-collapse');
+        $('.fixed-top').removeClass('top-nav-collapse');
       }
     });
 
@@ -40,8 +46,11 @@ export default {
         ev.preventDefault();
       });
 
-      $('.navbar-nav').on('activate.bs.scrollspy', () => {
-        const anchorId = $('.navbar-nav li.active > a').attr('href');
+      $('[data-spy="scroll"]').each(function refreshScrollSpy() {
+        $(this).scrollspy('refresh');
+      });
+      $(window).on('activate.bs.scrollspy', () => {
+        const anchorId = $('.navbar-nav li > a.active').attr('href');
         updateNavbarBorder(anchorId, 200);
       });
 

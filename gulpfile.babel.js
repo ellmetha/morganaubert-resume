@@ -23,7 +23,7 @@ env.set({ NODE_ENV: PROD_ENV ? 'production' : 'debug' });
 
 /* Directories */
 const buildDir = PROD_ENV ? `${staticDir}build` : `${staticDir}build_dev`;
-const lessDir = `${staticDir}less`;
+const sassDir = `${staticDir}sass`;
 const jsDir = `${staticDir}js`;
 
 
@@ -37,26 +37,27 @@ const webpackConfig = {
     filename: 'js/[name].js',
   },
   resolve: {
-    modules: ['bower_components', 'node_modules', ],
-    extensions: ['.webpack.js', '.web.js', '.js', '.jsx', '.json', 'less'],
+    modules: ['node_modules'],
+    extensions: ['.webpack.js', '.web.js', '.js', '.jsx', '.json', 'scss'],
   },
   module: {
     rules: [
       { test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },
-      { test: /\.less$/,
+      { test: /\.scss$/,
         use: ExtractTextPlugin.extract(
-            { use: ['css-loader', 'less-loader'], fallback: 'style-loader', publicPath: '../' }) },
+            { use: ['css-loader', 'sass-loader'], fallback: 'style-loader', publicPath: '../' }) },
       { test: /\.txt$/, use: 'raw-loader' },
       { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, use: 'url-loader?limit=10000' },
       { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, use: 'file-loader' },
     ],
   },
-  externals: {
-    // require("jquery") is external and available
-    // on the global var jQuery
-    'jquery': 'jQuery'
-},
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default'],
+    }),
     new ExtractTextPlugin({ filename: 'css/[name].css', disable: false }),
     ...(PROD_ENV ? [
       new webpack.LoaderOptionsPlugin({
@@ -77,7 +78,7 @@ const webpackConfig = {
 
 /* Task to build our JS and CSS applications. */
 gulp.task('build-webpack-assets', () =>
-  gulp.src([`${jsDir}/App.js`, `${lessDir}/App.less`])
+  gulp.src([`${jsDir}/App.js`, `${sassDir}/App.scss`])
     .pipe(named())
     .pipe(webpackStream(webpackConfig, webpack))
     .pipe(gulp.dest(buildDir)),
@@ -103,7 +104,7 @@ gulp.task('webpack-dev-server', () => {
   devWebpackConfig.devServer = { hot: true };
   devWebpackConfig.entry = {
     App: [
-      `${jsDir}/App.js`, `${lessDir}/App.less`,
+      `${jsDir}/App.js`, `${sassDir}/App.scss`,
       `webpack-dev-server/client?http://localhost:${WEBPACK_DEV_SERVER_PORT}`,
       'webpack/hot/only-dev-server',
     ],
@@ -111,7 +112,7 @@ gulp.task('webpack-dev-server', () => {
   devWebpackConfig.module = {
     rules: [
       { test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },
-      { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
       { test: /\.txt$/, use: 'raw-loader' },
       { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, use: 'url-loader?limit=10000' },
       { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, use: 'file-loader' },
@@ -123,6 +124,9 @@ gulp.task('webpack-dev-server', () => {
     filename: 'js/[name].js',
   };
   devWebpackConfig.plugins = [
+    new webpack.ProvidePlugin({
+      $: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery', Popper: ['popper.js', 'default'],
+    }),
     new webpack.LoaderOptionsPlugin({ debug: true }),
     new webpack.HotModuleReplacementPlugin(),
   ];
@@ -131,6 +135,7 @@ gulp.task('webpack-dev-server', () => {
   new WebpackDevServer(webpack(devWebpackConfig), {
     contentBase: path.resolve(__dirname, staticDir, '..'),
     publicPath: '/static/',
+    headers: { 'Access-Control-Allow-Origin': '*' },
     hot: true,
     inline: true,
   }).listen(WEBPACK_DEV_SERVER_PORT, 'localhost', (err) => {

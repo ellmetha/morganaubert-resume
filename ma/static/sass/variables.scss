@@ -7,43 +7,43 @@
 //
 //## Gray and brand colors for use across Bootstrap.
 
-@gray-darker:            lighten(#000, 13.5%); // #222
-@gray-dark:              lighten(#000, 20%);   // #333
-@gray:                   lighten(#000, 33.5%); // #555
-@gray-light:             lighten(#000, 60%);   // #999
-@gray-lighter:           lighten(#000, 93.5%); // #eee
+$gray-darker:            lighten(#000, 13.5%); // #222
+$gray-dark:              lighten(#000, 20%);   // #333
+$gray:                   lighten(#000, 33.5%); // #555
+$gray-light:             lighten(#000, 60%);   // #999
+$gray-lighter:           lighten(#000, 93.5%); // #eee
 
-@brand-primary:         #428bca;
-@brand-success:         #5cb85c;
-@brand-info:            #5bc0de;
-@brand-warning:         #f0ad4e;
-@brand-danger:          #d9534f;
+$brand-primary:         #428bca;
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
 
 
 // Default colors
 //
 // ## Some default colors...
 
-@black:                 #000;
-@white:                 #fff;
-@blue:                  #049cdb;
-@blue-dark:              #0064cd;
-@green:                 #46a546;
-@green-light:			#7ac143;
-@red:                   #9d261d;
-@yellow:                #ffc40d;
-@orange:                #f89406;
-@pink:                  #c3325f;
-@purple:                #7a43b6;
+$black:                 #000;
+$white:                 #fff;
+$blue:                  #049cdb;
+$blue-dark:             #0064cd;
+$green:                 #46a546;
+$green-light:           #7ac143;
+$red:                   #9d261d;
+$yellow:                #ffc40d;
+$orange:                #f89406;
+$pink:                  #c3325f;
+$purple:                #7a43b6;
 
 
 // Custom colors
 //
 // ## Add custom colors here...
 
-@morganaubert-beige:     #e5dad0;
-@morganaubert-green:	 #19bb9b;
-@morganaubert-white:     #FEFEFE;
+$morganaubert-beige:     #e5dad0;
+$morganaubert-green:	 #19bb9b;
+$morganaubert-white:     #FEFEFE;
 
 
 //== Typography
@@ -107,6 +107,6 @@
     font-style: italic;
 }
 
-@opensans-font-family:		"OpenSans", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-@opensanslight-font-family:		"OpenSansLight", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-@ptserif-font-family:		"PTSerif", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+$opensans-font-family: "OpenSans", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+$opensanslight-font-family: "OpenSansLight", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+$ptserif-font-family: "PTSerif", Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;

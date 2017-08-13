@@ -2,17 +2,17 @@
 // --
 
 
-.navbar-morganaubert{
+.navbar.navbar-morganaubert{
   margin-bottom: 0;
-  border-bottom: 1px solid fade(@gray-lighter, 30%);
+  border-bottom: 1px solid fade-out($gray-lighter, 0.7);
   text-transform: uppercase;
-  background-color: @gray-darker;
+  background-color: $gray-darker;
 
   .navbar-brand{
     padding: 11px;
     text-transform: none;
-    font: 1.3em @ptserif-font-family;
-    color: @white;
+    font: 1.3em $ptserif-font-family;
+    color: $white;
 
     &:focus{
       outline: none;
@@ -24,35 +24,33 @@
     }
   }
 
-  .navbar-toggle{
+  .navbar-toggler{
     padding: 4px 6px;
     font-size: 16px;
-    color: @gray-lighter;
+    color: $gray-lighter;
 
     &:focus, &:active{
       outline: none;
     }
   }
 
-  a{
-    color: @gray-lighter;
-  }
-
-  .nav{
-    li{
+  .navbar-nav{
+    li.nav-item{
       &.active{
         outline: none;
-        background-color: fade(@morganaubert-green, 30%);
+        background-color: fade-out($morganaubert-green, 0.7);
       }
 
-      a{
+      a.nav-link{
+        padding: 15px;
         -webkit-transition: background .3s ease-in-out;
         -moz-transition: background .3s ease-in-out;
         transition: background .3s ease-in-out;
+        color: $gray-lighter;
 
         &:hover, &:focus, &.active{
           outline: none;
-          background-color: fade(@morganaubert-green, 30%);
+          background-color: fade-out($morganaubert-green, 0.7);
         }
       }
     }
@@ -66,9 +64,9 @@ header#intro{
   height: 100%;
   padding: 100px 0;
   text-align: center;
-  color: @gray-lighter;
-  background: url('../../img/bg.gif') no-repeat bottom center scroll;
-  background-color: @gray-darker;
+  color: $gray-lighter;
+  background: url('../img/bg.gif') no-repeat bottom center scroll;
+  background-color: $gray-darker;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -79,7 +77,7 @@ header#intro{
     top: 0;
     width: 100%;
     height: 100%;
-    background: @gray-darker;
+    background: $gray-darker;
     opacity: 0.5;
   }
 
@@ -91,14 +89,14 @@ header#intro{
     .brand-heading{
       margin-bottom: 25px;
       display: inline-block;
-      border-bottom: 1px solid @morganaubert-green;
-      font: 4.3em/2em @ptserif-font-family;
+      border-bottom: 1px solid $morganaubert-green;
+      font: 4.3em/2em $ptserif-font-family;
 
     }
 
     .intro-text{
-      font : 300 23px @opensanslight-font-family;
-      color: @white;
+      font : 300 23px $opensanslight-font-family;
+      color: $white;
     }
   }
 
@@ -108,17 +106,18 @@ header#intro{
     width: 70px;
     height: 70px;
     background: none;
-    border: 2px solid @white;
-    .rounded(50%);
+    border: 2px solid $white;
+    @include rounded(50%);
     font-size: 40px;
-    color: @morganaubert-green;
+    color: $morganaubert-green;
     background: none;
-    .transition(all .5s ease-in-out);
+    @include transition(.5s, ease-in-out);
 
     &:hover, &:focus{
       outline: none;
-      color: @white;
-      background: fade(@white, 10%);
+      color: $white;
+      background: fade-out($white, 0.9);
+      box-shadow: none;
     }
   }
 }
@@ -132,15 +131,15 @@ section.content-section{
         margin: 0 auto;
         width: 200px;
         height: 200px;
-        border: 12px solid @morganaubert-beige;
-        .rounded(50%);
+        border: 12px solid $morganaubert-beige;
+        @include rounded(50%);
 
         img.avatar{
           margin-top: -1px;
           margin-left: -1px;
           width: 178px;
           height: 178px;
-          .rounded(50%);
+          @include rounded(50%);
         }
       }
     }
@@ -150,15 +149,15 @@ section.content-section{
     .content{
       p {
         a{
-          font-family: @opensans-font-family;
+          font-family: $opensans-font-family;
           font-weight: 500;
-          color: @gray-lighter;
+          color: $gray-lighter;
         }
       }
 
       .diploma-title, .job-title{
         margin: 10px 0;
-        font: 1em/1.3em @opensanslight-font-family;
+        font: 1em/1.3em $opensanslight-font-family;
         font-weight: bold;
       }
 
@@ -168,18 +167,18 @@ section.content-section{
           margin-bottom: 5px;
           padding: 2px 5px;
           display: inline-block;
-          background: fade(@black, 10%);
-          .rounded(3px);
-          font: 0.9em/1.25 @opensanslight-font-family;
-          color: @gray-lighter;
+          background: fade-out($black, 0.9);
+          @include rounded(3px);
+          font: 0.9em/1.25 $opensanslight-font-family;
+          color: $gray-lighter;
         }
       }
 
       .metadata{
-        color: @white;
+        color: $white;
 
         a{
-          color: @white;
+          color: $white;
         }
       }
     }
@@ -195,7 +194,7 @@ section.content-section{
         float: right;
 
         i{
-          color: @morganaubert-green;
+          color: $morganaubert-green;
         }
       }
     }
@@ -207,13 +206,13 @@ section.content-section{
         margin: 0 auto;
         width: 140px;
         height: 140px;
-        background: @white;
-        .rounded(50%);
+        background: $white;
+        @include rounded(50%);
 
         i.fa.huge{
 	        font-size: 80px;
 	        line-height: 140px;
-	        color: @morganaubert-green;
+	        color: $morganaubert-green;
         }
       }
 
@@ -233,19 +232,19 @@ section.content-section{
     .content{
       a.mailto{
         display: block;
-        font: 1.8em/2em @opensanslight-font-family;
+        font: 1.8em/2em $opensanslight-font-family;
         text-align: center;
         letter-spacing: 3px;
-        color: @gray-lighter;
-        .transition(color .5s ease-in-out);
+        color: $gray-lighter;
+        @include transition(.5s, ease-in-out);
 
         &:hover, &:focus{
           text-decoration: none;
-          color: @morganaubert-green;
+          color: $morganaubert-green;
         }
 
         i.fa{
-          color: @morganaubert-green;
+          color: $morganaubert-green;
         }
       }
 
@@ -258,11 +257,11 @@ section.content-section{
           margin: 0 25px;
           display: inline-block;
           font-size: 36px;
-          color: @white;
-          .transition(color .5s ease-in-out);
+          color: $white;
+          @include transition(.5s, ease-in-out);
 
           &:hover, &:focus{
-            color: @morganaubert-green;
+            color: $morganaubert-green;
           }
         }
       }
@@ -273,7 +272,7 @@ section.content-section{
       bottom: 10px;
       width: 100%;
       text-align: center;
-      color: @gray;
+      color: $gray;
     }
   }
 
@@ -284,22 +283,22 @@ section.content-section{
     h2{
       margin-top: 0;
       margin-bottom: 20px;
-      font: 3.6em/2em @opensanslight-font-family;
+      font: 3.6em/2em $opensanslight-font-family;
       line-height: 1.2em;
-      color: @morganaubert-green;
+      color: $morganaubert-green;
     }
 
     h3{
       margin-top: 0;
-      font: 1.8em/2em @opensanslight-font-family;
+      font: 1.8em/2em $opensanslight-font-family;
       line-height: 1.2em;
-      color: @morganaubert-green;
+      color: $morganaubert-green;
     }
 
     h4{
-      font: 1em/1.2em @opensans-font-family;
+      font: 1em/1.2em $opensans-font-family;
       font-weight: bold;
-      color: @morganaubert-green;
+      color: $morganaubert-green;
     }
 
     hr{
@@ -317,19 +316,19 @@ section.content-section{
   section.content-section{
     .content{
       p{
-        color: @gray-lighter;
+        color: $gray-lighter;
       }
 
       h2{
-        color: @white;
+        color: $white;
       }
 
       h3{
-        color: @white;
+        color: $white;
       }
 
       h4{
-        color: @white;
+        color: $white;
       }
     }
   }
@@ -339,30 +338,30 @@ section.content-section{
   section.content-section{
     .content{
       p{
-        color: @gray-light;
+        color: $gray-light;
       }
 
       h2{
-        color: @gray-lighter;
+        color: $gray-lighter;
       }
 
       h3{
-        color: @gray-lighter;
+        color: $gray-lighter;
       }
 
       h4{
-        color: @gray-lighter;
+        color: $gray-lighter;
       }
 
       hr{
-        border-color: @gray;
+        border-color: $gray;
       }
     }
   }
 }
 
 
-@media (min-width: @screen-md-min) and (max-width: @screen-md-max){
+@include media-breakpoint-only(md){
   section.content-section{
     &#interests{
       .content{
@@ -376,7 +375,20 @@ section.content-section{
   }
 }
 
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max){
+@include media-breakpoint-only(sm){
+  .navbar.navbar-morganaubert{
+    padding: 0;
+    background: $gray-dark !important;
+
+    .navbar-nav{
+      li.nav-item{
+        a.nav-link{
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+
   section.content-section{
     &#about{
       .avatar-wrapper{
@@ -388,7 +400,7 @@ section.content-section{
     &#resume{
       .content{
         h4{
-	        font: 1.2em/1.2em @opensans-font-family;
+	        font: 1.2em/1.2em $opensans-font-family;
 	        font-weight: bold;
         }
       }
@@ -406,11 +418,24 @@ section.content-section{
   }
 }
 
-@media (max-width: @screen-xs-max){
+@media (max-width:575px){
+  .navbar.navbar-morganaubert{
+    padding: 0;
+    background: $gray-dark !important;
+
+    .navbar-nav{
+      li.nav-item{
+        a.nav-link{
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+
   header#intro{
     .intro-body{
       h1.brand-heading{
-        font: 2.2em/2em @ptserif-font-family;
+        font: 2.2em/2em $ptserif-font-family;
       }
     }
   }
@@ -442,7 +467,7 @@ section.content-section{
     &#contact{
       .content{
         a.mailto{
-          font: 1.2em/2em @opensanslight-font-family;
+          font: 1.2em/2em $opensanslight-font-family;
 
           i{
             margin-bottom: 10px;
@@ -465,30 +490,30 @@ section.content-section{
   }
 }
 
-@media(min-width:767px){
+@include media-breakpoint-up(sm){
   .navbar{
     padding: 20px 0;
-    border-bottom: none;
+    border-bottom: none !important;
     letter-spacing: 1px;
-    background: transparent;
-    .transition(all .5s ease-in-out);
+    background: transparent !important;
+    @include transition(.5s, ease-in-out);
   }
 
   .top-nav-collapse{
     padding: 0;
-    background-color: @gray-dark;
+    background-color: $gray-dark !important;
   }
 
   .navbar-morganaubert.top-nav-collapse{
-    border-bottom: 2px solid @morganaubert-green;
-    .transition(all .5s ease-in-out);
+    border-bottom: 2px solid $morganaubert-green !important;
+    @include transition(.5s, ease-in-out);
 
     &.anchor-top, &.anchor-profile, &.anchor-skills{
-      border-bottom: 2px solid @morganaubert-green;
+      border-bottom: 2px solid $morganaubert-green !important;
     }
 
     &.anchor-resume, &.anchor-interests, &.anchor-contact{
-      border-bottom: 2px solid @morganaubert-white;
+      border-bottom: 2px solid $morganaubert-white !important;
     }
   }
 }

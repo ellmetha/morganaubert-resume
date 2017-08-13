@@ -6,38 +6,37 @@
 
 {% block body_id %}id_home{% endblock body_id %}
 {% block body_data_controller %}home{% endblock body_data_controller %}
-{% block body_data_attributes %}data-spy="scroll" data-target=".navbar-fixed-top"{% endblock body_data_attributes %}
+{% block body_data_attributes %}data-spy="scroll" data-target=".fixed-top"{% endblock body_data_attributes %}
 
 {% block body %}
 <!-- Navigation -->
-<nav class="navbar navbar-morganaubert navbar-fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navbar-morganaubert">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"><i class="fa fa-bars"></i></button>
-      <a class="navbar-brand goto" href="#top"><img src="{% static 'img/m.svg' %}" alt="M" width="20" height="20" />&nbsp;&nbsp;<span class="light">Morgan</span>&nbsp;Aubert</a>
-    </div>
-    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-      <ul class="nav navbar-nav">
+    <a class="navbar-brand goto" href="#top"><img src="{% static 'img/m.svg' %}" alt="M" width="20" height="20" />&nbsp;&nbsp;<span class="light">Morgan</span>&nbsp;Aubert</a>
+    <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
         <li class="hidden"><a href="#top"></a></li>
-        <li><a class="goto" href="#about">{% trans "About" %}</a></li>
-        <li><a class="goto" href="#resume">{% trans "Resume" %}</a></li>
-        <li><a class="goto" href="#skills">{% trans "Skills" %}</a></li>
-        <li><a class="goto" href="#interests">{% trans "Interests" %}</a></li>
-        <li><a class="goto" href="#contact">{% trans "Contact" %}</a></li>
+        <li class="nav-item"><a class="nav-link goto" href="#about">{% trans "About" %}</a></li>
+        <li class="nav-item"><a class="nav-link goto" href="#resume">{% trans "Resume" %}</a></li>
+        <li class="nav-item"><a class="nav-link goto" href="#skills">{% trans "Skills" %}</a></li>
+        <li class="nav-item"><a class="nav-link goto" href="#interests">{% trans "Interests" %}</a></li>
+        <li class="nav-item"><a class="nav-link goto" href="#contact">{% trans "Contact" %}</a></li>
       </ul>
     </div>
-    <!-- /.navbar-collapse -->
   </div>
-  <!-- /.container -->
 </nav>
 
+<!-- Intro section -->
 <header id="intro">
   <div class="overlay"></div>
   <div class="intro-body">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-lg-8 ml-auto mr-auto">
           <h1 class="brand-heading">Morgan Aubert</h1>
           <p class="intro-text">A self taught, French born Software Engineer</p>
           <a href="#about" class="btn btn-scroll goto"><i class="fa fa-angle-double-down"></i></a>
@@ -50,7 +49,7 @@
 <!-- Profile section -->
 <section id="about" class="container content-section" itemscope itemtype="http://data-vocabulary.org/Person">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1 content">
+    <div class="col-lg-10 ml-auto mr-auto content">
       <h2 class="text-center">{% trans "Profile" %}</h2>
       <p class="lead text-center">{% trans "I'm a curious developer / creative software engineer" %}</p>
       <hr />
@@ -88,7 +87,7 @@
 <div class="green-background">
   <section id="resume" class="container content-section">
     <div class="row">
-      <div class="col-md-10 col-md-offset-1 content">
+      <div class="col-lg-10 ml-auto mr-auto content">
         <h2 class="text-center">{% trans "Resume" %}</h2>
         <p class="lead text-center">{% trans "My education and experience" %}</p>
         <hr />
@@ -299,7 +298,7 @@
 <!-- Skills section -->
 <section id="skills" class="container content-section">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1 content">
+    <div class="col-lg-10 ml-auto mr-auto content">
       <h2 class="text-center">{% trans "Skills" %}</h2>
       <p class="lead text-center">{% trans "I can say i’m quite good at" %}</p>
       <hr />
@@ -470,7 +469,7 @@
 <div class="green-background">
   <section id="interests" class="container content-section">
     <div class="row">
-      <div class="col-md-10 col-md-offset-1 content">
+      <div class="col-lg-10 ml-auto mr-auto content">
         <h2 class="text-center">{% trans "Interests" %}</h2>
         <p class="lead text-center">{% trans "In my spare time I like to" %}</p>
         <hr />
@@ -567,7 +566,7 @@
 <footer class="gray-background">
   <section id="contact" class="container content-section">
     <div class="row">
-      <div class="col-md-10 col-md-offset-1 content">
+      <div class="col-lg-10 ml-auto mr-auto content">
         <h2 class="text-center">{% trans "Contact" %}</h2>
         <p class="lead text-center">{% trans "Let's get in touch" %}</p>
         <hr />

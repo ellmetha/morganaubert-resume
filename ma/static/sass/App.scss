@@ -1,0 +1,22 @@
+//
+// Main theme
+// --------------------------------------------------
+@charset 'UTF-8';
+
+
+// 1. Variables
+@import "variables";
+
+// 2. Vendors
+@import "~bootstrap/scss/bootstrap"; $icon-font-path: '~bootstrap/fonts/';
+$fa-font-path: '~font-awesome/fonts/'; @import "~font-awesome/scss/font-awesome";
+$ionicons-font-path: '~ionicons/dist/fonts'; @import "~ionicons/dist/scss/ionicons.scss";
+
+// 3. Mixins
+@import "mixins";
+
+// 4. Common elements
+@import "common";
+
+// 5. Pages
+@import "pages/home";
