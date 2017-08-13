@@ -95,7 +95,7 @@ try:
     webpack_sock.bind(('localhost', WEBPACK_DEV_SERVER_PORT))
     WEBPACK_DEV_SERVER_STARTED = False
 except socket.error as e:
-    WEBPACK_DEV_SERVER_STARTED = (e.errno == 98)
+    WEBPACK_DEV_SERVER_STARTED = (e.errno == 48 or e.errno == 98 or e.errno == 99)
 webpack_sock.close()
 
 
