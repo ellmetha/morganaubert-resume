@@ -20,9 +20,8 @@ class DOMRouter {
    */
   init() {
     if (document.body) {
-      const body = document.body;
-      const controller = body.getAttribute('data-controller');
-      const action = body.getAttribute('data-action');
+      const controller = document.body.getAttribute('data-controller');
+      const action = document.body.getAttribute('data-action');
 
       if (controller) {
         this.execAction(controller, 'init');

@@ -24,14 +24,12 @@ export default {
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $(() => {
       function updateNavbarBorder(anchorId, timeout) {
-        window.setTimeout(
-          () => {
-            $('.navbar-morganaubert.top-nav-collapse').removeClass(
-                (index, css) => (css.match(/\banchor\S+/g) || []).join(' '));
-            const anchorIdPart = anchorId.substring(1);
-            $('.navbar-morganaubert.top-nav-collapse').addClass(`anchor-${anchorIdPart}`);
-          },
-          timeout);
+        window.setTimeout(() => {
+          $('.navbar-morganaubert.top-nav-collapse')
+            .removeClass((index, css) => (css.match(/\banchor\S+/g) || []).join(' '));
+          const anchorIdPart = anchorId.substring(1);
+          $('.navbar-morganaubert.top-nav-collapse').addClass(`anchor-${anchorIdPart}`);
+        }, timeout);
       }
 
       $('a.goto').click((ev) => {
@@ -59,8 +57,11 @@ export default {
       sr.reveal('.avatar-wrapper');
       // eslint-disable-next-line no-undef
       sr.reveal(
-          '.interest-icon-wrapper',
-          { origin: 'left', rotate: { z: 15 }, distance: '20px', delay: 50 });
+        '.interest-icon-wrapper',
+        {
+          origin: 'left', rotate: { z: 15 }, distance: '20px', delay: 50,
+        },
+      );
     });
   },
 };
