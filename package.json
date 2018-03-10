@@ -2,11 +2,10 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.0.0",
+    "bootstrap.native": "^2.0.21",
     "font-awesome": "^4.7.0",
     "ionicons": "^3.0.0",
-    "jquery": "^3.3.1",
     "jquery.easing": "^1.4.1",
-    "popper.js": "^1.12.9",
     "scrollreveal": "^3.3.6"
   },
   "devDependencies": {

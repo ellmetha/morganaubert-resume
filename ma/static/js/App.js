@@ -1,8 +1,8 @@
-/* eslint-env browser, jquery */
+/* eslint-env browser */
 import 'babel-polyfill';
 
-// Forces the evaluation of jQuery in the global context
-import 'bootstrap';
+// Forces the evaluation of bootstrap plugins in the global context.
+import 'bootstrap.native/dist/bootstrap-native-v4';
 
 import controllers from './controllers';
 import DOMRouter from './core/DOMRouter';
@@ -10,4 +10,6 @@ import DOMRouter from './core/DOMRouter';
 
 // Defines the router and initializes it!
 const router = new DOMRouter(controllers);
-$(document).ready(() => { router.init(); });
+(function runApp() {
+  router.init();
+}(window));

@@ -56,12 +56,6 @@ const webpackConfig = {
     minimize: PROD_ENV,
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
-    }),
     new ExtractTextPlugin({ filename: 'css/[name].css', disable: false }),
     ...(PROD_ENV ? [
       new webpack.LoaderOptionsPlugin({
@@ -101,6 +95,7 @@ gulp.task('build', ['build-webpack-assets']);
 
 gulp.task('webpack-dev-server', () => {
   const devWebpackConfig = Object.create(webpackConfig);
+  devWebpackConfig.mode = 'development';
   devWebpackConfig.devtool = 'eval';
   devWebpackConfig.devServer = { hot: true };
   devWebpackConfig.entry = {
@@ -125,9 +120,6 @@ gulp.task('webpack-dev-server', () => {
     filename: 'js/[name].js',
   };
   devWebpackConfig.plugins = [
-    new webpack.ProvidePlugin({
-      $: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery', Popper: ['popper.js', 'default'],
-    }),
     new webpack.LoaderOptionsPlugin({ debug: true }),
     new webpack.HotModuleReplacementPlugin(),
   ];

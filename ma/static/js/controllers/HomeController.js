@@ -1,67 +1,65 @@
-/* eslint-env browser, jquery */
+/* eslint-env browser */
 
 import ScrollReveal from 'scrollreveal/dist/scrollreveal';
-import jQueryEasing from 'jquery.easing/jquery.easing.min'; // eslint-disable-line no-unused-vars
+
+import getElementOffset from '../core/getElementOffset';
+import smoothScrollTo from '../core/smoothScrollTo';
 
 
 export default {
   init() {
-    // Hide collapse menu on mobile when a menu item is clicked
-    const navMain = $('.navbar-collapse');
-    navMain.on('click', 'a:not([data-toggle])', null, () => {
-      navMain.collapse('hide');
-    });
+    const elNavbar = document.querySelector('.navbar');
 
-    // Collapse the navbar on scroll
-    $(window).scroll(() => {
-      if ($('.navbar').offset().top > 50) {
-        $('.fixed-top').addClass('top-nav-collapse');
+    // Collapses the navbar on scroll.
+    // --
+    window.addEventListener('scroll', () => {
+      if (getElementOffset(elNavbar).top > 50) {
+        elNavbar.classList.add('top-nav-collapse');
       } else {
-        $('.fixed-top').removeClass('top-nav-collapse');
+        elNavbar.classList.remove('top-nav-collapse');
       }
     });
 
-    // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $(() => {
-      function updateNavbarBorder(anchorId, timeout) {
-        window.setTimeout(() => {
-          $('.navbar-morganaubert.top-nav-collapse')
-            .removeClass((index, css) => (css.match(/\banchor\S+/g) || []).join(' '));
-          const anchorIdPart = anchorId.substring(1);
-          $('.navbar-morganaubert.top-nav-collapse').addClass(`anchor-${anchorIdPart}`);
-        }, timeout);
-      }
 
-      $('a.goto').click((ev) => {
-        const anchorId = $(ev.currentTarget).attr('href');
+    // Page scrolling feature initialization.
+    // --
 
-        updateNavbarBorder(anchorId, 1000);
+    function _updateNavbarBorder(anchorId, timeout) {
+      window.setTimeout(() => {
+        let clsToRemove = null;
+        for (let i = 0; i < elNavbar.classList.length; i += 1) {
+          if (elNavbar.classList[i].match(/\banchor\S+/g)) { clsToRemove = elNavbar.classList[i]; }
+        }
+        if (clsToRemove) { elNavbar.classList.remove(clsToRemove); }
+        elNavbar.classList.add(`anchor-${anchorId}`);
+      }, timeout);
+    }
 
-        $('html, body').stop().animate({
-          scrollTop: $(anchorId).offset().top,
-        }, 1500, 'easeInOutExpo');
-
+    const navLinks = document.body.querySelectorAll('a.goto');
+    for (let i = 0; i < navLinks.length; i += 1) {
+      navLinks[i].onclick = async function scrollToSection(ev) {
+        const anchorId = this.href.split('#')[1];
+        const elTarget = document.getElementById(anchorId);
+        _updateNavbarBorder(anchorId, 1000);
         ev.preventDefault();
-      });
+        await smoothScrollTo(document.documentElement, getElementOffset(elTarget).top);
+      };
+    }
 
-      $('[data-spy="scroll"]').each(function refreshScrollSpy() {
-        $(this).scrollspy('refresh');
-      });
-      $(window).on('activate.bs.scrollspy', () => {
-        const anchorId = $('.navbar-nav li > a.active').attr('href');
-        updateNavbarBorder(anchorId, 200);
-      });
-
-      window.sr = new ScrollReveal();
-      // eslint-disable-next-line no-undef
-      sr.reveal('.avatar-wrapper');
-      // eslint-disable-next-line no-undef
-      sr.reveal(
-        '.interest-icon-wrapper',
-        {
-          origin: 'left', rotate: { z: 15 }, distance: '20px', delay: 50,
-        },
-      );
+    document.body.addEventListener('activate.bs.scrollspy', () => {
+      const anchorId = document.querySelector('.navbar-nav li > a.active').href.split('#')[1];
+      _updateNavbarBorder(anchorId, 200);
     });
+
+    window.sr = new ScrollReveal();
+    // eslint-disable-next-line no-undef
+    sr.reveal('.avatar-wrapper');
+    // eslint-disable-next-line no-undef
+    sr.reveal(
+      '.interest-icon-wrapper',
+      {
+        origin: 'left', rotate: { z: 15 }, distance: '20px', delay: 50,
+      },
+    );
   },
 };
