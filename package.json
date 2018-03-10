@@ -3,7 +3,7 @@
   "dependencies": {
     "bootstrap": "^4.0.0",
     "bootstrap.native": "^2.0.21",
-    "font-awesome": "^4.7.0",
+    "fork-awesome": "^1.0.11",
     "ionicons": "^3.0.0",
     "jquery.easing": "^1.4.1",
     "scrollreveal": "^3.3.6"
