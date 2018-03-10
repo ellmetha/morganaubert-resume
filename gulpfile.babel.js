@@ -33,6 +33,7 @@ const jsDir = `${staticDir}js`;
  */
 
 const webpackConfig = {
+  mode: PROD_ENV ? 'production' : 'development',
   output: {
     filename: 'js/[name].js',
   },
@@ -45,11 +46,14 @@ const webpackConfig = {
       { test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },
       { test: /\.scss$/,
         use: ExtractTextPlugin.extract(
-            { use: ['css-loader', 'sass-loader'], fallback: 'style-loader', publicPath: '../' }) },
+          { use: ['css-loader', 'sass-loader'], fallback: 'style-loader', publicPath: '../' }) },
       { test: /\.txt$/, use: 'raw-loader' },
       { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, use: 'url-loader?limit=10000' },
       { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, use: 'file-loader' },
     ],
+  },
+  optimization: {
+    minimize: PROD_ENV,
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -62,9 +66,6 @@ const webpackConfig = {
     ...(PROD_ENV ? [
       new webpack.LoaderOptionsPlugin({
         minimize: true,
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: { warnings: false },
       }),
     ] : []),
   ],
