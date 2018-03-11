@@ -1,5 +1,6 @@
 /* eslint-env browser */
 
+import bsn from 'bootstrap.native/dist/bootstrap-native-v4';
 import ScrollReveal from 'scrollreveal/dist/scrollreveal';
 
 import getElementOffset from '../core/getElementOffset';
@@ -46,10 +47,9 @@ export default {
       };
     }
 
-    document.body.addEventListener('activate.bs.scrollspy', () => {
-      const anchorId = document.querySelector('.navbar-nav li > a.active').href.split('#')[1];
-      _updateNavbarBorder(anchorId, 200);
-    });
+
+    // ScrollReveal initialization.
+    // --
 
     window.sr = new ScrollReveal();
     // eslint-disable-next-line no-undef
@@ -61,5 +61,15 @@ export default {
         origin: 'left', rotate: { z: 15 }, distance: '20px', delay: 50,
       },
     );
+
+
+    // ScrollSpy initialization.
+    // --
+
+    new bsn.ScrollSpy(document.body, { target: '.fixed-top' });
+    document.body.addEventListener('activate.bs.scrollspy', () => {
+      const anchorId = document.querySelector('.navbar-nav li > a.active').href.split('#')[1];
+      _updateNavbarBorder(anchorId, 200);
+    });
   },
 };
