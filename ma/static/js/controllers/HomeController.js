@@ -4,7 +4,7 @@ import bsn from 'bootstrap.native/dist/bootstrap-native-v4';
 import ScrollReveal from 'scrollreveal/dist/scrollreveal';
 
 import getElementOffset from '../core/getElementOffset';
-import smoothScrollTo from '../core/smoothScrollTo';
+import scrollTo from '../core/scrollTo';
 
 
 export default {
@@ -38,12 +38,12 @@ export default {
 
     const navLinks = document.body.querySelectorAll('a.goto');
     for (let i = 0; i < navLinks.length; i += 1) {
-      navLinks[i].onclick = async function scrollToSection(ev) {
+      navLinks[i].onclick = function scrollToSection(ev) {
         const anchorId = this.href.split('#')[1];
         const elTarget = document.getElementById(anchorId);
         _updateNavbarBorder(anchorId, 1000);
         ev.preventDefault();
-        await smoothScrollTo(document.documentElement, getElementOffset(elTarget).top);
+        scrollTo(elTarget, 1500, 'easeInOutCubic');
       };
     }
 
