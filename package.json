@@ -6,6 +6,7 @@
     "fork-awesome": "^1.0.11",
     "ionicons": "^3.0.0",
     "jquery.easing": "^1.4.1",
+    "regenerator": "^0.12.3",
     "scrollreveal": "^3.3.6"
   },
   "devDependencies": {

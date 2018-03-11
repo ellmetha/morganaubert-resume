@@ -1,5 +1,5 @@
 /* eslint-env browser */
-import 'babel-polyfill';
+import 'regenerator-runtime/runtime';
 
 // Forces the evaluation of bootstrap plugins in the global context.
 import 'bootstrap.native/dist/bootstrap-native-v4';

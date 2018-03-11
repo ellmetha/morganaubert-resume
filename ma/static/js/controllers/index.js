@@ -1,8 +1,5 @@
-import HomeController from './HomeController';
-
-
 const controllers = {
-  home: HomeController,
+  home: () => import('./HomeController').then(module => module.default),
 };
 
 export default controllers;

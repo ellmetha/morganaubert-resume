@@ -4,28 +4,16 @@ class DOMRouter {
   }
 
   /**
-   * Executes the given action associated with the considered controller.
-   * @param {String} controller - The codename of the controller.
-   * @param {String} action - The name of the action to execute.
+   * Initializes the router object and executes the appropriate actions.
    */
-  execAction(controller, action) {
-    if (controller !== '' && this.controllers[controller] &&
-        typeof this.controllers[controller][action] === 'function') {
-      this.controllers[controller][action]();
-    }
-  }
-
-  /**
-   * Initializes the router object.
-   */
-  init() {
+  async init() {
     if (document.body) {
-      const controller = document.body.getAttribute('data-controller');
+      const controllerCodename = document.body.getAttribute('data-controller');
       const action = document.body.getAttribute('data-action');
-
-      if (controller) {
-        this.execAction(controller, 'init');
-        this.execAction(controller, action);
+      if (controllerCodename && this.controllers[controllerCodename]) {
+        const controller = await this.controllers[controllerCodename]();
+        controller.init();
+        if (controller[action] === 'function') { controller[action](); }
       }
     }
   }

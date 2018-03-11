@@ -36,6 +36,7 @@ const webpackConfig = {
   mode: PROD_ENV ? 'production' : 'development',
   output: {
     filename: 'js/[name].js',
+    publicPath: '/static/',
   },
   resolve: {
     modules: ['node_modules'],
