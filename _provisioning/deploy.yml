@@ -19,12 +19,23 @@
       nginx_override_conf: |
         server_names_hash_bucket_size 128;
 
-    - role: acme-nginx
-      acme_domains:
+    - role: certbot
+      certbot_create_if_missing: yes
+      certbot_create_standalone_stop_services:
+        - nginx
+      certbot_certs:
+        - domains:
+          - "{{ host_public_domain_name }}"
+        - domains:
+          - "{{ host_public_domain_name_redirect_from }}"
+      when: host_enable_acme_ssl|default(False)
+      tags: ['ssl', ]
+
+    - role: nginx-ssl-conf
+      ssl_domains:
         - "{{ host_public_domain_name }}"
         - "{{ host_public_domain_name_redirect_from }}"
-      when: host_enable_acme_ssl|default(False)
-      tags: ['acme', ]
+      tags: ['ssl', ]
 
     - role: django
       tags: ['django', ]

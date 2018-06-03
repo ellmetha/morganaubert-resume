@@ -7,12 +7,12 @@
 [submodule "_provisioning/roles/postgres-install"]
 	path = _provisioning/roles/postgres-install
 	url = https://github.com/savoirfairelinux/ansible-postgres-install
-[submodule "_provisioning/roles/acme-nginx"]
-	path = _provisioning/roles/acme-nginx
-	url = https://github.com/hsoft/ansible-acme-nginx
 [submodule "_provisioning/roles/nginx-redirect"]
 	path = _provisioning/roles/nginx-redirect
 	url = https://github.com/hsoft/ansible-nginx-redirect
 [submodule "_provisioning/roles/django"]
 	path = _provisioning/roles/django
 	url = https://github.com/ellmetha/ansible-do-django.git
+[submodule "_provisioning/roles/certbot"]
+	path = _provisioning/roles/certbot
+	url = https://github.com/geerlingguy/ansible-role-certbot

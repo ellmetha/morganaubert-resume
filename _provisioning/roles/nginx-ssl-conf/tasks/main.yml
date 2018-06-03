@@ -1,0 +1,12 @@
+---
+
+
+- name: Generate nginx SSL config
+  template:
+    src: ssl.conf.j2
+    dest: "/etc/nginx/snippets/{{ item }}.ssl.conf"
+    owner: www-data
+    group: www-data
+  with_items: "{{ ssl_domains }}"
+  when: ssl_domains
+  notify: nginx restart
