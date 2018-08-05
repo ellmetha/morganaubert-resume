@@ -28,6 +28,7 @@
           - "{{ host_public_domain_name }}"
         - domains:
           - "{{ host_public_domain_name_redirect_from }}"
+      certbot_install_from_source: yes
       when: host_enable_acme_ssl|default(False)
       tags: ['ssl', ]
 
@@ -47,3 +48,13 @@
           ssl: yes
       when: host_is_the_real_thing
       tags: ['redirect', ]
+
+  post_tasks:
+
+    - name: 'Add cron job for certbot renewal (if configured).'
+      cron:
+          name: Certbot automatic renewal.
+          job: "sudo service nginx stop && {{ certbot_script }} renew {{ certbot_auto_renew_options }} ; sudo service nginx start"
+          minute: "{{ certbot_auto_renew_minute }}"
+          hour: "{{ certbot_auto_renew_hour }}"
+          user: "{{ certbot_auto_renew_user }}"
