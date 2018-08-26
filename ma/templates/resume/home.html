@@ -1,8 +1,14 @@
 {% extends "base.html" %}
-{% load static %}
-{% load i18n %}
 
-{% block page_title %}{% blocktrans %}Software engineer&nbsp;&ndash;&nbsp;Interactive resume{% endblocktrans %}{% endblock page_title %}
+{% block page_title %}Software engineer&nbsp;&ndash;&nbsp;Interactive resume{% endblock page_title %}
+
+{% block meta_tags %}
+<meta name="dcterms.language" content="en" />
+<meta name="dcterms.title" content="Morgan Aubert" />
+<meta name="dcterms.description" content="I am Morgan Aubert. A self taught, French born Software Engineer with a focus on web development." />
+<meta name="description" content="I am Morgan Aubert. A self taught, French born Software Engineer with a focus on web development." />
+<meta name="keywords" content="Morgan Aubert, Interactive Resume, Software engineer, Python programmer, Python, Django, Web developer, Startup, CV, Resume" />
+{% endblock meta_tags %}
 
 {% block body_id %}id_home{% endblock body_id %}
 {% block body_data_controller %}home{% endblock body_data_controller %}
@@ -11,7 +17,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark navbar-morganaubert">
   <div class="container">
-    <a class="navbar-brand goto" href="#top"><img src="{% static 'img/m.svg' %}" alt="M" width="20" height="20" />&nbsp;&nbsp;<span class="light">Morgan</span>&nbsp;Aubert</a>
+    <a class="navbar-brand goto" href="#top"><img src="{{ asset_url('img/m.svg') }}" alt="M" width="20" height="20" />&nbsp;&nbsp;<span class="light">Morgan</span>&nbsp;Aubert</a>
     <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa fa-bars"></i>
     </button>
@@ -19,11 +25,11 @@
       <ul class="navbar-nav ml-auto">
         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
         <li class="hidden"><a href="#top"></a></li>
-        <li class="nav-item"><a class="nav-link goto" href="#about">{% trans "About" %}</a></li>
-        <li class="nav-item"><a class="nav-link goto" href="#resume">{% trans "Resume" %}</a></li>
-        <li class="nav-item"><a class="nav-link goto" href="#skills">{% trans "Skills" %}</a></li>
-        <li class="nav-item"><a class="nav-link goto" href="#interests">{% trans "Interests" %}</a></li>
-        <li class="nav-item"><a class="nav-link goto" href="#contact">{% trans "Contact" %}</a></li>
+        <li class="nav-item"><a class="nav-link goto" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link goto" href="#resume">Resume</a></li>
+        <li class="nav-item"><a class="nav-link goto" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link goto" href="#interests">Interests</a></li>
+        <li class="nav-item"><a class="nav-link goto" href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -49,32 +55,32 @@
 <section id="about" class="container content-section" itemscope itemtype="http://data-vocabulary.org/Person">
   <div class="row">
     <div class="col-lg-10 ml-auto mr-auto content">
-      <h2 class="text-center">{% trans "Profile" %}</h2>
-      <p class="lead text-center">{% trans "I'm a curious developer / creative software engineer" %}</p>
+      <h2 class="text-center">Profile</h2>
+      <p class="lead text-center">I'm a curious developer / creative software engineer</p>
       <hr />
       <div class="row">
         <div class="col-md-4">
-          <h3>{% trans "About me" %}</h3>
+          <h3>About me</h3>
           <p class="text-justify">I am an all-round <span itemprop="title">Software Engineer</span> with a focus on web development. Recently, I've been working in the fields of backend and frontend web development, software deployment, distributed systems and networking. I love building all kinds of software and I appreciate good design and architecture.</p>
         </div>
         <div class="col-md-4">
           <div class="text-center avatar-wrapper" data-sr="enter right, roll 180deg, over 0.5s">
-            <img src="{% static 'img/avatar.jpg' %}" class="avatar" alt="Morgan Aubert" />
+            <img src="{{ asset_url('img/avatar.jpg') }}" class="avatar" alt="Morgan Aubert" />
           </div>
         </div>
         <div class="col-md-4 general-information">
-          <h3>{% trans "General information" %}</h3>
+          <h3>General information</h3>
           <p>
-            <b>{% trans "Full name:" %}</b><br />
-            <span itemprop="name">{% trans "Morgan Aubert" %}</span>
+            <b>Full name:</b><br />
+            <span itemprop="name">Morgan Aubert</span>
           </p>
           <p>
-            <b>{% trans "Age:" %}</b><br />
+            <b>Age:</b><br />
             {{ age }} years old
           </p>
           <p>
-            <b>{% trans "Location:" %}</b><br />
-            {% trans "Montréal, Canada" %}
+            <b>Location:</b><br />
+            Montréal, Canada
           </p>
         </div>
       </div>
@@ -87,72 +93,71 @@
   <section id="resume" class="container content-section">
     <div class="row">
       <div class="col-lg-10 ml-auto mr-auto content">
-        <h2 class="text-center">{% trans "Resume" %}</h2>
-        <p class="lead text-center">{% trans "My education and experience" %}</p>
+        <h2 class="text-center">Resume</h2>
+        <p class="lead text-center">My education and experience</p>
         <hr />
-        <h3>{% trans "Education" %}</h3>
+        <h3>Education</h3>
         <div class="mt-3 row">
           <div class="col-md-4">
-            <h4>{% blocktrans %}Grenoble-INP&nbsp;<abbr title="Advanced Systems and Networks Engineering School">E.S.I.S.A.R.</abbr> University{% endblocktrans %}</h4>
+            <h4>Grenoble-INP&nbsp;<abbr title="Advanced Systems and Networks Engineering School">E.S.I.S.A.R.</abbr> University</h4>
             <p>2010&nbsp;&ndash;&nbsp;2013</p>
           </div>
           <div class="col-md-8">
-            <p class="mt-0 diploma-title">{% trans "Master's degree in Engineering" %}</p>
-            <p>{% blocktrans %}Master's Degree in IT Engineering, specialized in Network administration &amp; Embedded Systems.{% endblocktrans %}
+            <p class="mt-0 diploma-title">Master's degree in Engineering</p>
+            <p>Master's Degree in IT Engineering, specialized in Network administration &amp; Embedded Systems.
             <div class="tags">
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Algoritmics" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "C Programming" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Java Programming" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Computational mathematics" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network and system Administration" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded Systems" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Real-Time Systems" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Software Engineering</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Algoritmics</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;C Programming" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Java Programming</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Computational mathematics</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Network and system Administration</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Embedded Systems</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Real-Time Systems</span>
             </div>
             <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Valence, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://esisar.grenoble-inp.fr/" target="_blank">esisar.grenoble-inp.fr</a></p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <h4>{% blocktrans %}Montpellier Institute of Technology{% endblocktrans %}</h4>
+            <h4>Montpellier Institute of Technology</h4>
             <p>2008&nbsp;&ndash;&nbsp;2010</p>
           </div>
           <div class="col-md-8">
-            <p class="mt-0 diploma-title">{% trans "Two year degree in Networks and Telecommunications" %}</p>
-            <p>{% blocktrans %}Two year university programs leading to an H.N.D. (DUT) "Networks &amp; Telecommunications".{% endblocktrans %}
+            <p class="mt-0 diploma-title">Two year degree in Networks and Telecommunications</p>
+            <p>Two year university programs leading to an H.N.D. (DUT) "Networks &amp; Telecommunications".
             <div class="tags">
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "C Programming" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Java Programming" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network and system Administration" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Web Programming" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network Engineering" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Telecommunications" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;C Programming</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Java Programming</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Network and system Administration</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Web Programming</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Network Engineering</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Telecommunications</span>
             </div>
             <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Béziers, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://www.iutbeziers.univ-montp2.fr/" target="_blank">iutbeziers.univ-montp2.fr</a></p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <h4>{% blocktrans %}Lycée Docteur Lacroix{% endblocktrans %}</h4>
-            <p>{% trans "Jun 2007" %}</p>
+            <h4>Lycée Docteur Lacroix</h4>
+            <p>Jun 2007</p>
           </div>
           <div class="col-md-8">
-            <p class="mt-0 diploma-title">{% trans "High School Diploma" %}</p>
-            <p>{% trans "Scientific High School Diploma (Baccalaurat - A level)." %}</p>
+            <p class="mt-0 diploma-title">High School Diploma</p>
+            <p>Scientific High School Diploma (Baccalaurat - A level).</p>
             <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Narbonne, France</p>
           </div>
         </div>
         <hr />
-        <h3>{% trans "Experience" %}</h3>
+        <h3>Experience</h3>
         <div class="mt-3 row">
           <div class="col-md-4">
             <h4>Impak Finance</h4>
-            <p>{% blocktrans %}Jun 2017&nbsp;&ndash;&nbsp;Present{% endblocktrans %}</p>
+            <p>Jun 2017&nbsp;&ndash;&nbsp;Present</p>
           </div>
           <div class="col-md-8">
-            <p class="mt-0 job-title">{% trans "Back-End Engineer" %}</p>
+            <p class="mt-0 job-title">Back-End Engineer</p>
             <p>
-              {% blocktrans trimmed %}
               impak Finance is a startup dedicated to the development of the impact economy. It is
               working to create a bank that will use its money for profitable projects that have a
               positive impact on society and the environment. In this light I contribute to the
@@ -160,16 +165,15 @@
               and development of the <a href="https://www.impak.eco" target="_blank">impak.eco</a>
               platform - a marketplace of socially responsible businesses aiming to make responsible
               consumption easy and rewarding.
-              {% endblocktrans %}
             </p>
             <div class="tags">
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Python Development" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Web Development" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Django Framework" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Ansible" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Docker" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Amazon Web Services" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Software Engineering</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Python Development</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Web Development</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Django Framework</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Ansible</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Docker</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Amazon Web Services</span>
             </div>
             <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Montréal, Canada&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="https://impakfinance.com" target="_blank">impakfinance.com</a></p>
           </div>
@@ -177,22 +181,22 @@
         <div class="row">
           <div class="col-md-4">
             <h4>Savoir-faire Linux</h4>
-            <p>{% blocktrans %}Jan 2016&nbsp;&ndash;&nbsp;Jun 2017{% endblocktrans %}</p>
+            <p>Jan 2016&nbsp;&ndash;&nbsp;Jun 2017</p>
           </div>
           <div class="col-md-8">
-            <p class="mt-0 job-title">{% trans "Software Engineer" %}</p>
+            <p class="mt-0 job-title">Software Engineer</p>
             <p>
-              {% blocktrans %}
+
                 Savoir-faire Linux is a specialist in the professional implementation of Open Source Software. The company provides expertise on Open Source software through services such as consulting and development. In this light I designed and I developed modern web applications based on Open Source solutions. I worked on the design and the developement of the next release of Érudit platform - <a href="https://www.erudit.org" target="_blank">erudit.org</a>, which is the largest provider of Canadian French and bilingual research publications in North America.
-              {% endblocktrans %}
+
             </p>
             <div class="tags">
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Python Development" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Web Development" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Django Framework" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Ansible" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Software Engineering</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Python Development</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Web Development</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Django Framework</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Project Management</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Ansible</span>
             </div>
             <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Montréal, Canada&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="https://www.savoirfairelinux.com" target="_blank">savoirfairelinux.com</a></p>
           </div>
@@ -200,22 +204,22 @@
         <div class="row">
           <div class="col-md-4">
             <h4>Kapt</h4>
-            <p>{% blocktrans %}Jul 2013&nbsp;&ndash;&nbsp;Dec 2015{% endblocktrans %}</p>
+            <p>Jul 2013&nbsp;&ndash;&nbsp;Dec 2015</p>
           </div>
           <div class="col-md-8">
-            <p class="mt-0 job-title">{% trans "Software Engineer" %}</p>
+            <p class="mt-0 job-title">Software Engineer</p>
             <p>
-              {% blocktrans %}
+
                 Kapt is a full service internet company with a focus on providing solutions for the tourism industry. In this light I designed and contributed to the development of an ERP software solution for tourism professionals. I developed a lot of web applications such as <a href="https://www.kookooning.com" target="_blank">Kookooning.com</a> - a matchmaking platform between travelers and accommodation owners - or <a href="https://www.10thingstosee.com" target="_blank">10ThingsToSee.com</a> - a guide of tourist attractions. I also maintained some interactive products based on touch-sensitive interfaces. Finally I was doing a bit of system administration to ensure that Kapt products keep working properly!
-              {% endblocktrans %}
+
             </p>
             <div class="tags">
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Python Development" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Web Development" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Django Framework" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded Linux" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Software Engineering</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Python Development</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Web Development</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Django Framework</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Project Management</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Embedded Linux</span>
             </div>
             <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Valence, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://kapt.mobi" target="_blank">kapt.mobi</a></p>
           </div>
@@ -223,23 +227,23 @@
         <div class="row">
           <div class="col-md-4">
             <h4>Kapt</h4>
-            <p>{% blocktrans %}Feb 2013&nbsp;&ndash;&nbsp;Jul 2013{% endblocktrans %}</p>
+            <p>Feb 2013&nbsp;&ndash;&nbsp;Jul 2013</p>
           </div>
           <div class="col-md-8">
-            <p class="mt-0 job-title">{% trans "Software Engineer" %}</p>
+            <p class="mt-0 job-title">Software Engineer</p>
             <p>
-              {% blocktrans %}
+
                 5-months internship at Kapt, full service internet company. During this internship, I designed and developed an interactive touch-sensitive product and contributed to the construction of the Linux system embedded in this hardware. The solution was initially running on x86 based software and hardware and I migrated the product to an ARM based solution. I also developed communication tools based on the NFC technology.
-              {% endblocktrans %}
+
             </p>
             <div class="tags">
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Python Development" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Django Framework" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded Linux" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "ARM" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "NFC" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Software Engineering</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Python Development</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Django Framework</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Project Management</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Embedded Linux</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;ARM</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;NFC</span>
             </div>
             <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Valence, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://kapt.mobi" target="_blank">kapt.mobi</a></p>
           </div>
@@ -247,23 +251,23 @@
         <div class="row">
           <div class="col-md-4">
             <h4>Robodrill</h4>
-            <p>{% blocktrans %}Jan 2012&nbsp;&ndash;&nbsp;Jul 2012{% endblocktrans %}</p>
+            <p>Jan 2012&nbsp;&ndash;&nbsp;Jul 2012</p>
           </div>
           <div class="col-md-8">
-            <p class="mt-0 job-title">{% trans "Embedded Systems Engineer" %}</p>
+            <p class="mt-0 job-title">Embedded Systems Engineer</p>
             <p>
-              {% blocktrans %}
+
                 Industrial Project, conducted in a company specialized in drilling activities (rent of jumbo drill). During this project I contributed to the evolution of a jumbo drill control application in order to make its configuration dynamic and I migrated the solution to a real-time Linux system (Xenomai).
-              {% endblocktrans %}
+
             </p>
             <div class="tags">
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Software Engineering" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "C Development" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Project Management" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Real-Time Linux" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Xenomai Framework" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Embedded target" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "CAN bus" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Software Engineering</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;C Development</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Project Management</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Real-Time Linux</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Xenomai Framework</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Embedded target</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;CAN bus</span>
             </div>
             <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Lyon, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://www.robodrill-sa.com/" target="_blank">robodrill-sa.com</a></p>
           </div>
@@ -271,19 +275,19 @@
         <div class="row">
           <div class="col-md-4">
             <h4>Trafic Transport Sûreté</h4>
-            <p>{% blocktrans %}Mar 2010&nbsp;&ndash;&nbsp;Jun 2010{% endblocktrans %}</p>
+            <p>Mar 2010&nbsp;&ndash;&nbsp;Jun 2010</p>
           </div>
           <div class="col-md-8">
-            <p class="mt-0 job-title">{% trans "Multiservice Network technician and Developer" %}</p>
+            <p class="mt-0 job-title">Multiservice Network technician and Developer</p>
             <p>
-              {% blocktrans %}
+
                 Last internship before diploma obtention (DUT), conducted in a company specialized in multi-service networks (videosurveillance). Installation and supervision of video surveillance networks. C++ programming (NVR test client, RTSP server).
-              {% endblocktrans %}
+
             </p>
             <div class="tags">
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans " C++ Development" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Multiservice Network" %}</span>
-              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;{% trans "Network Monitoring" %}</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp; C++ Development</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Multiservice Network</span>
+              <span class="tag"><i class="fa fa-dot-circle-o"></i>&nbsp;&nbsp;Network Monitoring</span>
             </div>
             <p class="metadata"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Narbonne, France&nbsp;&#124;&nbsp;<i class="fa fa-link"></i>&nbsp;&nbsp;<a href="http://www.traficsurete.com/" target="_blank">traficsurete.com</a></p>
           </div>
@@ -297,10 +301,10 @@
 <section id="skills" class="container content-section">
   <div class="row">
     <div class="col-lg-10 ml-auto mr-auto content">
-      <h2 class="text-center">{% trans "Skills" %}</h2>
-      <p class="lead text-center">{% trans "I can say i’m quite good at" %}</p>
+      <h2 class="text-center">Skills</h2>
+      <p class="lead text-center">I can say i’m quite good at</p>
       <hr />
-      <h3>{% trans "Software development" %}</h3>
+      <h3>Software development</h3>
       <div class="row">
         <div class="col-md-6">
           <p>
@@ -344,7 +348,7 @@
         </div>
       </div>
       <hr />
-      <h3>{% trans "Databases / Stores" %}</h3>
+      <h3>Databases / Stores</h3>
       <div class="row">
         <div class="col-md-6">
           <p>
@@ -376,7 +380,7 @@
         </div>
       </div>
       <hr />
-      <h3>{% trans "DevOps tools" %}</h3>
+      <h3>DevOps tools</h3>
       <div class="row">
         <div class="col-md-6">
           <p>
@@ -400,7 +404,7 @@
         </div>
       </div>
       <hr />
-      <h3>{% trans "Frontend Libraries and Frameworks" %}</h3>
+      <h3>Frontend Libraries and Frameworks</h3>
       <div class="row">
         <div class="col-md-6">
           <p>
@@ -428,23 +432,23 @@
         </div>
       </div>
       <hr />
-      <h3>{% trans "Languages" %}</h3>
+      <h3>Languages</h3>
       <div class="row">
         <div class="col-md-6">
           <p>
             <span class="skill-check"><i class="fa fa-check-circle"></i></span>
-            <span class="skill-name">{% trans "French (mother tongue)" %}</span>
+            <span class="skill-name">French (mother tongue)</span>
           </p>
         </div>
         <div class="col-md-6">
           <p>
             <span class="skill-check"><i class="fa fa-check-circle"></i></span>
-            <span class="skill-name">{% trans "English" %}</span>
+            <span class="skill-name">English</span>
           </p>
         </div>
       </div>
       <hr />
-      <h3>{% trans "Tools" %}</h3>
+      <h3>Tools</h3>
       <div class="row">
         <div class="col-md-6">
           <p>
@@ -472,8 +476,8 @@
   <section id="interests" class="container content-section">
     <div class="row">
       <div class="col-lg-10 ml-auto mr-auto content">
-        <h2 class="text-center">{% trans "Interests" %}</h2>
-        <p class="lead text-center">{% trans "In my spare time I like to" %}</p>
+        <h2 class="text-center">Interests</h2>
+        <p class="lead text-center">In my spare time I like to</p>
         <hr />
         <div class="row">
           <div class="col-sm-4 text-center">
@@ -483,11 +487,11 @@
           </div>
           <div class="col-sm-8">
             <div class="interest-wrapper">
-              <h3>{% trans "New technologies" %}</h3>
+              <h3>New technologies</h3>
               <p>
-              {% blocktrans %}
+
                 I am interested in new technologies. Regularly I try to keep contact with new advances in the areas of web and computer services which are intended to the professional world or the public.
-              {% endblocktrans %}
+
               </p>
             </div>
           </div>
@@ -500,11 +504,11 @@
           </div>
           <div class="col-sm-8">
             <div class="interest-wrapper">
-              <h3>{% trans "Programming" %}</h3>
+              <h3>Programming</h3>
               <p>
-              {% blocktrans %}
+
                 I like learning new tricks on programming by writing some programs or by reading specialized books. My favorite social network is Github. I love building stuff from scratch and I contribute to free software, mainly Django-related libraries.
-              {% endblocktrans %}
+
               </p>
             </div>
           </div>
@@ -517,11 +521,11 @@
           </div>
           <div class="col-sm-8">
             <div class="interest-wrapper">
-              <h3>{% trans "Music" %}</h3>
+              <h3>Music</h3>
               <p>
-              {% blocktrans %}
+
                 I have a so varied taste in music that I think I could listen to music for days! I have <em>a lot</em> of playlists on Spotify, really. I have also played the guitar since I was 10 years old. I try to cover many musical styles: classical, jazz, rock, blues, etc.
-              {% endblocktrans %}
+
               </p>
             </div>
           </div>
@@ -534,11 +538,11 @@
           </div>
           <div class="col-sm-8">
             <div class="interest-wrapper">
-              <h3>{% trans "Reading" %}</h3>
+              <h3>Reading</h3>
               <p>
-              {% blocktrans %}
+
                 I love reading. I read all kinds of novels (thrillers, detective stories, fantasy books) and I read books specialized in computers or networks.
-              {% endblocktrans %}
+
               </p>
             </div>
           </div>
@@ -551,11 +555,11 @@
           </div>
           <div class="col-sm-8">
             <div class="interest-wrapper">
-              <h3>{% trans "Travel" %}</h3>
+              <h3>Travel</h3>
               <p>
-              {% blocktrans %}
+
                 I love travelling and discovering new things : new people, other cultures, different habits... Spain, England, Canada, United States or Scotland are some of the places where I travelled.
-              {% endblocktrans %}
+
               </p>
             </div>
           </div>
@@ -569,8 +573,8 @@
   <section id="contact" class="container content-section">
     <div class="row">
       <div class="col-lg-10 ml-auto mr-auto content">
-        <h2 class="text-center">{% trans "Contact" %}</h2>
-        <p class="lead text-center">{% trans "Let's get in touch" %}</p>
+        <h2 class="text-center">Contact</h2>
+        <p class="lead text-center">Let's get in touch</p>
         <hr />
         <a href="mailto:hello@morganaubert.name" class="mailto"><i class="fa fa-envelope-o "></i>&nbsp;hello@morganaubert.name</a>
         <div class="social-links">
@@ -580,7 +584,7 @@
         </div>
       </div>
       <div class="copy">
-        &copy;&nbsp;2014&#45;{{ current_year }}&nbsp;{% blocktrans %}Hand-coded with&nbsp;&nbsp;<i class="fa fa-heart"></i>&nbsp;&nbsp;by Morgan Aubert{% endblocktrans %}
+        &copy;&nbsp;2014&#45;{{ current_year }}&nbsp;Hand-coded with&nbsp;&nbsp;<i class="fa fa-heart"></i>&nbsp;&nbsp;by Morgan Aubert
       </div>
     </div>
   </section>

@@ -8,7 +8,9 @@ import path from 'path';
 import named from 'vinyl-named';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
+import ManifestPlugin from 'webpack-manifest-plugin';
 import webpackStream from 'webpack-stream';
+
 
 /* Env variables */
 env('.env');
@@ -35,8 +37,8 @@ const jsDir = `${staticDir}js`;
 const webpackConfig = {
   mode: PROD_ENV ? 'production' : 'development',
   output: {
-    filename: 'js/[name].js',
-    publicPath: '/static/',
+    filename: '[name].[chunkhash].js',
+    publicPath: PROD_ENV ? '/static/build/' : '/static/build_dev/',
   },
   resolve: {
     modules: ['node_modules'],
@@ -45,9 +47,10 @@ const webpackConfig = {
   module: {
     rules: [
       { test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },
-      { test: /\.scss$/,
+      {
+        test: /\.scss$/,
         use: ExtractTextPlugin.extract(
-          { use: ['css-loader', 'sass-loader'], fallback: 'style-loader', publicPath: '../' }) },
+          { use: ['css-loader', 'sass-loader'], fallback: 'style-loader' }) },
       { test: /\.txt$/, use: 'raw-loader' },
       { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, use: 'url-loader?limit=10000' },
       { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, use: 'file-loader' },
@@ -57,7 +60,11 @@ const webpackConfig = {
     minimize: PROD_ENV,
   },
   plugins: [
-    new ExtractTextPlugin({ filename: 'css/[name].css', disable: false }),
+    new ExtractTextPlugin({ filename: '[name].[contenthash].css', disable: false }),
+    new ManifestPlugin({
+      fileName: 'manifest.json',
+      publicPath: PROD_ENV ? 'build/' : 'build_dev/',
+    }),
     ...(PROD_ENV ? [
       new webpack.LoaderOptionsPlugin({
         minimize: true,
