@@ -1,14 +1,14 @@
 {% extends "base.html" %}
-{% load i18n %}
 
-{% block title %}{% trans "Server error" %} - {{ bloc.super }}{% endblock title %}
+{% block title %}Server error{% endblock title %}
 
 {% block content %}
-    <div class="container">
-        <h1>{% trans "Server error" %}</h1>
-        <p>{% trans "There's been an error. It's been reported to the site administrators via email and should be fixed shortly. Thanks for your patience." %}</p>
-        <p><a href="javascript: history.back()" class="btn">{% trans "Back" %}</a></p>
-    </div>
+<br />
+<div class="container">
+  <h1>Server error</h1>
+  <p>There's been an error. It's been reported to the site administrators via email and should be fixed shortly. Thanks for your patience.</p>
+  <p><a href="javascript: history.back()" class="btn">Back</a></p>
+</div>
 {% endblock content %}
 
 {% block footer %}

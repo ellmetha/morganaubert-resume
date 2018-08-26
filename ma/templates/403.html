@@ -1,13 +1,12 @@
 {% extends "base.html" %}
-{% load i18n %}
 
-{% block title %}{% trans "Forbidden" %} - {{ bloc.super }}{% endblock title %}
-
+{% block title %}Forbidden{% endblock title %}
 
 {% block content %}
-    <div id="id_content" class="container">
-        <h1>{% trans "Forbidden" %}</h1>
-        <p>{% trans "You are not allowed to access this page." %}</p>
-        <p><a href="javascript: history.back()" class="btn">{% trans "Back" %}</a></p>
-    </div>
+<br />
+<div id="id_content" class="container">
+  <h1>Forbidden</h1>
+  <p>You are not allowed to access this page.</p>
+  <p><a href="javascript: history.back()" class="btn btn-link">Back</a></p>
+</div>
 {% endblock content %}

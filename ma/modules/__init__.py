@@ -9,10 +9,10 @@
 
 
 def init_app(app, **kwargs):
-    from . import resume
+    from . import main, resume
 
     # Initializes sub-modules.
-    for module in (resume, ):
+    for module in (main, resume, ):
         module.init_app(app, **kwargs)
 
     # Initializes the special "dev" submodule if applicable.
