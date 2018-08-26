@@ -60,7 +60,7 @@ const webpackConfig = {
     minimize: PROD_ENV,
   },
   plugins: [
-    new ExtractTextPlugin({ filename: '[name].[contenthash].css', disable: false }),
+    new ExtractTextPlugin({ filename: '[name].[chunkhash].css', disable: false }),
     new ManifestPlugin({
       fileName: 'manifest.json',
       publicPath: PROD_ENV ? 'build/' : 'build_dev/',
