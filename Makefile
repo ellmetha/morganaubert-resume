@@ -15,10 +15,10 @@ init:
 # --------------------------------------------------------------------------------------------------
 
 devserver:
-	FLASK_APP=autoapp.py FLASK_ENV=development pipenv run flask run
+	FLASK_APP=wsgi.py FLASK_ENV=development pipenv run flask run
 
 shell:
-	FLASK_APP=autoapp.py FLASK_ENV=development pipenv run flask shell
+	FLASK_APP=wsgi.py FLASK_ENV=development pipenv run flask shell
 
 
 # QUALITY ASSURANCE
