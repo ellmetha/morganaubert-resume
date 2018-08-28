@@ -38,8 +38,8 @@
         - "{{ host_public_domain_name_redirect_from }}"
       tags: ['ssl', ]
 
-    - role: django
-      tags: ['django', ]
+    - role: flask
+      tags: ['flask', ]
 
     - role: nginx-redirect
       nginx_redirects:

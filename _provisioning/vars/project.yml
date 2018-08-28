@@ -3,29 +3,17 @@
 common_extra_packages:
   - python-tox
 
-django_name: resume
-django_path: "/webapps/{{ django_name }}"
-django_touch_reload_path: "{{ django_path }}/.uwsgi_touch"
-django_requirements_file: "{{ django_project_path }}/requirements.freeze"
-django_domain_name: "{{ host_public_domain_name }}"
-django_disallow_robots: no
-django_project_repo_url: https://github.com/ellmetha/morganaubert-resume.git
-django_ssl_only: yes
-django_env_variables:
-  DJANGO_INSTALL_PATH: "{{ django_path }}"
-  DJANGO_SETTINGS_MODULE: "ma_project.settings.prod"
-django_settings_pattern: jsonsettings
-django_jsonsettings_properties:
-  SECRET_KEY: "{{ secret__django_secret_key }}"
-  ADMIN_URL: admin/
-  DB_ENGINE: "django.db.backends.postgresql_psycopg2"
-  DB_NAME: "{{ django_db_name }}"
-  DB_USER: "{{ django_db_user }}"
-  DB_PASSWORD: "{{ django_db_password }}"
-  DB_HOST: ""
-  DB_PORT: ""
-  DB_OPTIONS: {}
-  ALLOWED_HOSTS: "['{{ django_domain_name }}', ] + {{ django_extra_domain_names|default([]) }}"
-  EMAIL_DEV: "{{ secret__django_secret_email_dev }}"
-  EMAIL_TEAM: "{{ secret__django_secret_email_team }}"
+flask_name: resume
+flask_path: "/webapps/{{ flask_name }}"
+flask_touch_reload_path: "{{ flask_path }}/.uwsgi_touch"
+flask_requirements_file: "{{ flask_path_path }}/requirements.freeze"
+flask_domain_name: "{{ host_public_domain_name }}"
+flask_disallow_robots: no
+flask_project_repo_url: https://github.com/ellmetha/morganaubert-resume.git
+flask_ssl_only: yes
+flask_env_variables:
+  FLASK_CONFIG: production
+flask_settings_pattern: jsonsettings
+flask_jsonsettings_properties:
+  SECRET_KEY: "{{ secret__flask_secret_key }}"
   GOOGLE_SITE_VERIFICATION_CODE: "{{ secret__google_site_verification_code }}"

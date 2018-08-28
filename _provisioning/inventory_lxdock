@@ -1,5 +1,0 @@
-[target_lxdock]
-m01 ansible_host=infra-do-m01
-
-[prod]
-m01

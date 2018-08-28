@@ -1,6 +1,0 @@
-ansible_user: deploy
-ansible_become: yes
-ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
-
-host_is_the_real_thing: no
-host_enable_acme_ssl: no
