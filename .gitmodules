@@ -13,6 +13,6 @@
 [submodule "_provisioning/roles/certbot"]
 	path = _provisioning/roles/certbot
 	url = https://github.com/geerlingguy/ansible-role-certbot
-[submodule "_provisioning/flask"]
-	path = _provisioning/flask
+[submodule "_provisioning/roles/flask"]
+	path = _provisioning/roles/flask
 	url = https://github.com/ellmetha/ansible-do-flask
