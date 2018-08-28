@@ -11,8 +11,6 @@
       common_sudoers_file_to_remove: debian-cloud-init
       tags: ['base', ]
 
-    - role: postgres-install
-
     - role: nginx
       nginx_delete_default_site: yes
       nginx_catchall_enable: yes

@@ -4,9 +4,6 @@
 [submodule "_provisioning/roles/common"]
 	path = _provisioning/roles/common
 	url = https://github.com/ellmetha/ansible-do-common
-[submodule "_provisioning/roles/postgres-install"]
-	path = _provisioning/roles/postgres-install
-	url = https://github.com/savoirfairelinux/ansible-postgres-install
 [submodule "_provisioning/roles/nginx-redirect"]
 	path = _provisioning/roles/nginx-redirect
 	url = https://github.com/hsoft/ansible-nginx-redirect
