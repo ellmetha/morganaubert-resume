@@ -6,7 +6,7 @@ common_extra_packages:
 flask_name: resume
 flask_path: "/webapps/{{ flask_name }}"
 flask_touch_reload_path: "{{ flask_path }}/.uwsgi_touch"
-flask_requirements_file: "{{ flask_path_path }}/requirements.freeze"
+flask_requirements_file: "{{ flask_path }}/requirements.freeze"
 flask_domain_name: "{{ host_public_domain_name }}"
 flask_disallow_robots: no
 flask_project_repo_url: https://github.com/ellmetha/morganaubert-resume.git
