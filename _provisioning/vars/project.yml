@@ -13,6 +13,7 @@ flask_project_repo_url: https://github.com/ellmetha/morganaubert-resume.git
 flask_ssl_only: yes
 flask_env_variables:
   FLASK_CONFIG: production
+  FLASK_INSTALL_PATH: "{{ flask_path }}"
 flask_settings_pattern: jsonsettings
 flask_jsonsettings_properties:
   SECRET_KEY: "{{ secret__flask_secret_key }}"
