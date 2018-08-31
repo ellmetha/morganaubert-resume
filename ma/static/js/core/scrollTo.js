@@ -34,11 +34,11 @@ export default function scrollTo(destination, duration = 200, easing = 'linear',
     document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight,
     document.documentElement.scrollHeight, document.documentElement.offsetHeight,
   );
-  const windowHeight = window.innerHeight || document.documentElement.clientHeight ||
-    document.getElementsByTagName('body')[0].clientHeight;
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight
+    || document.getElementsByTagName('body')[0].clientHeight;
   const destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop;
-  const destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ?
-    documentHeight - windowHeight : destinationOffset);
+  const destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight
+    ? documentHeight - windowHeight : destinationOffset);
 
   if ('requestAnimationFrame' in window === false) {
     window.scroll(0, destinationOffsetToScroll);
