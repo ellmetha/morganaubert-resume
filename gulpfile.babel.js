@@ -50,7 +50,9 @@ const webpackConfig = {
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract(
-          { use: ['css-loader', 'sass-loader'], fallback: 'style-loader' }) },
+          { use: ['css-loader', 'sass-loader'], fallback: 'style-loader' },
+        ),
+      },
       { test: /\.txt$/, use: 'raw-loader' },
       { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, use: 'url-loader?limit=10000' },
       { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, use: 'file-loader' },
@@ -80,12 +82,12 @@ const webpackConfig = {
  */
 
 /* Task to build our JS and CSS applications. */
-gulp.task('build-webpack-assets', () =>
+gulp.task('build-webpack-assets', gulp.series(() => (
   gulp.src([`${jsDir}/App.js`, `${sassDir}/App.scss`])
     .pipe(named())
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest(buildDir)),
-);
+    .pipe(gulp.dest(buildDir))
+)));
 
 
 /*
@@ -93,7 +95,7 @@ gulp.task('build-webpack-assets', () =>
  * ~~~~~~~~~~~~
  */
 
-gulp.task('build', ['build-webpack-assets']);
+gulp.task('build', gulp.series('build-webpack-assets'));
 
 
 /*
@@ -101,7 +103,7 @@ gulp.task('build', ['build-webpack-assets']);
  * ~~~~~~~~~~~~~~~~~
  */
 
-gulp.task('webpack-dev-server', () => {
+gulp.task('webpack-dev-server', gulp.series(() => {
   const devWebpackConfig = Object.create(webpackConfig);
   devWebpackConfig.mode = 'development';
   devWebpackConfig.devtool = 'eval';
@@ -143,6 +145,7 @@ gulp.task('webpack-dev-server', () => {
     if (err) throw new gutil.PluginError('webpack-dev-server', err);
     gutil.log(
       '[webpack-dev-server]',
-      `http://localhost:${WEBPACK_DEV_SERVER_PORT}/webpack-dev-server/`);
+      `http://localhost:${WEBPACK_DEV_SERVER_PORT}/webpack-dev-server/`,
+    );
   });
-});
+}));
