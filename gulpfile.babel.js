@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import gulp from 'gulp';
