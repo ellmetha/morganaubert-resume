@@ -13,7 +13,7 @@ class DOMRouter {
       if (controllerCodename && this.controllers[controllerCodename]) {
         const controller = await this.controllers[controllerCodename]();
         controller.init();
-        if (controller[action] === 'function') { controller[action](); }
+        if (controller[action]) { controller[action](); }
       }
     }
   }
