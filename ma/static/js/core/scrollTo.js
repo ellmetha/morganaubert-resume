@@ -38,10 +38,10 @@ export default function scrollTo(destination, duration = 200, easing = 'linear',
     || document.getElementsByTagName('body')[0].clientHeight;
   const destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop;
   const destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight
-    ? documentHeight - windowHeight : destinationOffset);
+    ? documentHeight - windowHeight - 1 : destinationOffset);
 
   if ('requestAnimationFrame' in window === false) {
-    window.scroll(0, destinationOffsetToScroll);
+    window.scroll(0, destinationOffsetToScroll - 1);
     if (callback) {
       callback();
     }
