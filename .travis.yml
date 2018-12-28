@@ -12,3 +12,4 @@ install:
   - npm install --dev
 script:
   - make qa
+  - make tests
