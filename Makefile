@@ -47,9 +47,7 @@ isort_python:
 # --------------------------------------------------------------------------------------------------
 
 # Just runs all the tests!
-tests: tests_python tests_js
-tests_python:
-	pipenv run py.test
+tests: tests_js
 tests_js:
 	npm test
 
