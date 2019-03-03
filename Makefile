@@ -14,10 +14,12 @@ init:
 # locales, etc.
 # --------------------------------------------------------------------------------------------------
 
-devserver:
+s: server
+server:
 	FLASK_APP=wsgi.py FLASK_ENV=development pipenv run flask run
 
-shell:
+c: console
+console:
 	FLASK_APP=wsgi.py FLASK_ENV=development pipenv run flask shell
 
 
@@ -47,6 +49,7 @@ isort_python:
 # --------------------------------------------------------------------------------------------------
 
 # Just runs all the tests!
+t: tests
 tests: tests_js
 tests_js:
 	npm test
