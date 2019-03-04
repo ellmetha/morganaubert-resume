@@ -26,6 +26,7 @@
           - "{{ host_public_domain_name }}"
         - domains:
           - "{{ host_public_domain_name_redirect_from }}"
+      certbot_admin_email: hello@morganaubert.name
       certbot_install_from_source: yes
       when: host_enable_acme_ssl|default(False)
       tags: ['ssl', ]

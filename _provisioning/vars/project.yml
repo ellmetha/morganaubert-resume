@@ -1,8 +1,5 @@
 ---
 
-common_extra_packages:
-  - python-tox
-
 flask_name: resume
 flask_path: "/webapps/{{ flask_name }}"
 flask_static_path: "{{ flask_project_path}}/ma/static"
