@@ -1,5 +1,0 @@
-ansible_user: deploy
-ansible_become: yes
-
-host_is_the_real_thing: yes
-host_enable_acme_ssl: yes

@@ -1,5 +1,0 @@
-[target_realthing]
-m01 ansible_host=morganaubert.name
-
-[prod]
-m01
