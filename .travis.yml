@@ -20,3 +20,4 @@ install:
 script:
   - make qa
   - make tests
+  - npm run gulp -- build --production
