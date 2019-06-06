@@ -1,4 +1,4 @@
-PROJECT_PACKAGE := ma
+PROJECT_PACKAGE := main
 
 .PHONY: devserver qa lint lint_python isort isort_python tests tests_python spec spec_python
 

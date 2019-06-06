@@ -10,7 +10,7 @@
 
 import os
 
-from ma import create_app
+from main import create_app
 
 
 app = create_app(os.getenv('FLASK_CONFIG', 'default'))

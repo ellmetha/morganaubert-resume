@@ -109,8 +109,8 @@ bower_components/
 node_modules/
 npm-debug.log
 __snapshots__/
-/ma/static/build_dev/*
-!ma/static/build_dev/.gitkeep
+/main/static/build_dev/*
+!main/static/build_dev/.gitkeep
 
 # Provisioning / deployments
 *.retry

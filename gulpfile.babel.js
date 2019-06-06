@@ -17,7 +17,7 @@ env('.env');
 
 /* Global variables */
 const rootDir = './';
-const staticDir = `${rootDir}ma/static/`;
+const staticDir = `${rootDir}main/static/`;
 const PROD_ENV = gutil.env.production;
 const WEBPACK_DEV_SERVER_PORT = (
   process.env.WEBPACK_DEV_SERVER_PORT ? process.env.WEBPACK_DEV_SERVER_PORT : 8080);
