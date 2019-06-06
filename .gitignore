@@ -109,6 +109,8 @@ bower_components/
 node_modules/
 npm-debug.log
 __snapshots__/
+/main/static/build/*
+!main/static/build/.gitkeep
 /main/static/build_dev/*
 !main/static/build_dev/.gitkeep
 
