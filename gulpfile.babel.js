@@ -12,9 +12,6 @@ import ManifestPlugin from 'webpack-manifest-plugin';
 import webpackStream from 'webpack-stream';
 
 
-/* Env variables */
-env('.env');
-
 /* Global variables */
 const rootDir = './';
 const staticDir = `${rootDir}main/static/`;
