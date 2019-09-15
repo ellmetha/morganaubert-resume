@@ -5,15 +5,13 @@ import gulp from 'gulp';
 import env from 'gulp-env';
 import gutil from 'gulp-util';
 import path from 'path';
-import named from 'vinyl-named';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import ManifestPlugin from 'webpack-manifest-plugin';
-import webpackStream from 'webpack-stream';
 
 
 /* Global variables */
-const rootDir = './';
+const rootDir = `${__dirname}/`;
 const staticDir = `${rootDir}main/static/`;
 const PROD_ENV = gutil.env.production;
 const WEBPACK_DEV_SERVER_PORT = (
@@ -33,8 +31,12 @@ const jsDir = `${staticDir}js`;
 
 const webpackConfig = {
   mode: PROD_ENV ? 'production' : 'development',
+  entry: {
+    App: [`${jsDir}/App.js`, `${sassDir}/App.scss`],
+  },
   output: {
     filename: '[name].[chunkhash].js',
+    path: buildDir,
     publicPath: PROD_ENV ? '/static/build/' : '/static/build_dev/',
   },
   resolve: {
@@ -80,10 +82,22 @@ const webpackConfig = {
 
 /* Task to build our JS and CSS applications. */
 gulp.task('build-webpack-assets', gulp.series(() => (
-  gulp.src([`${jsDir}/App.js`, `${sassDir}/App.scss`])
-    .pipe(named())
-    .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest(buildDir))
+  new Promise((resolve, reject) => {
+    // eslint-disable-next-line consistent-return
+    webpack(webpackConfig, (err, stats) => {
+      if (err) {
+        return reject(err);
+      }
+      if (stats.hasErrors()) {
+        return reject(new Error(stats.compilation.errors.join('\n')));
+      }
+      console.log(stats.toString({
+        chunks: false,
+        colors: true,
+      }));
+      resolve();
+    });
+  })
 )));
 
 
