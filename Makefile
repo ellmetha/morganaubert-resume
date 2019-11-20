@@ -15,6 +15,10 @@ init:
 
 	npm install
 
+	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Initial assets build${RESET}\n\n"
+
+	npm run gulp -- build
+
 	@printf "\n\n${YELLOW}---------------- Done.${RESET}\n\n"
 
 
