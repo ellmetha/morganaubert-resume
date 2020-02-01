@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "morganaubert-resume"
+description = "My personal interactive resume."
+authors = ["Morgan Aubert <me@morganaubert.name>"]
+
+# This project is not intended to be published on Pypi, thus publishing is disabled.
+version = "0.0.0"
+classifiers = ["Private :: Do Not Upload"]
+exclude = ["*"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+Flask = "*"
+flask-babel = "*"
+flask-sslify = "*"
+python-dateutil = "*"
+
+[tool.poetry.dev-dependencies]
+flake8 = "*"
+flask-debugtoolbar = "*"
+flask-shell-ipython = ">= 0.4.1"
+ipython = "*"
+isort = "*"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

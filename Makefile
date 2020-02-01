@@ -9,7 +9,8 @@ init:
 
 	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Python dependencies${RESET}\n\n"
 
-	pipenv install --dev
+	poetry env use 3.8
+	poetry install
 
 	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Node.js dependencies${RESET}\n\n"
 
@@ -33,14 +34,14 @@ init:
 s: server
 ## Launch a development server.
 server:
-	FLASK_APP=wsgi.py FLASK_ENV=development pipenv run flask run
+	FLASK_APP=wsgi.py FLASK_ENV=development poetry run flask run
 
 .PHONY: c console
 ## Alias of "console".
 c: console
 ## Launch a development console.
 console:
-	FLASK_APP=wsgi.py FLASK_ENV=development pipenv run flask shell
+	FLASK_APP=wsgi.py FLASK_ENV=development poetry run flask shell
 
 
 # QUALITY ASSURANCE
@@ -57,7 +58,7 @@ qa: lint isort
 lint: lint_python lint_js
 ## Trigger Python code quality checks (flake8).
 lint_python:
-	pipenv run flake8
+	poetry run flake8
 ## Trigger Javascript code quality checks (eslint).
 lint_js:
 	npm run lint
@@ -67,7 +68,7 @@ lint_js:
 isort: isort_python
 ## Check Python imports sorting.
 isort_python:
-	pipenv run isort --check-only --recursive --diff $(PROJECT_PACKAGE)
+	poetry run isort --check-only --recursive --diff $(PROJECT_PACKAGE)
 
 
 # TESTING

@@ -3,18 +3,16 @@ dist: xenial
 language: python
 
 python:
-  - "3.6"
-  - "3.7"
-  - "3.8-dev"
+  - "3.8"
 
 before_install:
   - nvm install 11.1.0
   - nvm use 11.1.0
 
 install:
-  - pip install pipenv
+  - pip install poetry
   - pip install --upgrade setuptools
-  - pipenv install --dev
+  - poetry install
   - npm install --dev
 
 script:
