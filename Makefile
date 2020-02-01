@@ -70,6 +70,11 @@ isort: isort_python
 isort_python:
 	poetry run isort --check-only --recursive --diff $(PROJECT_PACKAGE)
 
+## Generate or refresh poetry.lock and requirements.freeze
+locked_requirements:
+	poetry update
+	poetry export -f requirements.txt > requirements.freeze
+
 
 # TESTING
 # ~~~~~~~
