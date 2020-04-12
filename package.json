@@ -58,6 +58,13 @@
       "node_modules",
       "main/static/js"
     ],
+    "setupFilesAfterEnv": [
+      "./tests/jstests/setup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "./tests/jstests/setup.js",
+      "./tests/jstests/__mocks__/"
+    ],
     "testRegex": "(/tests/.*|\\.(react-test|spec|test))\\.(ts|tsx|js|jsx)$"
   },
   "scripts": {
