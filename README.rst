@@ -1,10 +1,10 @@
 morganaubert-resume
 ###################
 
-.. image:: https://github.com/ellmetha/notabanane/workflows/CI - Python/badge.svg?branch=master
+.. image:: https://github.com/ellmetha/morganaubert-resume/workflows/CI%20-%20Python/badge.svg?branch=master
     :target: https://travis-ci.org/ellmetha/morganaubert-resume
 
-.. image:: https://github.com/ellmetha/notabanane/workflows/CI - Node.js/badge.svg?branch=master
+.. image:: https://github.com/ellmetha/morganaubert-resume/workflows/CI%20-%20Node.js/badge.svg?branch=master
     :target: https://travis-ci.org/ellmetha/morganaubert-resume
 
 
