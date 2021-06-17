@@ -15,6 +15,7 @@ Flask = "*"
 flask-babel = "*"
 flask-sslify = "*"
 python-dateutil = "*"
+gunicorn = "^20.1.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "*"

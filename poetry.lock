@@ -147,6 +147,20 @@ python-versions = "*"
 Flask = "*"
 
 [[package]]
+name = "gunicorn"
+version = "20.1.0"
+description = "WSGI HTTP Server for UNIX"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.extras]
+eventlet = ["eventlet (>=0.24.1)"]
+gevent = ["gevent (>=1.4.0)"]
+setproctitle = ["setproctitle"]
+tornado = ["tornado (>=0.2)"]
+
+[[package]]
 name = "ipython"
 version = "7.24.1"
 description = "IPython: Productive Interactive Computing"
@@ -400,7 +414,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "ccd0c16a5fdd7d1b32b4de22cbc33db630b60011cadb2352d1c53c0b96a3c81e"
+content-hash = "6e4b889f7e200b0da00150817f684f2489b81b6981d2f3b887b983b5485560a5"
 
 [metadata.files]
 appnope = [
@@ -452,6 +466,10 @@ flask-shell-ipython = [
 ]
 flask-sslify = [
     {file = "Flask-SSLify-0.1.5.tar.gz", hash = "sha256:d33e1d3c09cd95154176aa8a7319418e52129fc482dd56d8a8ad7c24500d543e"},
+]
+gunicorn = [
+    {file = "gunicorn-20.1.0-py3-none-any.whl", hash = "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e"},
+    {file = "gunicorn-20.1.0.tar.gz", hash = "sha256:e0a968b5ba15f8a328fdfd7ab1fcb5af4470c28aaf7e55df02a99bc13138e6e8"},
 ]
 ipython = [
     {file = "ipython-7.24.1-py3-none-any.whl", hash = "sha256:d513e93327cf8657d6467c81f1f894adc125334ffe0e4ddd1abbb1c78d828703"},
