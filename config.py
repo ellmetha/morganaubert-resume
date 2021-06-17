@@ -8,7 +8,6 @@
 
 """
 
-import json
 import pathlib
 import os
 
@@ -36,6 +35,7 @@ INSTALL_PATH = pathlib.Path(os.environ.get('FLASK_INSTALL_PATH')) \
 load_dotenv()
 
 ENVSETTINGS_NIL = object()
+
 
 def get_envsetting(setting, default=ENVSETTINGS_NIL):
     """ Get the environment setting variable or return explicit exception. """
