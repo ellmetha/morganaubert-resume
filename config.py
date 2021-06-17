@@ -47,9 +47,7 @@ def get_envsetting(setting, default=ENVSETTINGS_NIL, secrets=secrets):
         if default is not ENVSETTINGS_NIL:
             return default
         error_msg = (
-            'Set the {} environment variable in the {ENVSETTINGS_FILENAME} file'.format(
-                setting, ENVSETTINGS_FILENAME,
-            )
+            f"Set the {setting} environment variable in the {ENVSETTINGS_FILENAME} file"
         )
         raise Exception(error_msg)
 
@@ -79,7 +77,7 @@ class DevelopmentConfig(Config):
     DEBUG_TB_INTERCEPT_REDIRECTS = False
 
     WEBPACK_DEV_SERVER_PORT = get_envsetting('WEBPACK_DEV_SERVER_PORT', 8080)  # noqa: F405
-    WEBPACK_DEV_SERVER_URL = 'http://localhost:{}'.format(WEBPACK_DEV_SERVER_PORT)
+    WEBPACK_DEV_SERVER_URL = f"http://localhost:{WEBPACK_DEV_SERVER_PORT}"
     WEBPACK_DEV_SERVER_STARTED = False
 
     def __init__(self):
