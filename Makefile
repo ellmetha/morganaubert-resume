@@ -5,7 +5,7 @@ PROJECT_PACKAGE := main
 init:
 	@printf "${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Environment settings${RESET}\n\n"
 
-	rsync --ignore-existing .env.json.example .env.json
+	rsync --ignore-existing .env.example .env
 
 	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Python dependencies${RESET}\n\n"
 
