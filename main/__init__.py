@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, request
 
 from config import config
 
@@ -16,6 +16,13 @@ def create_app(config_name):
     if not app.debug and not app.testing and not app.config.get('SSL_DISABLE'):
         from flask_sslify import SSLify
         SSLify(app)
+
+    @app.before_request
+    def redirect_www():
+        """ Redirects www requests to non-www. """
+        if request.host.startswith('www.'):
+            new_host = request.host[4:]
+            return redirect(f"{request.scheme}://{new_host}/", code=301)
 
     # Initializes Flask extensions.
     extensions.init_app(app)
