@@ -73,7 +73,7 @@ isort_python:
 ## Generate or refresh poetry.lock and requirements.freeze
 locked_requirements:
 	poetry update
-	poetry export --dev -f requirements.txt > requirements.freeze
+	poetry export --dev -f requirements.txt > requirements.txt
 
 
 # TESTING
