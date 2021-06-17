@@ -13,4 +13,4 @@ import os
 from main import create_app
 
 
-app = create_app(os.getenv('FLASK_CONFIG', 'default'))
+application = app = create_app(os.getenv('FLASK_CONFIG', 'default'))
