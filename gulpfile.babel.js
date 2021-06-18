@@ -1,13 +1,13 @@
 import '@babel/polyfill';
 
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import gulp from 'gulp';
 import env from 'gulp-env';
 import gutil from 'gulp-util';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import ManifestPlugin from 'webpack-manifest-plugin';
+import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 
 
 /* Global variables */
@@ -48,21 +48,26 @@ const webpackConfig = {
       { test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract(
-          { use: ['css-loader', 'sass-loader'], fallback: 'style-loader' },
-        ),
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
       { test: /\.txt$/, use: 'raw-loader' },
-      { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, use: 'url-loader?limit=10000' },
-      { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, use: 'file-loader' },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/,
+        type: 'asset/resource'
+      },
+      { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, type: 'asset/resource' },
     ],
   },
   optimization: {
     minimize: PROD_ENV,
   },
   plugins: [
-    new ExtractTextPlugin({ filename: '[name].[chunkhash].css', disable: false }),
-    new ManifestPlugin({
+    new MiniCssExtractPlugin({ filename: '[name].[chunkhash].css' }),
+    new WebpackManifestPlugin({
       fileName: 'manifest.json',
       publicPath: PROD_ENV ? 'build/' : 'build_dev/',
     }),
@@ -131,14 +136,14 @@ gulp.task('webpack-dev-server', gulp.series(() => {
       { test: /\.jsx?$/, exclude: /node_modules/, use: 'babel-loader' },
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
       { test: /\.txt$/, use: 'raw-loader' },
-      { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, use: 'url-loader?limit=10000' },
-      { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, use: 'file-loader' },
+      { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)([\?]?.*)$/, type: 'asset/inline' },
+      { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, type: 'asset/resource' },
     ],
   };
   devWebpackConfig.output = {
     path: path.resolve(__dirname, staticDir),
     publicPath: `http://localhost:${WEBPACK_DEV_SERVER_PORT}/static/`,
-    filename: 'js/[name].js',
+    filename: '[name].js',
   };
   devWebpackConfig.plugins = [
     new webpack.LoaderOptionsPlugin({ debug: true }),

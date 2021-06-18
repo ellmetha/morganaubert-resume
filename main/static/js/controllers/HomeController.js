@@ -6,7 +6,6 @@ import ScrollReveal from 'scrollreveal/dist/scrollreveal';
 import getElementOffset from '../core/getElementOffset';
 import scrollTo from '../core/scrollTo';
 
-
 export default {
   init() {
     const elNavbar = document.querySelector('.navbar');
@@ -20,7 +19,6 @@ export default {
         elNavbar.classList.remove('top-nav-collapse');
       }
     });
-
 
     // Page scrolling feature initialization.
     // --
@@ -47,7 +45,6 @@ export default {
       };
     }
 
-
     // ScrollReveal initialization.
     // --
 
@@ -61,7 +58,6 @@ export default {
         origin: 'left', rotate: { z: 15 }, distance: '20px', delay: 50,
       },
     );
-
 
     // ScrollSpy initialization.
     // --
