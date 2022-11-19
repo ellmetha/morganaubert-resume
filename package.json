@@ -45,7 +45,7 @@
     "script-loader": "^0.7.2",
     "style-loader": "^2.0.0",
     "webpack": "^5.44.0",
-    "webpack-dev-server": "^3.11.3",
+    "webpack-dev-server": "^4.11.1",
     "webpack-manifest-plugin": "^3.1"
   },
   "jest": {
