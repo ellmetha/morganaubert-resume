@@ -8,7 +8,6 @@
 
 import datetime as dt
 
-from dateutil.relativedelta import relativedelta
 from flask import Blueprint, render_template
 
 
