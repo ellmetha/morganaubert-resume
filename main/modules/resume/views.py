@@ -21,6 +21,5 @@ def home():
     now_dt = dt.datetime.now()
     return render_template(
         'resume/home.html',
-        age=relativedelta(now_dt, dt.datetime(day=7, month=7, year=1989)).years,
         current_year=now_dt.year,
     )
