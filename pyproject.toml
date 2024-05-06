@@ -17,7 +17,7 @@ flask-sslify = "*"
 python-dateutil = "*"
 gunicorn = "^20.1.0"
 python-dotenv = "^0.17.1"
-Werkzeug = "< 3.0"
+Werkzeug = "<4.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "*"
