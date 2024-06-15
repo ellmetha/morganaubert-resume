@@ -15,7 +15,7 @@ Flask = "<= 2.3.3"
 flask-babel = "*"
 flask-sslify = "*"
 python-dateutil = "*"
-gunicorn = "^20.1.0"
+gunicorn = "^22.0.0"
 python-dotenv = "^0.17.1"
 Werkzeug = "< 3.0"
 
